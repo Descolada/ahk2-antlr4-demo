@@ -1,0 +1,29 @@
+# Node dependencies
+/node_modules/
+
+# Parcel cache
+/.cache/
+/.parcel-cache/
+
+# Build output
+/dist/
+/build/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# VSCode workspace—ignore everything except your workspace settings file
+.vscode/*
+!.vscode/settings.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+#ANTLR4
+/src/grammar/.antlr

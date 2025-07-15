@@ -1,0 +1,10 @@
+{
+  "antlr4.generation": {
+    "mode": "external",
+    "language": "TypeScript",
+    "listeners": true,
+    "visitors": true,
+    "outputDir": "../parser",
+    "importDir": "src/grammar"
+  }
+}

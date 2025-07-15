@@ -1,0 +1,17 @@
+{
+  "name": "ahk2-antlr4-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "antlr4ng": "^3.0.16",
+    "parcel": "^2.15.4"
+  }
+}
