@@ -5,10 +5,6 @@
 /.cache/
 /.parcel-cache/
 
-# Build output
-/dist/
-/build/
-
 # TypeScript incremental build info
 *.tsbuildinfo
 
