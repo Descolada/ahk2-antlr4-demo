@@ -12,6 +12,11 @@
   "description": "",
   "devDependencies": {
     "antlr4ng": "^3.0.16",
-    "parcel": "^2.15.4"
+    "buffer": "^6.0.3",
+    "parcel": "^2.15.4",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "viz.js": "^2.1.2"
   }
 }

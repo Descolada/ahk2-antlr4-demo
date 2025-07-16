@@ -1,15 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>AHK v2 ANTLR4 Demo</title>
-</head>
-<body>
-  <h1>AutoHotkey v2 ANTLR4 Grammar Demo</h1>
-  <textarea id="input" rows="10" cols="60">your test input here</textarea><br>
-  <button id="go">Parse</button>
-  <pre id="output"></pre>
 
-  <script type="module" src="./src/index.ts"></script>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/codemirror@5/lib/codemirror.css" />
+    <script src="https://unpkg.com/codemirror@5/lib/codemirror.js"></script>
+    <script src="https://unpkg.com/codemirror@5/mode/javascript/javascript.js"></script>
+
+    <title>AHK v2.0 ANTLR4 Demo</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            box-sizing: border-box;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            gap: 1rem;
+            /* fill the remaining vertical space below your header */
+            flex: 1 1 auto;
+            min-height: 0;
+            /* so children can shrink */
+        }
+
+        .container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .editor-container {
+            /* fix at 30% of the container’s width */
+            flex: 0 0 40%;
+            flex-direction: column;
+            box-sizing: border-box;
+            max-width: 40%;
+            width: 100%;         /* let it be up to that max */
+        }
+
+        #graph {
+            /* take the remaining 70% */
+            flex: 1;
+        }
+
+        #input {
+            flex: 1;
+            font-family: monospace;
+        }
+
+        #graph {
+            flex: 1;
+            overflow: auto;
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            font-family: monospace;
+        }
+
+        #controls {
+            margin-bottom: 0.5rem;
+        }
+
+        .CodeMirror {
+            width: 100% !important;   /* fill the .editor-container’s width */
+            height: 100% !important;
+        }
+
+        .CodeMirror-scroll {
+            overflow-x: auto;         /* horizontal scrollbar if a line is too long */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AutoHotkey v2 ANTLR4 Grammar Demo</h1>
+    <div class="container">
+        <div class="editor-container">
+
+            <textarea id="input" rows="10" cols="60">; Start typing here to show AST
+
+#Requires AutoHotkey v2.0
+
+if (a) {
+    MsgBox "Hello world"
+}
+</textarea>
+        </div>
+        <div id="graph">
+            <!-- Rendered AST will appear here -->
+        </div>
+    </div>
+
+    <!-- Viz.js via CDN for DOT rendering -->
+    <script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
+    <script src="https://unpkg.com/viz.js@2.1.2/full.render.js"></script>
+
+    <script type="module" src="./src/index.ts"></script>
 </body>
+
 </html>
