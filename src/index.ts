@@ -137,7 +137,10 @@ function parseAndRender() {
         const viz = new Viz({ Module, render });
         viz.renderSVGElement(dot)
             .then((svg: SVGElement) => graphEl.appendChild(svg))
-            .catch((e: any) => console.error(e));
+            .catch((e: any) => {
+                graphEl.textContent = `Rendering the AST tree failed. This is usually because the tree was too large, but Viz.renderSVGElement returned the following error: ${e.toString()}`
+                return;
+            });
 
     } catch (e) {
         graphEl.textContent = e.message;
