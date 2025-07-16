@@ -117,14 +117,11 @@ statement
     | continueStatement
     | breakStatement
     | returnStatement
-    | yieldStatement
     | labelledStatement
     | gotoStatement
     | switchStatement
     | throwStatement
     | tryStatement
-    | awaitStatement
-    | deleteStatement
     | functionDeclaration
     | functionStatement
     | blockStatement
@@ -146,14 +143,6 @@ statementList
 
 variableStatement
     : (Global | Local | Static) (WS* variableDeclarationList)?
-    ;
-
-awaitStatement
-    : Await WS* singleExpression
-    ;
-    
-deleteStatement
-    : Delete WS* singleExpression
     ;
 
 declaration
@@ -219,10 +208,6 @@ breakStatement
 
 returnStatement
     : Return WS* singleExpression?
-    ;
-
-yieldStatement
-    : Yield WS* singleExpression?
     ;
 
 switchStatement
@@ -339,14 +324,6 @@ arrayLiteral
     : '[' (WS | EOL)* (arguments (WS | EOL)*)? ']'
     ;
 
-mapElementList
-    : (WS* ',')* mapElement (WS* ',' mapElement?)*
-    ;
-
-mapElement
-    : key = singleExpression ':' value = singleExpression
-    ;
-
 propertyAssignment
     : memberIdentifier (WS | EOL)* ':' (WS | EOL)* singleExpression
     ;
@@ -399,7 +376,7 @@ singleExpression
     | left = singleExpression op = '~=' right = singleExpression                               # RegExMatchExpression
     | left = singleExpression op = ('<' | '>' | '<=' | '>=') right = singleExpression          # RelationalExpression
     | left = singleExpression op = ('=' | '!=' | '==' | '!==') right = singleExpression        # EqualityExpression
-    | left = singleExpression ((WS | EOL)* op = (Instanceof | Is | In | Contains) (WS | EOL)*) right = primaryExpression  # ContainExpression
+    | left = singleExpression ((WS | EOL)* op = Is (WS | EOL)*) right = primaryExpression      # IsExpression
     | VerbalNot WS* right = singleExpression                                                         # VerbalNotExpression
     | left = singleExpression (op = '&&' | op = VerbalAnd) right = singleExpression  # LogicalAndExpression
     | left = singleExpression (op = '||' | op = VerbalOr) right = singleExpression   # LogicalOrExpression
@@ -504,9 +481,7 @@ assignmentOperator
 literal
     : boolean
     | numericLiteral
-    | bigintLiteral
-    | (NullLiteral
-    | Unset
+    | (Unset
     | StringLiteral)
     ;
 
@@ -516,17 +491,7 @@ boolean :
 
 numericLiteral
     : (DecimalLiteral
-    | HexIntegerLiteral
-    | OctalIntegerLiteral
-    | OctalIntegerLiteral2
-    | BinaryIntegerLiteral)
-    ;
-
-bigintLiteral
-    : (BigDecimalIntegerLiteral
-    | BigHexIntegerLiteral
-    | BigOctalIntegerLiteral
-    | BigBinaryIntegerLiteral)
+    | HexIntegerLiteral)
     ;
 
 getter
@@ -551,13 +516,11 @@ identifier
     | Extends
     | Super
     | Base
-    | From
     | Get
     | Set
     | As
     | Class
     | Do
-    | NullLiteral
     | Parse
     | Reg
     | Read
@@ -599,14 +562,7 @@ keyword
     | VerbalNot
     | VerbalOr
     | Super
-    | Unset
-    | Instanceof
-    | Import
-    | Export
-    | Delete
-    | Yield  
-    | Async
-    | Await)
+    | Unset)
     ;
 
 s

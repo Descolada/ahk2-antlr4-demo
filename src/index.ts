@@ -313,7 +313,6 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
             case AutoHotkeyLexer.Else:
             case AutoHotkeyLexer.Goto:
             case AutoHotkeyLexer.Throw:
-            case AutoHotkeyLexer.Async:
             case AutoHotkeyLexer.Static:
             case AutoHotkeyLexer.Not:
             case AutoHotkeyLexer.VerbalNot:

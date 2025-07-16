@@ -138,10 +138,6 @@ PowerAssign                : '**=';
 NullishCoalescingAssign    : '??=';
 Arrow                      : '=>';
 
-/// Null Literals
-NullLiteral: 'null';
-Unset: 'unset';
-
 /// Boolean Literals
 True: 'true';
 False: 'false';
@@ -154,18 +150,10 @@ DecimalLiteral:
     | DecimalIntegerLiteral ExponentPart?
 ;
 HexIntegerLiteral    : '0x' [0-9a-f] HexDigit*;
-OctalIntegerLiteral  : '0' [0-7]+;
-OctalIntegerLiteral2 : '0o' [0-7] [_0-7]*;
-BinaryIntegerLiteral : '0b' [01] [_01]*;
-BigHexIntegerLiteral     : '0x' [0-9a-f] HexDigit* 'n';
-BigOctalIntegerLiteral   : '0o' [0-7] [_0-7]* 'n';
-BigBinaryIntegerLiteral  : '0b' [01] [_01]* 'n';
-BigDecimalIntegerLiteral : DecimalIntegerLiteral 'n';
 
 /// Keywords
 Break      : 'break';
 Do         : 'do';
-Instanceof : 'instanceof';
 Switch     : 'switch';
 Case       : 'case';
 Default    : 'default';
@@ -176,7 +164,6 @@ Return     : 'return';
 Continue   : 'continue';
 For        : 'for';
 While      : 'while';
-// For Loop keywords allow optional trailing commas because AHK allows it
 Parse      : 'parse';
 Reg        : 'reg';
 Read       : 'read';
@@ -186,10 +173,8 @@ Until      : 'until';
 This       : 'this';
 If         : 'if';
 Throw      : 'throw';
-Delete     : 'delete';
 In         : 'in';
 Try        : 'try';
-Yield      : 'yield';
 Is         : 'is';
 Contains   : 'contains';
 VerbalAnd  : 'and';
@@ -205,13 +190,8 @@ Enum    : 'enum';
 Extends : 'extends';
 Super   : 'super';
 Base    : 'base';
-Export  : 'export';
-Import  : 'import';
-From    : 'from';
 As      : 'as';
-
-Async : 'async';
-Await : 'await';
+Unset   : 'unset';
 
 Static : 'static';
 Global : 'global';

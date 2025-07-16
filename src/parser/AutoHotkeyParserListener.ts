@@ -29,8 +29,6 @@ import { BlockStatementContext } from "./AutoHotkeyParser.js";
 import { BlockContext } from "./AutoHotkeyParser.js";
 import { StatementListContext } from "./AutoHotkeyParser.js";
 import { VariableStatementContext } from "./AutoHotkeyParser.js";
-import { AwaitStatementContext } from "./AutoHotkeyParser.js";
-import { DeleteStatementContext } from "./AutoHotkeyParser.js";
 import { DeclarationContext } from "./AutoHotkeyParser.js";
 import { VariableDeclarationListContext } from "./AutoHotkeyParser.js";
 import { VariableDeclarationContext } from "./AutoHotkeyParser.js";
@@ -48,7 +46,6 @@ import { ForInParametersContext } from "./AutoHotkeyParser.js";
 import { ContinueStatementContext } from "./AutoHotkeyParser.js";
 import { BreakStatementContext } from "./AutoHotkeyParser.js";
 import { ReturnStatementContext } from "./AutoHotkeyParser.js";
-import { YieldStatementContext } from "./AutoHotkeyParser.js";
 import { SwitchStatementContext } from "./AutoHotkeyParser.js";
 import { CaseBlockContext } from "./AutoHotkeyParser.js";
 import { CaseClauseContext } from "./AutoHotkeyParser.js";
@@ -78,8 +75,6 @@ import { FormalParameterListContext } from "./AutoHotkeyParser.js";
 import { FormalParameterArgContext } from "./AutoHotkeyParser.js";
 import { LastFormalParameterArgContext } from "./AutoHotkeyParser.js";
 import { ArrayLiteralContext } from "./AutoHotkeyParser.js";
-import { MapElementListContext } from "./AutoHotkeyParser.js";
-import { MapElementContext } from "./AutoHotkeyParser.js";
 import { PropertyAssignmentContext } from "./AutoHotkeyParser.js";
 import { PropertyNameContext } from "./AutoHotkeyParser.js";
 import { DereferenceContext } from "./AutoHotkeyParser.js";
@@ -110,8 +105,8 @@ import { BitShiftExpressionContext } from "./AutoHotkeyParser.js";
 import { AdditiveExpressionContext } from "./AutoHotkeyParser.js";
 import { RelationalExpressionContext } from "./AutoHotkeyParser.js";
 import { PostIncrementExpressionContext } from "./AutoHotkeyParser.js";
-import { ContainExpressionContext } from "./AutoHotkeyParser.js";
 import { BitNotExpressionContext } from "./AutoHotkeyParser.js";
+import { IsExpressionContext } from "./AutoHotkeyParser.js";
 import { BitAndExpressionContext } from "./AutoHotkeyParser.js";
 import { BitOrExpressionContext } from "./AutoHotkeyParser.js";
 import { CoalesceExpressionContext } from "./AutoHotkeyParser.js";
@@ -139,7 +134,6 @@ import { AssignmentOperatorContext } from "./AutoHotkeyParser.js";
 import { LiteralContext } from "./AutoHotkeyParser.js";
 import { BooleanContext } from "./AutoHotkeyParser.js";
 import { NumericLiteralContext } from "./AutoHotkeyParser.js";
-import { BigintLiteralContext } from "./AutoHotkeyParser.js";
 import { GetterContext } from "./AutoHotkeyParser.js";
 import { SetterContext } from "./AutoHotkeyParser.js";
 import { IdentifierNameContext } from "./AutoHotkeyParser.js";
@@ -406,26 +400,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitVariableStatement?: (ctx: VariableStatementContext) => void;
     /**
-     * Enter a parse tree produced by `AutoHotkeyParser.awaitStatement`.
-     * @param ctx the parse tree
-     */
-    enterAwaitStatement?: (ctx: AwaitStatementContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.awaitStatement`.
-     * @param ctx the parse tree
-     */
-    exitAwaitStatement?: (ctx: AwaitStatementContext) => void;
-    /**
-     * Enter a parse tree produced by `AutoHotkeyParser.deleteStatement`.
-     * @param ctx the parse tree
-     */
-    enterDeleteStatement?: (ctx: DeleteStatementContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.deleteStatement`.
-     * @param ctx the parse tree
-     */
-    exitDeleteStatement?: (ctx: DeleteStatementContext) => void;
-    /**
      * Enter a parse tree produced by `AutoHotkeyParser.declaration`.
      * @param ctx the parse tree
      */
@@ -603,16 +577,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitReturnStatement?: (ctx: ReturnStatementContext) => void;
-    /**
-     * Enter a parse tree produced by `AutoHotkeyParser.yieldStatement`.
-     * @param ctx the parse tree
-     */
-    enterYieldStatement?: (ctx: YieldStatementContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.yieldStatement`.
-     * @param ctx the parse tree
-     */
-    exitYieldStatement?: (ctx: YieldStatementContext) => void;
     /**
      * Enter a parse tree produced by `AutoHotkeyParser.switchStatement`.
      * @param ctx the parse tree
@@ -911,26 +875,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitArrayLiteral?: (ctx: ArrayLiteralContext) => void;
-    /**
-     * Enter a parse tree produced by `AutoHotkeyParser.mapElementList`.
-     * @param ctx the parse tree
-     */
-    enterMapElementList?: (ctx: MapElementListContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.mapElementList`.
-     * @param ctx the parse tree
-     */
-    exitMapElementList?: (ctx: MapElementListContext) => void;
-    /**
-     * Enter a parse tree produced by `AutoHotkeyParser.mapElement`.
-     * @param ctx the parse tree
-     */
-    enterMapElement?: (ctx: MapElementContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.mapElement`.
-     * @param ctx the parse tree
-     */
-    exitMapElement?: (ctx: MapElementContext) => void;
     /**
      * Enter a parse tree produced by `AutoHotkeyParser.propertyAssignment`.
      * @param ctx the parse tree
@@ -1278,18 +1222,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitPostIncrementExpression?: (ctx: PostIncrementExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `ContainExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterContainExpression?: (ctx: ContainExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `ContainExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitContainExpression?: (ctx: ContainExpressionContext) => void;
-    /**
      * Enter a parse tree produced by the `BitNotExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
@@ -1301,6 +1233,18 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitBitNotExpression?: (ctx: BitNotExpressionContext) => void;
+    /**
+     * Enter a parse tree produced by the `IsExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterIsExpression?: (ctx: IsExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `IsExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitIsExpression?: (ctx: IsExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `BitAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -1593,16 +1537,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitNumericLiteral?: (ctx: NumericLiteralContext) => void;
-    /**
-     * Enter a parse tree produced by `AutoHotkeyParser.bigintLiteral`.
-     * @param ctx the parse tree
-     */
-    enterBigintLiteral?: (ctx: BigintLiteralContext) => void;
-    /**
-     * Exit a parse tree produced by `AutoHotkeyParser.bigintLiteral`.
-     * @param ctx the parse tree
-     */
-    exitBigintLiteral?: (ctx: BigintLiteralContext) => void;
     /**
      * Enter a parse tree produced by `AutoHotkeyParser.getter`.
      * @param ctx the parse tree
