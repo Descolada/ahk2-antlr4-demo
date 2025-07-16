@@ -106,7 +106,8 @@ function parseAndRender() {
                 labelContent = `${ruleName}: \"${text}\"`;
             } else {
                 // Non-terminals: context name without "Context"
-                ruleName = node.constructor.name.replace(/Context$/, '');
+                const ctx = node as Antlr4.ParserRuleContext;
+                const ruleName = parser.ruleNames[ctx.ruleIndex];
                 // Skip 's' rule if desired
                 if (ruleName === 'S' || ruleName === 'Eos') {
                     return;
