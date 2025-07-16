@@ -19,8 +19,7 @@ export abstract class AutoHotkeyParserBase extends Parser {
     protected isFunctionStatement(): boolean {
         let enclosableDepth = 0;
         let i = 0;
-        // AutoHotkeyLexer.Eof is the token type constant for EOF
-        let nextToken = AutoHotkeyLexer.EOF;
+        let nextToken = -2;
 
         // LA(k) looks ahead k tokens in the input stream
         while (nextToken !== AutoHotkeyLexer.EOF) {
@@ -68,6 +67,7 @@ export abstract class AutoHotkeyParserBase extends Parser {
             // At depth 0, decide based on the next token
             switch (nextToken) {
                 case AutoHotkeyLexer.Identifier:
+                case AutoHotkeyLexer.This:
                 case AutoHotkeyLexer.Dot:
                     // names and property access can prefix a call
                     continue;

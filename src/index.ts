@@ -70,11 +70,12 @@ function parseAndRender() {
 
         if (errorListener.errors.length) {
             graphEl.textContent = errorListener.errors.join('\n');
-
+            /*
             codeTokens.forEach((t) => {
                 const name = parser.vocabulary.getSymbolicName(t.type) ?? t.type;
                 console.log(`${name}: "${t.text}"`);
             });
+            */
             return;
         }
 

@@ -123,7 +123,7 @@ statement
     | throwStatement
     | tryStatement
     | functionDeclaration
-    | functionStatement
+    | {this.isFunctionStatement()}? functionStatement
     | blockStatement
     | expressionStatement
     ;
@@ -259,7 +259,8 @@ finallyProduction
     ;
 
 functionDeclaration
-    : functionHead functionBody
+    : functionHead (WS | EOL)* block
+    // Fat arrow is covered by expressionStatement
     ;
 
 classDeclaration
