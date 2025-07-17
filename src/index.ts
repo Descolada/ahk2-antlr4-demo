@@ -215,8 +215,6 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
                 PopWhitespaces(codeTokens, /*allowLinebreaks*/ true);
                 break;
             // arithmetic / bitwise operators
-            case AutoHotkeyLexer.Plus:
-            case AutoHotkeyLexer.Minus:
             case AutoHotkeyLexer.Multiply:
                 PopWhitespaces(codeTokens, /*allowLinebreaks*/ true);
                 break;

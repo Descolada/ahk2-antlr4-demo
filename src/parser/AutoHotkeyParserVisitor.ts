@@ -82,34 +82,29 @@ import { ArgumentsContext } from "./AutoHotkeyParser.js";
 import { ArgumentContext } from "./AutoHotkeyParser.js";
 import { ExpressionSequenceContext } from "./AutoHotkeyParser.js";
 import { MemberIndexArgumentsContext } from "./AutoHotkeyParser.js";
+import { PostIncrementDecrementExpressionContext } from "./AutoHotkeyParser.js";
+import { AdditiveExpressionContext } from "./AutoHotkeyParser.js";
+import { RelationalExpressionContext } from "./AutoHotkeyParser.js";
 import { TernaryExpressionContext } from "./AutoHotkeyParser.js";
+import { PreIncrementDecrementExpressionContext } from "./AutoHotkeyParser.js";
 import { LogicalAndExpressionContext } from "./AutoHotkeyParser.js";
 import { PowerExpressionContext } from "./AutoHotkeyParser.js";
-import { PreIncrementExpressionContext } from "./AutoHotkeyParser.js";
 import { FatArrowExpressionContext } from "./AutoHotkeyParser.js";
 import { LogicalOrExpressionContext } from "./AutoHotkeyParser.js";
-import { NotExpressionContext } from "./AutoHotkeyParser.js";
+import { UnaryExpressionContext } from "./AutoHotkeyParser.js";
 import { AtomExpressionContext } from "./AutoHotkeyParser.js";
 import { RegExMatchExpressionContext } from "./AutoHotkeyParser.js";
-import { PreDecreaseExpressionContext } from "./AutoHotkeyParser.js";
-import { UnaryMinusExpressionContext } from "./AutoHotkeyParser.js";
+import { IsExpressionContext } from "./AutoHotkeyParser.js";
 import { AssignmentExpressionContext } from "./AutoHotkeyParser.js";
-import { PostDecreaseExpressionContext } from "./AutoHotkeyParser.js";
-import { UnaryPlusExpressionContext } from "./AutoHotkeyParser.js";
+import { BitAndExpressionContext } from "./AutoHotkeyParser.js";
+import { BitOrExpressionContext } from "./AutoHotkeyParser.js";
 import { ConcatenateExpressionContext } from "./AutoHotkeyParser.js";
 import { BitXOrExpressionContext } from "./AutoHotkeyParser.js";
 import { EqualityExpressionContext } from "./AutoHotkeyParser.js";
 import { VerbalNotExpressionContext } from "./AutoHotkeyParser.js";
 import { MultiplicativeExpressionContext } from "./AutoHotkeyParser.js";
-import { BitShiftExpressionContext } from "./AutoHotkeyParser.js";
-import { AdditiveExpressionContext } from "./AutoHotkeyParser.js";
-import { RelationalExpressionContext } from "./AutoHotkeyParser.js";
-import { PostIncrementExpressionContext } from "./AutoHotkeyParser.js";
-import { BitNotExpressionContext } from "./AutoHotkeyParser.js";
-import { IsExpressionContext } from "./AutoHotkeyParser.js";
-import { BitAndExpressionContext } from "./AutoHotkeyParser.js";
-import { BitOrExpressionContext } from "./AutoHotkeyParser.js";
 import { CoalesceExpressionContext } from "./AutoHotkeyParser.js";
+import { BitShiftExpressionContext } from "./AutoHotkeyParser.js";
 import { ParenthesizedExpressionContext } from "./AutoHotkeyParser.js";
 import { ObjectLiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { VarRefExpressionContext } from "./AutoHotkeyParser.js";
@@ -627,12 +622,40 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitMemberIndexArguments?: (ctx: MemberIndexArgumentsContext) => Result;
     /**
+     * Visit a parse tree produced by the `PostIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitPostIncrementDecrementExpression?: (ctx: PostIncrementDecrementExpressionContext) => Result;
+    /**
+     * Visit a parse tree produced by the `AdditiveExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitAdditiveExpression?: (ctx: AdditiveExpressionContext) => Result;
+    /**
+     * Visit a parse tree produced by the `RelationalExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitRelationalExpression?: (ctx: RelationalExpressionContext) => Result;
+    /**
      * Visit a parse tree produced by the `TernaryExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
     visitTernaryExpression?: (ctx: TernaryExpressionContext) => Result;
+    /**
+     * Visit a parse tree produced by the `PreIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitPreIncrementDecrementExpression?: (ctx: PreIncrementDecrementExpressionContext) => Result;
     /**
      * Visit a parse tree produced by the `LogicalAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -648,13 +671,6 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitPowerExpression?: (ctx: PowerExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `PreIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitPreIncrementExpression?: (ctx: PreIncrementExpressionContext) => Result;
-    /**
      * Visit a parse tree produced by the `FatArrowExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
@@ -669,12 +685,12 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitLogicalOrExpression?: (ctx: LogicalOrExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `NotExpression`
+     * Visit a parse tree produced by the `UnaryExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitNotExpression?: (ctx: NotExpressionContext) => Result;
+    visitUnaryExpression?: (ctx: UnaryExpressionContext) => Result;
     /**
      * Visit a parse tree produced by the `AtomExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -690,19 +706,12 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitRegExMatchExpression?: (ctx: RegExMatchExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `PreDecreaseExpression`
+     * Visit a parse tree produced by the `IsExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitPreDecreaseExpression?: (ctx: PreDecreaseExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `UnaryMinusExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitUnaryMinusExpression?: (ctx: UnaryMinusExpressionContext) => Result;
+    visitIsExpression?: (ctx: IsExpressionContext) => Result;
     /**
      * Visit a parse tree produced by the `AssignmentExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -711,19 +720,19 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitAssignmentExpression?: (ctx: AssignmentExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `PostDecreaseExpression`
+     * Visit a parse tree produced by the `BitAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitPostDecreaseExpression?: (ctx: PostDecreaseExpressionContext) => Result;
+    visitBitAndExpression?: (ctx: BitAndExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `UnaryPlusExpression`
+     * Visit a parse tree produced by the `BitOrExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitUnaryPlusExpression?: (ctx: UnaryPlusExpressionContext) => Result;
+    visitBitOrExpression?: (ctx: BitOrExpressionContext) => Result;
     /**
      * Visit a parse tree produced by the `ConcatenateExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -760,68 +769,19 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitMultiplicativeExpression?: (ctx: MultiplicativeExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by the `BitShiftExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitBitShiftExpression?: (ctx: BitShiftExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `AdditiveExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitAdditiveExpression?: (ctx: AdditiveExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `RelationalExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitRelationalExpression?: (ctx: RelationalExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `PostIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitPostIncrementExpression?: (ctx: PostIncrementExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `BitNotExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitBitNotExpression?: (ctx: BitNotExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `IsExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitIsExpression?: (ctx: IsExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `BitAndExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitBitAndExpression?: (ctx: BitAndExpressionContext) => Result;
-    /**
-     * Visit a parse tree produced by the `BitOrExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    visitBitOrExpression?: (ctx: BitOrExpressionContext) => Result;
-    /**
      * Visit a parse tree produced by the `CoalesceExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      * @return the visitor result
      */
     visitCoalesceExpression?: (ctx: CoalesceExpressionContext) => Result;
+    /**
+     * Visit a parse tree produced by the `BitShiftExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitBitShiftExpression?: (ctx: BitShiftExpressionContext) => Result;
     /**
      * Visit a parse tree produced by the `ParenthesizedExpression`
      * labeled alternative in `AutoHotkeyParser.primaryExpression`.

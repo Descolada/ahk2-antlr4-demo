@@ -230,7 +230,7 @@ HotIf : 'hotif';
 InputLevel : 'inputlevel';
 SuspendExempt : 'suspendexempt';
 UseHook : 'usehook';
-Hotstring : 'hotstring';
+Hotstring : 'hotstring' -> mode(HOTSTRING_OPTIONS);
 // General Directives
 Include                : 'include'              -> mode(DIRECTIVE_TEXT);
 IncludeAgain           : 'includeagain'         -> mode(DIRECTIVE_TEXT);
@@ -257,10 +257,11 @@ DirectiveNewline: LineBreak                     -> type(EOL), mode(DEFAULT_MODE)
 
 mode DIRECTIVE_TEXT;
 TextWhitespace : WhiteSpace                     -> channel(HIDDEN);
-Text          : ~[\t \r\n\u0085\u2028\u2029] ~[\r\n\u0085\u2028\u2029]+;
 TextNewline   : LineBreak                       -> type(EOL), mode(DEFAULT_MODE);
+Text          : ~[\t \r\n\u0085\u2028\u2029] ~[\r\n\u0085\u2028\u2029]+;
 
 mode HOTSTRING_OPTIONS;
+HotstringNewline : LineBreak        -> type(EOL), mode(DEFAULT_MODE);
 HotstringWhitespace : WhiteSpace    -> channel(HIDDEN);
 NoMouse : 'NoMouse'                 -> mode(DEFAULT_MODE);
 EndChars : 'EndChars';

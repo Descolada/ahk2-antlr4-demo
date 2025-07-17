@@ -358,17 +358,12 @@ memberIndexArguments
     ;
 
 singleExpression
-    : left = singleExpression '++'                                                 # PostIncrementExpression
-    | left = singleExpression '--'                                                 # PostDecreaseExpression
-    | '++' right = singleExpression                                                # PreIncrementExpression
-    | '--' right = singleExpression                                                # PreDecreaseExpression
-    | <assoc = right> left = singleExpression op ='**' right = singleExpression      # PowerExpression
-    | '-' right = singleExpression                                                 # UnaryMinusExpression
-    | '!' WS* right = singleExpression                                             # NotExpression
-    | '+' right = singleExpression                                                 # UnaryPlusExpression
-    | '~' right = singleExpression                                                 # BitNotExpression
+    : left = singleExpression (op = '++' | '--')                                              # PostIncrementDecrementExpression
+    | op = ('--' | '++') right = singleExpression                                             # PreIncrementDecrementExpression
+    | <assoc = right> left = singleExpression op = '**' right = singleExpression              # PowerExpression
+    | (WS | EOL)* op = ('-' | '+' | '!' | '~') right = singleExpression                       # UnaryExpression
     | left = singleExpression (op = ('*' | '/' | '//') (WS | EOL)*) right = singleExpression  # MultiplicativeExpression
-    | left = singleExpression (op = ('+' | '-') (WS | EOL)*) right = singleExpression   # AdditiveExpression
+    | left = singleExpression ((WS | EOL)* op = ('+' | '-') (WS | EOL)*) right = singleExpression   # AdditiveExpression
     | left = singleExpression op = ('<<' | '>>' | '>>>') right = singleExpression              # BitShiftExpression
     | left = singleExpression ((WS | EOL)* op = '&' (WS | EOL)*) right = singleExpression      # BitAndExpression
     | left = singleExpression op = '^' right = singleExpression                                # BitXOrExpression

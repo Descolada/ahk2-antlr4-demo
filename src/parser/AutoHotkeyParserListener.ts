@@ -82,34 +82,29 @@ import { ArgumentsContext } from "./AutoHotkeyParser.js";
 import { ArgumentContext } from "./AutoHotkeyParser.js";
 import { ExpressionSequenceContext } from "./AutoHotkeyParser.js";
 import { MemberIndexArgumentsContext } from "./AutoHotkeyParser.js";
+import { PostIncrementDecrementExpressionContext } from "./AutoHotkeyParser.js";
+import { AdditiveExpressionContext } from "./AutoHotkeyParser.js";
+import { RelationalExpressionContext } from "./AutoHotkeyParser.js";
 import { TernaryExpressionContext } from "./AutoHotkeyParser.js";
+import { PreIncrementDecrementExpressionContext } from "./AutoHotkeyParser.js";
 import { LogicalAndExpressionContext } from "./AutoHotkeyParser.js";
 import { PowerExpressionContext } from "./AutoHotkeyParser.js";
-import { PreIncrementExpressionContext } from "./AutoHotkeyParser.js";
 import { FatArrowExpressionContext } from "./AutoHotkeyParser.js";
 import { LogicalOrExpressionContext } from "./AutoHotkeyParser.js";
-import { NotExpressionContext } from "./AutoHotkeyParser.js";
+import { UnaryExpressionContext } from "./AutoHotkeyParser.js";
 import { AtomExpressionContext } from "./AutoHotkeyParser.js";
 import { RegExMatchExpressionContext } from "./AutoHotkeyParser.js";
-import { PreDecreaseExpressionContext } from "./AutoHotkeyParser.js";
-import { UnaryMinusExpressionContext } from "./AutoHotkeyParser.js";
+import { IsExpressionContext } from "./AutoHotkeyParser.js";
 import { AssignmentExpressionContext } from "./AutoHotkeyParser.js";
-import { PostDecreaseExpressionContext } from "./AutoHotkeyParser.js";
-import { UnaryPlusExpressionContext } from "./AutoHotkeyParser.js";
+import { BitAndExpressionContext } from "./AutoHotkeyParser.js";
+import { BitOrExpressionContext } from "./AutoHotkeyParser.js";
 import { ConcatenateExpressionContext } from "./AutoHotkeyParser.js";
 import { BitXOrExpressionContext } from "./AutoHotkeyParser.js";
 import { EqualityExpressionContext } from "./AutoHotkeyParser.js";
 import { VerbalNotExpressionContext } from "./AutoHotkeyParser.js";
 import { MultiplicativeExpressionContext } from "./AutoHotkeyParser.js";
-import { BitShiftExpressionContext } from "./AutoHotkeyParser.js";
-import { AdditiveExpressionContext } from "./AutoHotkeyParser.js";
-import { RelationalExpressionContext } from "./AutoHotkeyParser.js";
-import { PostIncrementExpressionContext } from "./AutoHotkeyParser.js";
-import { BitNotExpressionContext } from "./AutoHotkeyParser.js";
-import { IsExpressionContext } from "./AutoHotkeyParser.js";
-import { BitAndExpressionContext } from "./AutoHotkeyParser.js";
-import { BitOrExpressionContext } from "./AutoHotkeyParser.js";
 import { CoalesceExpressionContext } from "./AutoHotkeyParser.js";
+import { BitShiftExpressionContext } from "./AutoHotkeyParser.js";
 import { ParenthesizedExpressionContext } from "./AutoHotkeyParser.js";
 import { ObjectLiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { VarRefExpressionContext } from "./AutoHotkeyParser.js";
@@ -946,6 +941,42 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitMemberIndexArguments?: (ctx: MemberIndexArgumentsContext) => void;
     /**
+     * Enter a parse tree produced by the `PostIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterPostIncrementDecrementExpression?: (ctx: PostIncrementDecrementExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `PostIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitPostIncrementDecrementExpression?: (ctx: PostIncrementDecrementExpressionContext) => void;
+    /**
+     * Enter a parse tree produced by the `AdditiveExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterAdditiveExpression?: (ctx: AdditiveExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `AdditiveExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitAdditiveExpression?: (ctx: AdditiveExpressionContext) => void;
+    /**
+     * Enter a parse tree produced by the `RelationalExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterRelationalExpression?: (ctx: RelationalExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `RelationalExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitRelationalExpression?: (ctx: RelationalExpressionContext) => void;
+    /**
      * Enter a parse tree produced by the `TernaryExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
@@ -957,6 +988,18 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitTernaryExpression?: (ctx: TernaryExpressionContext) => void;
+    /**
+     * Enter a parse tree produced by the `PreIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterPreIncrementDecrementExpression?: (ctx: PreIncrementDecrementExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `PreIncrementDecrementExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitPreIncrementDecrementExpression?: (ctx: PreIncrementDecrementExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `LogicalAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -982,18 +1025,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitPowerExpression?: (ctx: PowerExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `PreIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterPreIncrementExpression?: (ctx: PreIncrementExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `PreIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitPreIncrementExpression?: (ctx: PreIncrementExpressionContext) => void;
-    /**
      * Enter a parse tree produced by the `FatArrowExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
@@ -1018,17 +1049,17 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitLogicalOrExpression?: (ctx: LogicalOrExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `NotExpression`
+     * Enter a parse tree produced by the `UnaryExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    enterNotExpression?: (ctx: NotExpressionContext) => void;
+    enterUnaryExpression?: (ctx: UnaryExpressionContext) => void;
     /**
-     * Exit a parse tree produced by the `NotExpression`
+     * Exit a parse tree produced by the `UnaryExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    exitNotExpression?: (ctx: NotExpressionContext) => void;
+    exitUnaryExpression?: (ctx: UnaryExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `AtomExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -1054,29 +1085,17 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitRegExMatchExpression?: (ctx: RegExMatchExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `PreDecreaseExpression`
+     * Enter a parse tree produced by the `IsExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    enterPreDecreaseExpression?: (ctx: PreDecreaseExpressionContext) => void;
+    enterIsExpression?: (ctx: IsExpressionContext) => void;
     /**
-     * Exit a parse tree produced by the `PreDecreaseExpression`
+     * Exit a parse tree produced by the `IsExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    exitPreDecreaseExpression?: (ctx: PreDecreaseExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `UnaryMinusExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterUnaryMinusExpression?: (ctx: UnaryMinusExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `UnaryMinusExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitUnaryMinusExpression?: (ctx: UnaryMinusExpressionContext) => void;
+    exitIsExpression?: (ctx: IsExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `AssignmentExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -1090,29 +1109,29 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitAssignmentExpression?: (ctx: AssignmentExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `PostDecreaseExpression`
+     * Enter a parse tree produced by the `BitAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    enterPostDecreaseExpression?: (ctx: PostDecreaseExpressionContext) => void;
+    enterBitAndExpression?: (ctx: BitAndExpressionContext) => void;
     /**
-     * Exit a parse tree produced by the `PostDecreaseExpression`
+     * Exit a parse tree produced by the `BitAndExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    exitPostDecreaseExpression?: (ctx: PostDecreaseExpressionContext) => void;
+    exitBitAndExpression?: (ctx: BitAndExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `UnaryPlusExpression`
+     * Enter a parse tree produced by the `BitOrExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    enterUnaryPlusExpression?: (ctx: UnaryPlusExpressionContext) => void;
+    enterBitOrExpression?: (ctx: BitOrExpressionContext) => void;
     /**
-     * Exit a parse tree produced by the `UnaryPlusExpression`
+     * Exit a parse tree produced by the `BitOrExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
      */
-    exitUnaryPlusExpression?: (ctx: UnaryPlusExpressionContext) => void;
+    exitBitOrExpression?: (ctx: BitOrExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `ConcatenateExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
@@ -1174,102 +1193,6 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitMultiplicativeExpression?: (ctx: MultiplicativeExpressionContext) => void;
     /**
-     * Enter a parse tree produced by the `BitShiftExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterBitShiftExpression?: (ctx: BitShiftExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `BitShiftExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitBitShiftExpression?: (ctx: BitShiftExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `AdditiveExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterAdditiveExpression?: (ctx: AdditiveExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `AdditiveExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitAdditiveExpression?: (ctx: AdditiveExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `RelationalExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterRelationalExpression?: (ctx: RelationalExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `RelationalExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitRelationalExpression?: (ctx: RelationalExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `PostIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterPostIncrementExpression?: (ctx: PostIncrementExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `PostIncrementExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitPostIncrementExpression?: (ctx: PostIncrementExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `BitNotExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterBitNotExpression?: (ctx: BitNotExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `BitNotExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitBitNotExpression?: (ctx: BitNotExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `IsExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterIsExpression?: (ctx: IsExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `IsExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitIsExpression?: (ctx: IsExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `BitAndExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterBitAndExpression?: (ctx: BitAndExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `BitAndExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitBitAndExpression?: (ctx: BitAndExpressionContext) => void;
-    /**
-     * Enter a parse tree produced by the `BitOrExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    enterBitOrExpression?: (ctx: BitOrExpressionContext) => void;
-    /**
-     * Exit a parse tree produced by the `BitOrExpression`
-     * labeled alternative in `AutoHotkeyParser.singleExpression`.
-     * @param ctx the parse tree
-     */
-    exitBitOrExpression?: (ctx: BitOrExpressionContext) => void;
-    /**
      * Enter a parse tree produced by the `CoalesceExpression`
      * labeled alternative in `AutoHotkeyParser.singleExpression`.
      * @param ctx the parse tree
@@ -1281,6 +1204,18 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      * @param ctx the parse tree
      */
     exitCoalesceExpression?: (ctx: CoalesceExpressionContext) => void;
+    /**
+     * Enter a parse tree produced by the `BitShiftExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    enterBitShiftExpression?: (ctx: BitShiftExpressionContext) => void;
+    /**
+     * Exit a parse tree produced by the `BitShiftExpression`
+     * labeled alternative in `AutoHotkeyParser.singleExpression`.
+     * @param ctx the parse tree
+     */
+    exitBitShiftExpression?: (ctx: BitShiftExpressionContext) => void;
     /**
      * Enter a parse tree produced by the `ParenthesizedExpression`
      * labeled alternative in `AutoHotkeyParser.primaryExpression`.
