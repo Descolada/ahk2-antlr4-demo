@@ -360,7 +360,7 @@ memberIndexArguments
     ;
 
 singleExpression
-    : left = singleExpression (op = '++' | '--')                                              # PostIncrementDecrementExpression
+    : left = singleExpression op = ('++' | '--')                                              # PostIncrementDecrementExpression
     | op = ('--' | '++') right = singleExpression                                             # PreIncrementDecrementExpression
     | <assoc = right> left = singleExpression op = '**' right = singleExpression              # PowerExpression
     | (WS | EOL)* op = ('-' | '+' | '!' | '~') right = singleExpression                       # UnaryExpression
