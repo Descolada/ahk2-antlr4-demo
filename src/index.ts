@@ -110,7 +110,7 @@ function parseAndRender() {
                 const ctx = node as Antlr4.ParserRuleContext;
                 const ruleName = parser.ruleNames[ctx.ruleIndex];
                 // Skip 's' rule if desired
-                if (ruleName === 'S' || ruleName === 'Eos') {
+                if (ruleName === 's' || ruleName === 'eos') {
                     return;
                 }
                 labelContent = ruleName;
