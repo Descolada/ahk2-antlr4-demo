@@ -18,7 +18,7 @@ import { SuspendExemptDirectiveContext } from "./AutoHotkeyParser.js";
 import { TextualDirectiveContext } from "./AutoHotkeyParser.js";
 import { PersistentDirectiveContext } from "./AutoHotkeyParser.js";
 import { OptionalTextualDirectiveContext } from "./AutoHotkeyParser.js";
-import { ErrorStdOutDirectiveContext } from "./AutoHotkeyParser.js";
+import { SingleDirectiveContext } from "./AutoHotkeyParser.js";
 import { NumericDirectiveContext } from "./AutoHotkeyParser.js";
 import { RemapContext } from "./AutoHotkeyParser.js";
 import { HotstringContext } from "./AutoHotkeyParser.js";
@@ -113,7 +113,10 @@ import { LiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { ArrayLiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { AccessExpressionContext } from "./AutoHotkeyParser.js";
 import { IdentifierExpressionContext } from "./AutoHotkeyParser.js";
-import { AccessSuffixContext } from "./AutoHotkeyParser.js";
+import { MemberAccessContext } from "./AutoHotkeyParser.js";
+import { IndexAccessContext } from "./AutoHotkeyParser.js";
+import { FunctionCallAccessContext } from "./AutoHotkeyParser.js";
+import { AllowUnsetAccessContext } from "./AutoHotkeyParser.js";
 import { MemberDotContext } from "./AutoHotkeyParser.js";
 import { MemberIdentifierContext } from "./AutoHotkeyParser.js";
 import { DynamicIdentifierContext } from "./AutoHotkeyParser.js";
@@ -281,17 +284,17 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitOptionalTextualDirective?: (ctx: OptionalTextualDirectiveContext) => void;
     /**
-     * Enter a parse tree produced by the `ErrorStdOutDirective`
+     * Enter a parse tree produced by the `SingleDirective`
      * labeled alternative in `AutoHotkeyParser.generalDirective`.
      * @param ctx the parse tree
      */
-    enterErrorStdOutDirective?: (ctx: ErrorStdOutDirectiveContext) => void;
+    enterSingleDirective?: (ctx: SingleDirectiveContext) => void;
     /**
-     * Exit a parse tree produced by the `ErrorStdOutDirective`
+     * Exit a parse tree produced by the `SingleDirective`
      * labeled alternative in `AutoHotkeyParser.generalDirective`.
      * @param ctx the parse tree
      */
-    exitErrorStdOutDirective?: (ctx: ErrorStdOutDirectiveContext) => void;
+    exitSingleDirective?: (ctx: SingleDirectiveContext) => void;
     /**
      * Enter a parse tree produced by the `NumericDirective`
      * labeled alternative in `AutoHotkeyParser.generalDirective`.
@@ -1313,15 +1316,53 @@ export class AutoHotkeyParserListener implements ParseTreeListener {
      */
     exitIdentifierExpression?: (ctx: IdentifierExpressionContext) => void;
     /**
-     * Enter a parse tree produced by `AutoHotkeyParser.accessSuffix`.
+     * Enter a parse tree produced by the `MemberAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
      * @param ctx the parse tree
      */
-    enterAccessSuffix?: (ctx: AccessSuffixContext) => void;
+    enterMemberAccess?: (ctx: MemberAccessContext) => void;
     /**
-     * Exit a parse tree produced by `AutoHotkeyParser.accessSuffix`.
+     * Exit a parse tree produced by the `MemberAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
      * @param ctx the parse tree
      */
-    exitAccessSuffix?: (ctx: AccessSuffixContext) => void;
+    exitMemberAccess?: (ctx: MemberAccessContext) => void;
+    /**
+     * Enter a parse tree produced by the `IndexAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    enterIndexAccess?: (ctx: IndexAccessContext) => void;
+    /**
+     * Exit a parse tree produced by the `IndexAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    exitIndexAccess?: (ctx: IndexAccessContext) => void;
+    /**
+     * Enter a parse tree produced by the `FunctionCallAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    enterFunctionCallAccess?: (ctx: FunctionCallAccessContext) => void;
+    /**
+     * Exit a parse tree produced by the `FunctionCallAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    exitFunctionCallAccess?: (ctx: FunctionCallAccessContext) => void;
+    /**
+     * Enter a parse tree produced by the `AllowUnsetAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    enterAllowUnsetAccess?: (ctx: AllowUnsetAccessContext) => void;
+    /**
+     * Exit a parse tree produced by the `AllowUnsetAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     */
+    exitAllowUnsetAccess?: (ctx: AllowUnsetAccessContext) => void;
     /**
      * Enter a parse tree produced by `AutoHotkeyParser.memberDot`.
      * @param ctx the parse tree

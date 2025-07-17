@@ -18,7 +18,7 @@ import { SuspendExemptDirectiveContext } from "./AutoHotkeyParser.js";
 import { TextualDirectiveContext } from "./AutoHotkeyParser.js";
 import { PersistentDirectiveContext } from "./AutoHotkeyParser.js";
 import { OptionalTextualDirectiveContext } from "./AutoHotkeyParser.js";
-import { ErrorStdOutDirectiveContext } from "./AutoHotkeyParser.js";
+import { SingleDirectiveContext } from "./AutoHotkeyParser.js";
 import { NumericDirectiveContext } from "./AutoHotkeyParser.js";
 import { RemapContext } from "./AutoHotkeyParser.js";
 import { HotstringContext } from "./AutoHotkeyParser.js";
@@ -113,7 +113,10 @@ import { LiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { ArrayLiteralExpressionContext } from "./AutoHotkeyParser.js";
 import { AccessExpressionContext } from "./AutoHotkeyParser.js";
 import { IdentifierExpressionContext } from "./AutoHotkeyParser.js";
-import { AccessSuffixContext } from "./AutoHotkeyParser.js";
+import { MemberAccessContext } from "./AutoHotkeyParser.js";
+import { IndexAccessContext } from "./AutoHotkeyParser.js";
+import { FunctionCallAccessContext } from "./AutoHotkeyParser.js";
+import { AllowUnsetAccessContext } from "./AutoHotkeyParser.js";
 import { MemberDotContext } from "./AutoHotkeyParser.js";
 import { MemberIdentifierContext } from "./AutoHotkeyParser.js";
 import { DynamicIdentifierContext } from "./AutoHotkeyParser.js";
@@ -228,12 +231,12 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitOptionalTextualDirective?: (ctx: OptionalTextualDirectiveContext) => Result;
     /**
-     * Visit a parse tree produced by the `ErrorStdOutDirective`
+     * Visit a parse tree produced by the `SingleDirective`
      * labeled alternative in `AutoHotkeyParser.generalDirective`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitErrorStdOutDirective?: (ctx: ErrorStdOutDirectiveContext) => Result;
+    visitSingleDirective?: (ctx: SingleDirectiveContext) => Result;
     /**
      * Visit a parse tree produced by the `NumericDirective`
      * labeled alternative in `AutoHotkeyParser.generalDirective`.
@@ -839,11 +842,33 @@ export class AutoHotkeyParserVisitor<Result> extends AbstractParseTreeVisitor<Re
      */
     visitIdentifierExpression?: (ctx: IdentifierExpressionContext) => Result;
     /**
-     * Visit a parse tree produced by `AutoHotkeyParser.accessSuffix`.
+     * Visit a parse tree produced by the `MemberAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
      * @param ctx the parse tree
      * @return the visitor result
      */
-    visitAccessSuffix?: (ctx: AccessSuffixContext) => Result;
+    visitMemberAccess?: (ctx: MemberAccessContext) => Result;
+    /**
+     * Visit a parse tree produced by the `IndexAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitIndexAccess?: (ctx: IndexAccessContext) => Result;
+    /**
+     * Visit a parse tree produced by the `FunctionCallAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitFunctionCallAccess?: (ctx: FunctionCallAccessContext) => Result;
+    /**
+     * Visit a parse tree produced by the `AllowUnsetAccess`
+     * labeled alternative in `AutoHotkeyParser.accessSuffix`.
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    visitAllowUnsetAccess?: (ctx: AllowUnsetAccessContext) => Result;
     /**
      * Visit a parse tree produced by `AutoHotkeyParser.memberDot`.
      * @param ctx the parse tree

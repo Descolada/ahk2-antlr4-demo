@@ -220,7 +220,7 @@ HotstringOpenBrace: '{' {this.ProcessHotstringOpenBrace();} -> type(OpenBrace), 
 HotstringWhitespaces: WhiteSpace+ -> channel(HIDDEN);
 HotstringMultiLineExpansion: ContinuationSection -> popMode;
 HotstringSingleLineExpansion:  (~[;`\r\n {] | '`' EscapeSequence) RawString? -> popMode;
-HotstringUnexpectedCharacter: . -> channel(ERROR);
+UnexpectedHotstringCharacter: . -> channel(ERROR);
 
 mode DIRECTIVE_MODE;
 PreprocessorDirectiveWS: WhiteSpace              -> channel(HIDDEN);
@@ -245,6 +245,8 @@ HotIfTimeout           : 'hotiftimeout';
 MaxThreads             : 'maxthreads';
 MaxThreadsBuffer       : 'maxthreadsbuffer';
 MaxThreadsPerHotkey    : 'maxthreadsperhotkey';
+WinActivateForce       : 'winactivateforce';
+NoTrayIcon             : 'notrayicon';
 DirectiveString:
     '"' ~('"' | [\r\n\u0085\u2028\u2029])* '"'  -> type(StringLiteral)
 ;
@@ -254,11 +256,13 @@ DirectiveSingleLineComment:
     ' ;' ~[\r\n\u0085\u2028\u2029]*             -> channel(HIDDEN)
 ;
 DirectiveNewline: LineBreak                     -> type(EOL), mode(DEFAULT_MODE);
+UnexpectedDirectiveCharacter : . -> channel(ERROR);
 
 mode DIRECTIVE_TEXT;
 TextWhitespace : WhiteSpace                     -> channel(HIDDEN);
 TextNewline   : LineBreak                       -> type(EOL), mode(DEFAULT_MODE);
 Text          : ~[\t \r\n\u0085\u2028\u2029] ~[\r\n\u0085\u2028\u2029]+;
+UnexpectedDirectiveTextCharacter : . -> channel(ERROR);
 
 mode HOTSTRING_OPTIONS;
 HotstringNewline : LineBreak        -> type(EOL), mode(DEFAULT_MODE);
@@ -266,6 +270,7 @@ HotstringWhitespace : WhiteSpace    -> channel(HIDDEN);
 NoMouse : 'NoMouse'                 -> mode(DEFAULT_MODE);
 EndChars : 'EndChars';
 HotstringOptions : RawString {this.ProcessHotstringOptions();} -> mode(DEFAULT_MODE);
+UnexpectedHotstringOptionsCharacter : . -> channel(ERROR);
 
 // Fragment rules
 

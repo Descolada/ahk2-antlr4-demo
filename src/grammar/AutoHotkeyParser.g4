@@ -85,7 +85,9 @@ generalDirective
     | Persistent (True | False | Digits)?    # PersistentDirective
     | ( Warn
       | SingleInstance) Text?                # OptionalTextualDirective
-    | ErrorStdOut                            # ErrorStdOutDirective
+    | ( ErrorStdOut 
+      | WinActivateForce
+      | NoTrayIcon )                         # SingleDirective
     | ( HotIfTimeout
       | MaxThreads
       | MaxThreadsBuffer
@@ -395,9 +397,10 @@ primaryExpression
     ;
 
 accessSuffix
-    : modifier = ('.' | '?.') memberIdentifier
-    | (modifier = '?.')? memberIndexArguments
-    | '(' arguments? ')'
+    : modifier = ('?.' | '.') memberIdentifier  # MemberAccess
+    | (modifier = '?.')? memberIndexArguments   # IndexAccess
+    | (modifier = '?.')? '(' arguments? ')'     # FunctionCallAccess
+    | modifier = '?'                            # AllowUnsetAccess
     ;
 
 memberDot
