@@ -225,6 +225,13 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
                 break;
             }
 
+            case AutoHotkeyLexer.Not:
+            case AutoHotkeyLexer.BitNot:
+			case AutoHotkeyLexer.Plus: // Can't pop whitespaces because of function call statement
+			case AutoHotkeyLexer.Minus:
+				index = SkipWhitespaces(tokens, codeTokens, index);
+                break;
+
             case AutoHotkeyLexer.Dot:
             case AutoHotkeyLexer.Assign:
             case AutoHotkeyLexer.Divide:
@@ -395,12 +402,13 @@ function PopWhitespaces(
 function SkipWhitespaces(
     allTokens: Antlr4.Token[],
     codeTokens: Antlr4.Token[],
-    startIndex: number
+    startIndex: number,
+    linebreaks: boolean = true
 ): number {
     let idx = startIndex;
     while (++idx < allTokens.length) {
         const t = allTokens[idx];
-        if (t.type === AutoHotkeyLexer.WS) {
+        if ((t.type === AutoHotkeyLexer.WS) || (linebreaks && t.type == AutoHotkeyLexer.EOL)) {
             startIndex++;
         } else {
             break;
