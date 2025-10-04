@@ -337,6 +337,7 @@ propertyName
     : identifier
     | PropertyIdentifier
     | reservedWord
+    | numericLiteral
     ;
 
 dereference

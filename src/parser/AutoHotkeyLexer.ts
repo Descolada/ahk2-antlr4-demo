@@ -1,4 +1,4 @@
-// Generated from ./AutoHotkeyLexer.g4 by ANTLR 4.13.1
+// Generated from c:/Users/minip/source/repos/ahk2-antlr4-demo/src/grammar/AutoHotkeyLexer.g4 by ANTLR 4.13.1
 
 import * as antlr from "antlr4ng";
 import { Token } from "antlr4ng";

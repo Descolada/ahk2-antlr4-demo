@@ -1,4 +1,4 @@
-// Generated from ./AutoHotkeyParser.g4 by ANTLR 4.13.1
+// Generated from c:/Users/minip/source/repos/ahk2-antlr4-demo/src/grammar/AutoHotkeyParser.g4 by ANTLR 4.13.1
 
 import * as antlr from "antlr4ng";
 import { Token } from "antlr4ng";
@@ -2457,6 +2457,8 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.True:
             case AutoHotkeyParser.False:
+            case AutoHotkeyParser.DecimalLiteral:
+            case AutoHotkeyParser.HexIntegerLiteral:
             case AutoHotkeyParser.Break:
             case AutoHotkeyParser.Do:
             case AutoHotkeyParser.Switch:
@@ -2574,6 +2576,8 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 break;
             case AutoHotkeyParser.True:
             case AutoHotkeyParser.False:
+            case AutoHotkeyParser.DecimalLiteral:
+            case AutoHotkeyParser.HexIntegerLiteral:
             case AutoHotkeyParser.Break:
             case AutoHotkeyParser.Do:
             case AutoHotkeyParser.Switch:
@@ -3761,13 +3765,15 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             this.state = 936;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
-            while (((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967283) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 98303) !== 0)) {
+            while (((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967295) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 98303) !== 0)) {
                 {
                 this.state = 934;
                 this.errorHandler.sync(this);
                 switch (this.tokenStream.LA(1)) {
                 case AutoHotkeyParser.True:
                 case AutoHotkeyParser.False:
+                case AutoHotkeyParser.DecimalLiteral:
+                case AutoHotkeyParser.HexIntegerLiteral:
                 case AutoHotkeyParser.Break:
                 case AutoHotkeyParser.Do:
                 case AutoHotkeyParser.Switch:
@@ -4587,7 +4593,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new PropertyNameContext(this.context, this.state);
         this.enterRule(localContext, 112, AutoHotkeyParser.RULE_propertyName);
         try {
-            this.state = 1110;
+            this.state = 1111;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 156, this.context) ) {
             case 1:
@@ -4611,6 +4617,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 this.reservedWord();
                 }
                 break;
+            case 4:
+                this.enterOuterAlt(localContext, 4);
+                {
+                this.state = 1110;
+                this.numericLiteral();
+                }
+                break;
             }
         }
         catch (re) {
@@ -4632,11 +4645,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1112;
-            this.match(AutoHotkeyParser.DerefStart);
             this.state = 1113;
-            this.singleExpression(0);
+            this.match(AutoHotkeyParser.DerefStart);
             this.state = 1114;
+            this.singleExpression(0);
+            this.state = 1115;
             this.match(AutoHotkeyParser.DerefEnd);
             }
         }
@@ -4659,43 +4672,43 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let _la: number;
         try {
             let alternative: number;
-            this.state = 1146;
+            this.state = 1147;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 163, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1116;
+                this.state = 1117;
                 this.argument();
-                this.state = 1129;
+                this.state = 1130;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 159, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 1120;
+                        this.state = 1121;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 117) {
                             {
                             {
-                            this.state = 1117;
+                            this.state = 1118;
                             this.match(AutoHotkeyParser.WS);
                             }
                             }
-                            this.state = 1122;
+                            this.state = 1123;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1123;
+                        this.state = 1124;
                         this.match(AutoHotkeyParser.Comma);
-                        this.state = 1125;
+                        this.state = 1126;
                         this.errorHandler.sync(this);
                         switch (this.interpreter.adaptivePredict(this.tokenStream, 158, this.context) ) {
                         case 1:
                             {
-                            this.state = 1124;
+                            this.state = 1125;
                             this.argument();
                             }
                             break;
@@ -4703,7 +4716,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         }
                         }
                     }
-                    this.state = 1131;
+                    this.state = 1132;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 159, this.context);
                 }
@@ -4712,7 +4725,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1142;
+                this.state = 1143;
                 this.errorHandler.sync(this);
                 alternative = 1;
                 do {
@@ -4720,28 +4733,28 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     case 1:
                         {
                         {
-                        this.state = 1135;
+                        this.state = 1136;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 117) {
                             {
                             {
-                            this.state = 1132;
+                            this.state = 1133;
                             this.match(AutoHotkeyParser.WS);
                             }
                             }
-                            this.state = 1137;
+                            this.state = 1138;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1138;
+                        this.state = 1139;
                         this.match(AutoHotkeyParser.Comma);
-                        this.state = 1140;
+                        this.state = 1141;
                         this.errorHandler.sync(this);
                         switch (this.interpreter.adaptivePredict(this.tokenStream, 161, this.context) ) {
                         case 1:
                             {
-                            this.state = 1139;
+                            this.state = 1140;
                             this.argument();
                             }
                             break;
@@ -4752,7 +4765,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     default:
                         throw new antlr.NoViableAltException(this);
                     }
-                    this.state = 1144;
+                    this.state = 1145;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 162, this.context);
                 } while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER);
@@ -4780,14 +4793,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1148;
+            this.state = 1149;
             this.singleExpression(0);
-            this.state = 1150;
+            this.state = 1151;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 15 || _la === 28) {
                 {
-                this.state = 1149;
+                this.state = 1150;
                 _la = this.tokenStream.LA(1);
                 if(!(_la === 15 || _la === 28)) {
                 this.errorHandler.recoverInline(this);
@@ -4822,37 +4835,37 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1152;
+            this.state = 1153;
             this.singleExpression(0);
-            this.state = 1163;
+            this.state = 1164;
             this.errorHandler.sync(this);
             alternative = this.interpreter.adaptivePredict(this.tokenStream, 166, this.context);
             while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                 if (alternative === 1) {
                     {
                     {
-                    this.state = 1156;
+                    this.state = 1157;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                     while (_la === 117) {
                         {
                         {
-                        this.state = 1153;
+                        this.state = 1154;
                         this.match(AutoHotkeyParser.WS);
                         }
                         }
-                        this.state = 1158;
+                        this.state = 1159;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                     }
-                    this.state = 1159;
-                    this.match(AutoHotkeyParser.Comma);
                     this.state = 1160;
+                    this.match(AutoHotkeyParser.Comma);
+                    this.state = 1161;
                     this.singleExpression(0);
                     }
                     }
                 }
-                this.state = 1165;
+                this.state = 1166;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 166, this.context);
             }
@@ -4879,49 +4892,49 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1166;
+            this.state = 1167;
             this.match(AutoHotkeyParser.OpenBracket);
-            this.state = 1170;
+            this.state = 1171;
             this.errorHandler.sync(this);
             alternative = this.interpreter.adaptivePredict(this.tokenStream, 167, this.context);
             while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                 if (alternative === 1) {
                     {
                     {
-                    this.state = 1167;
+                    this.state = 1168;
                     this.s();
                     }
                     }
                 }
-                this.state = 1172;
+                this.state = 1173;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 167, this.context);
             }
-            this.state = 1180;
+            this.state = 1181;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 532687490) !== 0) || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 4292870145) !== 0) || ((((_la - 79)) & ~0x1F) === 0 && ((1 << (_la - 79)) & 4294967295) !== 0) || ((((_la - 111)) & ~0x1F) === 0 && ((1 << (_la - 111)) & 127) !== 0)) {
                 {
-                this.state = 1173;
+                this.state = 1174;
                 this.arguments();
-                this.state = 1177;
+                this.state = 1178;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1174;
+                    this.state = 1175;
                     this.s();
                     }
                     }
-                    this.state = 1179;
+                    this.state = 1180;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
                 }
             }
 
-            this.state = 1182;
+            this.state = 1183;
             this.match(AutoHotkeyParser.CloseBracket);
             }
         }
@@ -4957,7 +4970,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1212;
+            this.state = 1213;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 172, this.context) ) {
             case 1:
@@ -4966,7 +4979,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 this.context = localContext;
                 previousContext = localContext;
 
-                this.state = 1185;
+                this.state = 1186;
                 (localContext as PreIncrementDecrementExpressionContext)._op = this.tokenStream.LT(1);
                 _la = this.tokenStream.LA(1);
                 if(!(_la === 22 || _la === 23)) {
@@ -4976,7 +4989,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     this.errorHandler.reportMatch(this);
                     this.consume();
                 }
-                this.state = 1186;
+                this.state = 1187;
                 (localContext as PreIncrementDecrementExpressionContext)._right = this.singleExpression(22);
                 }
                 break;
@@ -4985,13 +4998,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new UnaryExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1190;
+                this.state = 1191;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1187;
+                    this.state = 1188;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -5002,11 +5015,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1192;
+                    this.state = 1193;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
-                this.state = 1193;
+                this.state = 1194;
                 (localContext as UnaryExpressionContext)._op = this.tokenStream.LT(1);
                 _la = this.tokenStream.LA(1);
                 if(!((((_la) & ~0x1F) === 0 && ((1 << _la) & 251658240) !== 0))) {
@@ -5016,7 +5029,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     this.errorHandler.reportMatch(this);
                     this.consume();
                 }
-                this.state = 1194;
+                this.state = 1195;
                 (localContext as UnaryExpressionContext)._right = this.singleExpression(20);
                 }
                 break;
@@ -5025,25 +5038,25 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new VerbalNotExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1195;
+                this.state = 1196;
                 this.match(AutoHotkeyParser.VerbalNot);
-                this.state = 1199;
+                this.state = 1200;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 171, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 1196;
+                        this.state = 1197;
                         this.match(AutoHotkeyParser.WS);
                         }
                         }
                     }
-                    this.state = 1201;
+                    this.state = 1202;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 171, this.context);
                 }
-                this.state = 1202;
+                this.state = 1203;
                 (localContext as VerbalNotExpressionContext)._right = this.singleExpression(8);
                 }
                 break;
@@ -5052,11 +5065,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new AssignmentExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1203;
-                (localContext as AssignmentExpressionContext)._left = this.primaryExpression(0);
                 this.state = 1204;
-                (localContext as AssignmentExpressionContext)._op = this.assignmentOperator();
+                (localContext as AssignmentExpressionContext)._left = this.primaryExpression(0);
                 this.state = 1205;
+                (localContext as AssignmentExpressionContext)._op = this.assignmentOperator();
+                this.state = 1206;
                 (localContext as AssignmentExpressionContext)._right = this.singleExpression(3);
                 }
                 break;
@@ -5065,11 +5078,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new FatArrowExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1207;
-                this.fatArrowExpressionHead();
                 this.state = 1208;
-                this.match(AutoHotkeyParser.Arrow);
+                this.fatArrowExpressionHead();
                 this.state = 1209;
+                this.match(AutoHotkeyParser.Arrow);
+                this.state = 1210;
                 this.singleExpression(2);
                 }
                 break;
@@ -5078,13 +5091,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new AtomExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1211;
+                this.state = 1212;
                 this.primaryExpression(0);
                 }
                 break;
             }
             this.context!.stop = this.tokenStream.LT(-1);
-            this.state = 1348;
+            this.state = 1349;
             this.errorHandler.sync(this);
             alternative = this.interpreter.adaptivePredict(this.tokenStream, 189, this.context);
             while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
@@ -5094,7 +5107,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     previousContext = localContext;
                     {
-                    this.state = 1346;
+                    this.state = 1347;
                     this.errorHandler.sync(this);
                     switch (this.interpreter.adaptivePredict(this.tokenStream, 188, this.context) ) {
                     case 1:
@@ -5102,13 +5115,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new PowerExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as PowerExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1214;
+                        this.state = 1215;
                         if (!(this.precpred(this.context, 21))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 21)");
                         }
-                        this.state = 1215;
-                        (localContext as PowerExpressionContext)._op = this.match(AutoHotkeyParser.Power);
                         this.state = 1216;
+                        (localContext as PowerExpressionContext)._op = this.match(AutoHotkeyParser.Power);
+                        this.state = 1217;
                         (localContext as PowerExpressionContext)._right = this.singleExpression(21);
                         }
                         break;
@@ -5117,12 +5130,12 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new MultiplicativeExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as MultiplicativeExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1217;
+                        this.state = 1218;
                         if (!(this.precpred(this.context, 19))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 19)");
                         }
                         {
-                        this.state = 1218;
+                        this.state = 1219;
                         (localContext as MultiplicativeExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!((((_la) & ~0x1F) === 0 && ((1 << _la) & 1879048192) !== 0))) {
@@ -5132,14 +5145,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             this.errorHandler.reportMatch(this);
                             this.consume();
                         }
-                        this.state = 1222;
+                        this.state = 1223;
                         this.errorHandler.sync(this);
                         alternative = this.interpreter.adaptivePredict(this.tokenStream, 173, this.context);
                         while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                             if (alternative === 1) {
                                 {
                                 {
-                                this.state = 1219;
+                                this.state = 1220;
                                 _la = this.tokenStream.LA(1);
                                 if(!(_la === 116 || _la === 117)) {
                                 this.errorHandler.recoverInline(this);
@@ -5151,12 +5164,12 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 }
                                 }
                             }
-                            this.state = 1224;
+                            this.state = 1225;
                             this.errorHandler.sync(this);
                             alternative = this.interpreter.adaptivePredict(this.tokenStream, 173, this.context);
                         }
                         }
-                        this.state = 1225;
+                        this.state = 1226;
                         (localContext as MultiplicativeExpressionContext)._right = this.singleExpression(20);
                         }
                         break;
@@ -5165,18 +5178,18 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new AdditiveExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as AdditiveExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1226;
+                        this.state = 1227;
                         if (!(this.precpred(this.context, 18))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 18)");
                         }
                         {
-                        this.state = 1230;
+                        this.state = 1231;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1227;
+                            this.state = 1228;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5187,11 +5200,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1232;
+                            this.state = 1233;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1233;
+                        this.state = 1234;
                         (localContext as AdditiveExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!(_la === 24 || _la === 25)) {
@@ -5201,14 +5214,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             this.errorHandler.reportMatch(this);
                             this.consume();
                         }
-                        this.state = 1237;
+                        this.state = 1238;
                         this.errorHandler.sync(this);
                         alternative = this.interpreter.adaptivePredict(this.tokenStream, 175, this.context);
                         while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                             if (alternative === 1) {
                                 {
                                 {
-                                this.state = 1234;
+                                this.state = 1235;
                                 _la = this.tokenStream.LA(1);
                                 if(!(_la === 116 || _la === 117)) {
                                 this.errorHandler.recoverInline(this);
@@ -5220,12 +5233,12 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 }
                                 }
                             }
-                            this.state = 1239;
+                            this.state = 1240;
                             this.errorHandler.sync(this);
                             alternative = this.interpreter.adaptivePredict(this.tokenStream, 175, this.context);
                         }
                         }
-                        this.state = 1240;
+                        this.state = 1241;
                         (localContext as AdditiveExpressionContext)._right = this.singleExpression(19);
                         }
                         break;
@@ -5234,11 +5247,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new BitShiftExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as BitShiftExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1241;
+                        this.state = 1242;
                         if (!(this.precpred(this.context, 17))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 17)");
                         }
-                        this.state = 1242;
+                        this.state = 1243;
                         (localContext as BitShiftExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!(((((_la - 35)) & ~0x1F) === 0 && ((1 << (_la - 35)) & 7) !== 0))) {
@@ -5248,7 +5261,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             this.errorHandler.reportMatch(this);
                             this.consume();
                         }
-                        this.state = 1243;
+                        this.state = 1244;
                         (localContext as BitShiftExpressionContext)._right = this.singleExpression(18);
                         }
                         break;
@@ -5257,18 +5270,18 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new BitAndExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as BitAndExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1244;
+                        this.state = 1245;
                         if (!(this.precpred(this.context, 16))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 16)");
                         }
                         {
-                        this.state = 1248;
+                        this.state = 1249;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1245;
+                            this.state = 1246;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5279,20 +5292,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1250;
+                            this.state = 1251;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1251;
+                        this.state = 1252;
                         (localContext as BitAndExpressionContext)._op = this.match(AutoHotkeyParser.BitAnd);
-                        this.state = 1255;
+                        this.state = 1256;
                         this.errorHandler.sync(this);
                         alternative = this.interpreter.adaptivePredict(this.tokenStream, 177, this.context);
                         while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                             if (alternative === 1) {
                                 {
                                 {
-                                this.state = 1252;
+                                this.state = 1253;
                                 _la = this.tokenStream.LA(1);
                                 if(!(_la === 116 || _la === 117)) {
                                 this.errorHandler.recoverInline(this);
@@ -5304,12 +5317,12 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 }
                                 }
                             }
-                            this.state = 1257;
+                            this.state = 1258;
                             this.errorHandler.sync(this);
                             alternative = this.interpreter.adaptivePredict(this.tokenStream, 177, this.context);
                         }
                         }
-                        this.state = 1258;
+                        this.state = 1259;
                         (localContext as BitAndExpressionContext)._right = this.singleExpression(17);
                         }
                         break;
@@ -5318,13 +5331,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new BitXOrExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as BitXOrExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1259;
+                        this.state = 1260;
                         if (!(this.precpred(this.context, 15))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 15)");
                         }
-                        this.state = 1260;
-                        (localContext as BitXOrExpressionContext)._op = this.match(AutoHotkeyParser.BitXOr);
                         this.state = 1261;
+                        (localContext as BitXOrExpressionContext)._op = this.match(AutoHotkeyParser.BitXOr);
+                        this.state = 1262;
                         (localContext as BitXOrExpressionContext)._right = this.singleExpression(16);
                         }
                         break;
@@ -5333,13 +5346,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new BitOrExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as BitOrExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1262;
+                        this.state = 1263;
                         if (!(this.precpred(this.context, 14))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 14)");
                         }
-                        this.state = 1263;
-                        (localContext as BitOrExpressionContext)._op = this.match(AutoHotkeyParser.BitOr);
                         this.state = 1264;
+                        (localContext as BitOrExpressionContext)._op = this.match(AutoHotkeyParser.BitOr);
+                        this.state = 1265;
                         (localContext as BitOrExpressionContext)._right = this.singleExpression(15);
                         }
                         break;
@@ -5348,22 +5361,22 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new ConcatenateExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as ConcatenateExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1265;
+                        this.state = 1266;
                         if (!(this.precpred(this.context, 13))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 13)");
                         }
-                        this.state = 1272;
+                        this.state = 1273;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.ConcatDot:
                             {
-                            this.state = 1266;
+                            this.state = 1267;
                             this.match(AutoHotkeyParser.ConcatDot);
                             }
                             break;
                         case AutoHotkeyParser.WS:
                             {
-                            this.state = 1268;
+                            this.state = 1269;
                             this.errorHandler.sync(this);
                             alternative = 1;
                             do {
@@ -5371,7 +5384,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 case 1:
                                     {
                                     {
-                                    this.state = 1267;
+                                    this.state = 1268;
                                     this.match(AutoHotkeyParser.WS);
                                     }
                                     }
@@ -5379,7 +5392,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 default:
                                     throw new antlr.NoViableAltException(this);
                                 }
-                                this.state = 1270;
+                                this.state = 1271;
                                 this.errorHandler.sync(this);
                                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 178, this.context);
                             } while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER);
@@ -5388,7 +5401,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         default:
                             throw new antlr.NoViableAltException(this);
                         }
-                        this.state = 1274;
+                        this.state = 1275;
                         (localContext as ConcatenateExpressionContext)._right = this.singleExpression(14);
                         }
                         break;
@@ -5397,13 +5410,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new RegExMatchExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as RegExMatchExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1275;
+                        this.state = 1276;
                         if (!(this.precpred(this.context, 12))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 12)");
                         }
-                        this.state = 1276;
-                        (localContext as RegExMatchExpressionContext)._op = this.match(AutoHotkeyParser.RegExMatch);
                         this.state = 1277;
+                        (localContext as RegExMatchExpressionContext)._op = this.match(AutoHotkeyParser.RegExMatch);
+                        this.state = 1278;
                         (localContext as RegExMatchExpressionContext)._right = this.singleExpression(13);
                         }
                         break;
@@ -5412,11 +5425,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new RelationalExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as RelationalExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1278;
+                        this.state = 1279;
                         if (!(this.precpred(this.context, 11))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 11)");
                         }
-                        this.state = 1279;
+                        this.state = 1280;
                         (localContext as RelationalExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!(((((_la - 38)) & ~0x1F) === 0 && ((1 << (_la - 38)) & 15) !== 0))) {
@@ -5426,7 +5439,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             this.errorHandler.reportMatch(this);
                             this.consume();
                         }
-                        this.state = 1280;
+                        this.state = 1281;
                         (localContext as RelationalExpressionContext)._right = this.singleExpression(12);
                         }
                         break;
@@ -5435,11 +5448,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new EqualityExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as EqualityExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1281;
+                        this.state = 1282;
                         if (!(this.precpred(this.context, 10))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 10)");
                         }
-                        this.state = 1282;
+                        this.state = 1283;
                         (localContext as EqualityExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!(((((_la - 42)) & ~0x1F) === 0 && ((1 << (_la - 42)) & 15) !== 0))) {
@@ -5449,7 +5462,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             this.errorHandler.reportMatch(this);
                             this.consume();
                         }
-                        this.state = 1283;
+                        this.state = 1284;
                         (localContext as EqualityExpressionContext)._right = this.singleExpression(11);
                         }
                         break;
@@ -5458,29 +5471,29 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new LogicalAndExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as LogicalAndExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1284;
+                        this.state = 1285;
                         if (!(this.precpred(this.context, 7))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 7)");
                         }
-                        this.state = 1287;
+                        this.state = 1288;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.And:
                             {
-                            this.state = 1285;
+                            this.state = 1286;
                             (localContext as LogicalAndExpressionContext)._op = this.match(AutoHotkeyParser.And);
                             }
                             break;
                         case AutoHotkeyParser.VerbalAnd:
                             {
-                            this.state = 1286;
+                            this.state = 1287;
                             (localContext as LogicalAndExpressionContext)._op = this.match(AutoHotkeyParser.VerbalAnd);
                             }
                             break;
                         default:
                             throw new antlr.NoViableAltException(this);
                         }
-                        this.state = 1289;
+                        this.state = 1290;
                         (localContext as LogicalAndExpressionContext)._right = this.singleExpression(8);
                         }
                         break;
@@ -5489,29 +5502,29 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new LogicalOrExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as LogicalOrExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1290;
+                        this.state = 1291;
                         if (!(this.precpred(this.context, 6))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 6)");
                         }
-                        this.state = 1293;
+                        this.state = 1294;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.Or:
                             {
-                            this.state = 1291;
+                            this.state = 1292;
                             (localContext as LogicalOrExpressionContext)._op = this.match(AutoHotkeyParser.Or);
                             }
                             break;
                         case AutoHotkeyParser.VerbalOr:
                             {
-                            this.state = 1292;
+                            this.state = 1293;
                             (localContext as LogicalOrExpressionContext)._op = this.match(AutoHotkeyParser.VerbalOr);
                             }
                             break;
                         default:
                             throw new antlr.NoViableAltException(this);
                         }
-                        this.state = 1295;
+                        this.state = 1296;
                         (localContext as LogicalOrExpressionContext)._right = this.singleExpression(7);
                         }
                         break;
@@ -5520,13 +5533,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new CoalesceExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as CoalesceExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1296;
+                        this.state = 1297;
                         if (!(this.precpred(this.context, 5))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 5)");
                         }
-                        this.state = 1297;
-                        (localContext as CoalesceExpressionContext)._op = this.match(AutoHotkeyParser.NullCoalesce);
                         this.state = 1298;
+                        (localContext as CoalesceExpressionContext)._op = this.match(AutoHotkeyParser.NullCoalesce);
+                        this.state = 1299;
                         (localContext as CoalesceExpressionContext)._right = this.singleExpression(5);
                         }
                         break;
@@ -5535,17 +5548,17 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new TernaryExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as TernaryExpressionContext)._ternCond = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1299;
+                        this.state = 1300;
                         if (!(this.precpred(this.context, 4))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 4)");
                         }
-                        this.state = 1303;
+                        this.state = 1304;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1300;
+                            this.state = 1301;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5556,20 +5569,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1305;
+                            this.state = 1306;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1306;
+                        this.state = 1307;
                         this.match(AutoHotkeyParser.QuestionMark);
-                        this.state = 1310;
+                        this.state = 1311;
                         this.errorHandler.sync(this);
                         alternative = this.interpreter.adaptivePredict(this.tokenStream, 183, this.context);
                         while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                             if (alternative === 1) {
                                 {
                                 {
-                                this.state = 1307;
+                                this.state = 1308;
                                 _la = this.tokenStream.LA(1);
                                 if(!(_la === 116 || _la === 117)) {
                                 this.errorHandler.recoverInline(this);
@@ -5581,19 +5594,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 }
                                 }
                             }
-                            this.state = 1312;
+                            this.state = 1313;
                             this.errorHandler.sync(this);
                             alternative = this.interpreter.adaptivePredict(this.tokenStream, 183, this.context);
                         }
-                        this.state = 1313;
+                        this.state = 1314;
                         (localContext as TernaryExpressionContext)._ternTrue = this.singleExpression(0);
-                        this.state = 1317;
+                        this.state = 1318;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1314;
+                            this.state = 1315;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5604,20 +5617,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1319;
+                            this.state = 1320;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1320;
+                        this.state = 1321;
                         this.match(AutoHotkeyParser.Colon);
-                        this.state = 1324;
+                        this.state = 1325;
                         this.errorHandler.sync(this);
                         alternative = this.interpreter.adaptivePredict(this.tokenStream, 185, this.context);
                         while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                             if (alternative === 1) {
                                 {
                                 {
-                                this.state = 1321;
+                                this.state = 1322;
                                 _la = this.tokenStream.LA(1);
                                 if(!(_la === 116 || _la === 117)) {
                                 this.errorHandler.recoverInline(this);
@@ -5629,11 +5642,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                                 }
                                 }
                             }
-                            this.state = 1326;
+                            this.state = 1327;
                             this.errorHandler.sync(this);
                             alternative = this.interpreter.adaptivePredict(this.tokenStream, 185, this.context);
                         }
-                        this.state = 1327;
+                        this.state = 1328;
                         (localContext as TernaryExpressionContext)._ternFalse = this.singleExpression(4);
                         }
                         break;
@@ -5642,11 +5655,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new PostIncrementDecrementExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as PostIncrementDecrementExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1329;
+                        this.state = 1330;
                         if (!(this.precpred(this.context, 23))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 23)");
                         }
-                        this.state = 1330;
+                        this.state = 1331;
                         (localContext as PostIncrementDecrementExpressionContext)._op = this.tokenStream.LT(1);
                         _la = this.tokenStream.LA(1);
                         if(!(_la === 22 || _la === 23)) {
@@ -5663,18 +5676,18 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         localContext = new IsExpressionContext(new SingleExpressionContext(parentContext, parentState));
                         (localContext as IsExpressionContext)._left = previousContext;
                         this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_singleExpression);
-                        this.state = 1331;
+                        this.state = 1332;
                         if (!(this.precpred(this.context, 9))) {
                             throw this.createFailedPredicateException("this.precpred(this.context, 9)");
                         }
                         {
-                        this.state = 1335;
+                        this.state = 1336;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1332;
+                            this.state = 1333;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5685,19 +5698,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1337;
+                            this.state = 1338;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1338;
+                        this.state = 1339;
                         (localContext as IsExpressionContext)._op = this.match(AutoHotkeyParser.Is);
-                        this.state = 1342;
+                        this.state = 1343;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 116 || _la === 117) {
                             {
                             {
-                            this.state = 1339;
+                            this.state = 1340;
                             _la = this.tokenStream.LA(1);
                             if(!(_la === 116 || _la === 117)) {
                             this.errorHandler.recoverInline(this);
@@ -5708,19 +5721,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                             }
                             }
                             }
-                            this.state = 1344;
+                            this.state = 1345;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
                         }
-                        this.state = 1345;
+                        this.state = 1346;
                         (localContext as IsExpressionContext)._right = this.primaryExpression(0);
                         }
                         break;
                     }
                     }
                 }
-                this.state = 1350;
+                this.state = 1351;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 189, this.context);
             }
@@ -5757,7 +5770,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1363;
+            this.state = 1364;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 190, this.context) ) {
             case 1:
@@ -5766,9 +5779,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 this.context = localContext;
                 previousContext = localContext;
 
-                this.state = 1352;
-                this.match(AutoHotkeyParser.BitAnd);
                 this.state = 1353;
+                this.match(AutoHotkeyParser.BitAnd);
+                this.state = 1354;
                 this.primaryExpression(7);
                 }
                 break;
@@ -5777,7 +5790,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new IdentifierExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1354;
+                this.state = 1355;
                 this.identifier();
                 }
                 break;
@@ -5786,7 +5799,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new DynamicIdentifierExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1355;
+                this.state = 1356;
                 this.dynamicIdentifier();
                 }
                 break;
@@ -5795,7 +5808,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new LiteralExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1356;
+                this.state = 1357;
                 this.literal();
                 }
                 break;
@@ -5804,7 +5817,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new ArrayLiteralExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1357;
+                this.state = 1358;
                 this.arrayLiteral();
                 }
                 break;
@@ -5813,7 +5826,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new ObjectLiteralExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1358;
+                this.state = 1359;
                 this.objectLiteral();
                 }
                 break;
@@ -5822,17 +5835,17 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new ParenthesizedExpressionContext(localContext);
                 this.context = localContext;
                 previousContext = localContext;
-                this.state = 1359;
-                this.match(AutoHotkeyParser.OpenParen);
                 this.state = 1360;
-                this.expressionSequence();
+                this.match(AutoHotkeyParser.OpenParen);
                 this.state = 1361;
+                this.expressionSequence();
+                this.state = 1362;
                 this.match(AutoHotkeyParser.CloseParen);
                 }
                 break;
             }
             this.context!.stop = this.tokenStream.LT(-1);
-            this.state = 1369;
+            this.state = 1370;
             this.errorHandler.sync(this);
             alternative = this.interpreter.adaptivePredict(this.tokenStream, 191, this.context);
             while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
@@ -5845,16 +5858,16 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     {
                     localContext = new AccessExpressionContext(new PrimaryExpressionContext(parentContext, parentState));
                     this.pushNewRecursionContext(localContext, _startState, AutoHotkeyParser.RULE_primaryExpression);
-                    this.state = 1365;
+                    this.state = 1366;
                     if (!(this.precpred(this.context, 8))) {
                         throw this.createFailedPredicateException("this.precpred(this.context, 8)");
                     }
-                    this.state = 1366;
+                    this.state = 1367;
                     this.accessSuffix();
                     }
                     }
                 }
-                this.state = 1371;
+                this.state = 1372;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 191, this.context);
             }
@@ -5878,14 +5891,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 128, AutoHotkeyParser.RULE_accessSuffix);
         let _la: number;
         try {
-            this.state = 1387;
+            this.state = 1388;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 195, this.context) ) {
             case 1:
                 localContext = new MemberAccessContext(localContext);
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1372;
+                this.state = 1373;
                 (localContext as MemberAccessContext)._modifier = this.tokenStream.LT(1);
                 _la = this.tokenStream.LA(1);
                 if(!(_la === 16 || _la === 20)) {
@@ -5895,7 +5908,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     this.errorHandler.reportMatch(this);
                     this.consume();
                 }
-                this.state = 1373;
+                this.state = 1374;
                 this.memberIdentifier();
                 }
                 break;
@@ -5903,17 +5916,17 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new IndexAccessContext(localContext);
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1375;
+                this.state = 1376;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 16) {
                     {
-                    this.state = 1374;
+                    this.state = 1375;
                     (localContext as IndexAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMarkDot);
                     }
                 }
 
-                this.state = 1377;
+                this.state = 1378;
                 this.memberIndexArguments();
                 }
                 break;
@@ -5921,29 +5934,29 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new FunctionCallAccessContext(localContext);
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1379;
+                this.state = 1380;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 16) {
                     {
-                    this.state = 1378;
+                    this.state = 1379;
                     (localContext as FunctionCallAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMarkDot);
                     }
                 }
 
-                this.state = 1381;
+                this.state = 1382;
                 this.match(AutoHotkeyParser.OpenParen);
-                this.state = 1383;
+                this.state = 1384;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 532687490) !== 0) || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 4292870145) !== 0) || ((((_la - 79)) & ~0x1F) === 0 && ((1 << (_la - 79)) & 4294967295) !== 0) || ((((_la - 111)) & ~0x1F) === 0 && ((1 << (_la - 111)) & 127) !== 0)) {
                     {
-                    this.state = 1382;
+                    this.state = 1383;
                     this.arguments();
                     }
                 }
 
-                this.state = 1385;
+                this.state = 1386;
                 this.match(AutoHotkeyParser.CloseParen);
                 }
                 break;
@@ -5951,7 +5964,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new AllowUnsetAccessContext(localContext);
                 this.enterOuterAlt(localContext, 4);
                 {
-                this.state = 1386;
+                this.state = 1387;
                 (localContext as AllowUnsetAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMark);
                 }
                 break;
@@ -5975,19 +5988,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 130, AutoHotkeyParser.RULE_memberDot);
         let _la: number;
         try {
-            this.state = 1415;
+            this.state = 1416;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 200, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1390;
+                this.state = 1391;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 do {
                     {
                     {
-                    this.state = 1389;
+                    this.state = 1390;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -5998,26 +6011,26 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1392;
+                    this.state = 1393;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 } while (_la === 116 || _la === 117);
-                this.state = 1394;
+                this.state = 1395;
                 this.match(AutoHotkeyParser.Dot);
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1395;
+                this.state = 1396;
                 this.match(AutoHotkeyParser.Dot);
-                this.state = 1399;
+                this.state = 1400;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1396;
+                    this.state = 1397;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6028,7 +6041,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1401;
+                    this.state = 1402;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
@@ -6037,13 +6050,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1405;
+                this.state = 1406;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1402;
+                    this.state = 1403;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6054,19 +6067,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1407;
+                    this.state = 1408;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
-                this.state = 1408;
+                this.state = 1409;
                 this.match(AutoHotkeyParser.QuestionMarkDot);
-                this.state = 1412;
+                this.state = 1413;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1409;
+                    this.state = 1410;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6077,7 +6090,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1414;
+                    this.state = 1415;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
@@ -6102,20 +6115,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new MemberIdentifierContext(this.context, this.state);
         this.enterRule(localContext, 132, AutoHotkeyParser.RULE_memberIdentifier);
         try {
-            this.state = 1419;
+            this.state = 1420;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 201, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1417;
+                this.state = 1418;
                 this.propertyName();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1418;
+                this.state = 1419;
                 this.dynamicIdentifier();
                 }
                 break;
@@ -6139,11 +6152,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 134, AutoHotkeyParser.RULE_dynamicIdentifier);
         try {
             let alternative: number;
-            this.state = 1438;
+            this.state = 1439;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.True:
             case AutoHotkeyParser.False:
+            case AutoHotkeyParser.DecimalLiteral:
+            case AutoHotkeyParser.HexIntegerLiteral:
             case AutoHotkeyParser.Break:
             case AutoHotkeyParser.Do:
             case AutoHotkeyParser.Switch:
@@ -6189,21 +6204,23 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.PropertyIdentifier:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1421;
-                this.propertyName();
                 this.state = 1422;
+                this.propertyName();
+                this.state = 1423;
                 this.dereference();
-                this.state = 1427;
+                this.state = 1428;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 203, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
-                        this.state = 1425;
+                        this.state = 1426;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.True:
                         case AutoHotkeyParser.False:
+                        case AutoHotkeyParser.DecimalLiteral:
+                        case AutoHotkeyParser.HexIntegerLiteral:
                         case AutoHotkeyParser.Break:
                         case AutoHotkeyParser.Do:
                         case AutoHotkeyParser.Switch:
@@ -6248,13 +6265,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         case AutoHotkeyParser.Identifier:
                         case AutoHotkeyParser.PropertyIdentifier:
                             {
-                            this.state = 1423;
+                            this.state = 1424;
                             this.propertyName();
                             }
                             break;
                         case AutoHotkeyParser.DerefStart:
                             {
-                            this.state = 1424;
+                            this.state = 1425;
                             this.dereference();
                             }
                             break;
@@ -6263,7 +6280,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         }
                         }
                     }
-                    this.state = 1429;
+                    this.state = 1430;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 203, this.context);
                 }
@@ -6272,19 +6289,21 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.DerefStart:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1430;
+                this.state = 1431;
                 this.dereference();
-                this.state = 1435;
+                this.state = 1436;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 205, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
-                        this.state = 1433;
+                        this.state = 1434;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.True:
                         case AutoHotkeyParser.False:
+                        case AutoHotkeyParser.DecimalLiteral:
+                        case AutoHotkeyParser.HexIntegerLiteral:
                         case AutoHotkeyParser.Break:
                         case AutoHotkeyParser.Do:
                         case AutoHotkeyParser.Switch:
@@ -6329,13 +6348,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         case AutoHotkeyParser.Identifier:
                         case AutoHotkeyParser.PropertyIdentifier:
                             {
-                            this.state = 1431;
+                            this.state = 1432;
                             this.propertyName();
                             }
                             break;
                         case AutoHotkeyParser.DerefStart:
                             {
-                            this.state = 1432;
+                            this.state = 1433;
                             this.dereference();
                             }
                             break;
@@ -6344,7 +6363,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         }
                         }
                     }
-                    this.state = 1437;
+                    this.state = 1438;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 205, this.context);
                 }
@@ -6373,9 +6392,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1440;
-            this.match(AutoHotkeyParser.Assign);
             this.state = 1441;
+            this.match(AutoHotkeyParser.Assign);
+            this.state = 1442;
             this.singleExpression(0);
             }
         }
@@ -6398,7 +6417,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1443;
+            this.state = 1444;
             this.identifier();
             }
         }
@@ -6423,79 +6442,79 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1445;
+            this.state = 1446;
             this.match(AutoHotkeyParser.OpenBrace);
-            this.state = 1449;
+            this.state = 1450;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             while (_la === 116 || _la === 117) {
                 {
                 {
-                this.state = 1446;
+                this.state = 1447;
                 this.s();
                 }
                 }
-                this.state = 1451;
+                this.state = 1452;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
             }
-            this.state = 1472;
+            this.state = 1473;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
-            if (_la === 1 || ((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967283) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 32767) !== 0)) {
+            if (_la === 1 || ((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967295) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 32767) !== 0)) {
                 {
-                this.state = 1452;
+                this.state = 1453;
                 this.propertyAssignment();
-                this.state = 1463;
+                this.state = 1464;
                 this.errorHandler.sync(this);
                 alternative = this.interpreter.adaptivePredict(this.tokenStream, 209, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 1456;
+                        this.state = 1457;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 117) {
                             {
                             {
-                            this.state = 1453;
+                            this.state = 1454;
                             this.match(AutoHotkeyParser.WS);
                             }
                             }
-                            this.state = 1458;
+                            this.state = 1459;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1459;
-                        this.match(AutoHotkeyParser.Comma);
                         this.state = 1460;
+                        this.match(AutoHotkeyParser.Comma);
+                        this.state = 1461;
                         this.propertyAssignment();
                         }
                         }
                     }
-                    this.state = 1465;
+                    this.state = 1466;
                     this.errorHandler.sync(this);
                     alternative = this.interpreter.adaptivePredict(this.tokenStream, 209, this.context);
                 }
-                this.state = 1469;
+                this.state = 1470;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1466;
+                    this.state = 1467;
                     this.s();
                     }
                     }
-                    this.state = 1471;
+                    this.state = 1472;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
                 }
             }
 
-            this.state = 1474;
+            this.state = 1475;
             this.match(AutoHotkeyParser.CloseBrace);
             }
         }
@@ -6519,31 +6538,31 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1477;
+            this.state = 1478;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 212, this.context) ) {
             case 1:
                 {
-                this.state = 1476;
+                this.state = 1477;
                 this.functionHeadPrefix();
                 }
                 break;
             }
-            this.state = 1479;
-            this.identifierName();
             this.state = 1480;
+            this.identifierName();
+            this.state = 1481;
             this.match(AutoHotkeyParser.OpenParen);
-            this.state = 1482;
+            this.state = 1483;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 28 || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 603979777) !== 0) || ((((_la - 84)) & ~0x1F) === 0 && ((1 << (_la - 84)) & 570294351) !== 0)) {
                 {
-                this.state = 1481;
+                this.state = 1482;
                 this.formalParameterList();
                 }
             }
 
-            this.state = 1484;
+            this.state = 1485;
             this.match(AutoHotkeyParser.CloseParen);
             }
         }
@@ -6567,19 +6586,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1486;
+            this.state = 1487;
             this.match(AutoHotkeyParser.Static);
-            this.state = 1490;
+            this.state = 1491;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             while (_la === 117) {
                 {
                 {
-                this.state = 1487;
+                this.state = 1488;
                 this.match(AutoHotkeyParser.WS);
                 }
                 }
-                this.state = 1492;
+                this.state = 1493;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
             }
@@ -6603,42 +6622,42 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 146, AutoHotkeyParser.RULE_functionExpressionHead);
         let _la: number;
         try {
-            this.state = 1502;
+            this.state = 1503;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 217, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1493;
+                this.state = 1494;
                 this.functionHead();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1495;
+                this.state = 1496;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 110) {
                     {
-                    this.state = 1494;
+                    this.state = 1495;
                     this.functionHeadPrefix();
                     }
                 }
 
-                this.state = 1497;
+                this.state = 1498;
                 this.match(AutoHotkeyParser.OpenParen);
-                this.state = 1499;
+                this.state = 1500;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 28 || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 603979777) !== 0) || ((((_la - 84)) & ~0x1F) === 0 && ((1 << (_la - 84)) & 570294351) !== 0)) {
                     {
-                    this.state = 1498;
+                    this.state = 1499;
                     this.formalParameterList();
                     }
                 }
 
-                this.state = 1501;
+                this.state = 1502;
                 this.match(AutoHotkeyParser.CloseParen);
                 }
                 break;
@@ -6662,67 +6681,67 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 148, AutoHotkeyParser.RULE_fatArrowExpressionHead);
         let _la: number;
         try {
-            this.state = 1522;
+            this.state = 1523;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 223, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1508;
+                this.state = 1509;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967283) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 16383) !== 0)) {
                     {
-                    this.state = 1505;
+                    this.state = 1506;
                     this.errorHandler.sync(this);
                     switch (this.interpreter.adaptivePredict(this.tokenStream, 218, this.context) ) {
                     case 1:
                         {
-                        this.state = 1504;
+                        this.state = 1505;
                         this.functionHeadPrefix();
                         }
                         break;
                     }
-                    this.state = 1507;
+                    this.state = 1508;
                     this.identifierName();
                     }
                 }
 
-                this.state = 1510;
+                this.state = 1511;
                 this.match(AutoHotkeyParser.Multiply);
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1512;
+                this.state = 1513;
                 this.errorHandler.sync(this);
                 switch (this.interpreter.adaptivePredict(this.tokenStream, 220, this.context) ) {
                 case 1:
                     {
-                    this.state = 1511;
+                    this.state = 1512;
                     this.functionHeadPrefix();
                     }
                     break;
                 }
-                this.state = 1515;
+                this.state = 1516;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 47) {
                     {
-                    this.state = 1514;
+                    this.state = 1515;
                     this.match(AutoHotkeyParser.BitAnd);
                     }
                 }
 
-                this.state = 1517;
+                this.state = 1518;
                 this.identifierName();
-                this.state = 1519;
+                this.state = 1520;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 15) {
                     {
-                    this.state = 1518;
+                    this.state = 1519;
                     this.match(AutoHotkeyParser.QuestionMark);
                     }
                 }
@@ -6732,7 +6751,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1521;
+                this.state = 1522;
                 this.functionExpressionHead();
                 }
                 break;
@@ -6756,15 +6775,15 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 150, AutoHotkeyParser.RULE_functionBody);
         let _la: number;
         try {
-            this.state = 1533;
+            this.state = 1534;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.Arrow:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1524;
-                this.match(AutoHotkeyParser.Arrow);
                 this.state = 1525;
+                this.match(AutoHotkeyParser.Arrow);
+                this.state = 1526;
                 this.singleExpression(0);
                 }
                 break;
@@ -6773,13 +6792,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.WS:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1529;
+                this.state = 1530;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1526;
+                    this.state = 1527;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6790,11 +6809,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1531;
+                    this.state = 1532;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
-                this.state = 1532;
+                this.state = 1533;
                 this.block();
                 }
                 break;
@@ -6822,7 +6841,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1535;
+            this.state = 1536;
             _la = this.tokenStream.LA(1);
             if(!(_la === 14 || ((((_la - 52)) & ~0x1F) === 0 && ((1 << (_la - 52)) & 32767) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -6851,14 +6870,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 154, AutoHotkeyParser.RULE_literal);
         let _la: number;
         try {
-            this.state = 1540;
+            this.state = 1541;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.True:
             case AutoHotkeyParser.False:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1537;
+                this.state = 1538;
                 this.boolean_();
                 }
                 break;
@@ -6866,7 +6885,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.HexIntegerLiteral:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1538;
+                this.state = 1539;
                 this.numericLiteral();
                 }
                 break;
@@ -6874,7 +6893,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.StringLiteral:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1539;
+                this.state = 1540;
                 _la = this.tokenStream.LA(1);
                 if(!(_la === 109 || _la === 115)) {
                 this.errorHandler.recoverInline(this);
@@ -6909,7 +6928,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1542;
+            this.state = 1543;
             _la = this.tokenStream.LA(1);
             if(!(_la === 68 || _la === 69)) {
             this.errorHandler.recoverInline(this);
@@ -6940,7 +6959,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1544;
+            this.state = 1545;
             _la = this.tokenStream.LA(1);
             if(!(_la === 70 || _la === 71)) {
             this.errorHandler.recoverInline(this);
@@ -6970,9 +6989,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1546;
-            this.match(AutoHotkeyParser.Get);
             this.state = 1547;
+            this.match(AutoHotkeyParser.Get);
+            this.state = 1548;
             this.propertyName();
             }
         }
@@ -6995,9 +7014,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1549;
-            this.match(AutoHotkeyParser.Set);
             this.state = 1550;
+            this.match(AutoHotkeyParser.Set);
+            this.state = 1551;
             this.propertyName();
             }
         }
@@ -7018,20 +7037,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new IdentifierNameContext(this.context, this.state);
         this.enterRule(localContext, 164, AutoHotkeyParser.RULE_identifierName);
         try {
-            this.state = 1554;
+            this.state = 1555;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 227, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1552;
+                this.state = 1553;
                 this.identifier();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1553;
+                this.state = 1554;
                 this.reservedWord();
                 }
                 break;
@@ -7057,7 +7076,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1556;
+            this.state = 1557;
             _la = this.tokenStream.LA(1);
             if(!(((((_la - 73)) & ~0x1F) === 0 && ((1 << (_la - 73)) & 4026693641) !== 0) || ((((_la - 105)) & ~0x1F) === 0 && ((1 << (_la - 105)) & 271) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -7085,27 +7104,27 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new ReservedWordContext(this.context, this.state);
         this.enterRule(localContext, 168, AutoHotkeyParser.RULE_reservedWord);
         try {
-            this.state = 1561;
+            this.state = 1562;
             this.errorHandler.sync(this);
             switch (this.interpreter.adaptivePredict(this.tokenStream, 228, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1558;
+                this.state = 1559;
                 this.keyword();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1559;
+                this.state = 1560;
                 this.match(AutoHotkeyParser.Unset);
                 }
                 break;
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1560;
+                this.state = 1561;
                 this.boolean_();
                 }
                 break;
@@ -7131,7 +7150,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1563;
+            this.state = 1564;
             _la = this.tokenStream.LA(1);
             if(!(((((_la - 72)) & ~0x1F) === 0 && ((1 << (_la - 72)) & 536547309) !== 0) || ((((_la - 106)) & ~0x1F) === 0 && ((1 << (_la - 106)) & 125) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -7162,7 +7181,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1565;
+            this.state = 1566;
             _la = this.tokenStream.LA(1);
             if(!(_la === 116 || _la === 117)) {
             this.errorHandler.recoverInline(this);
@@ -7193,7 +7212,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1567;
+            this.state = 1568;
             _la = this.tokenStream.LA(1);
             if(!(_la === -1 || _la === 116)) {
             this.errorHandler.recoverInline(this);
@@ -7293,7 +7312,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
     }
 
     public static readonly _serializedATN: number[] = [
-        4,1,153,1570,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,
+        4,1,153,1571,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,
         7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,
         13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,
         20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,
@@ -7394,51 +7413,51 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         5,54,1076,8,54,10,54,12,54,1079,9,54,1,54,1,54,5,54,1083,8,54,10,
         54,12,54,1086,9,54,3,54,1088,8,54,1,54,1,54,1,55,1,55,5,55,1094,
         8,55,10,55,12,55,1097,9,55,1,55,1,55,5,55,1101,8,55,10,55,12,55,
-        1104,9,55,1,55,1,55,1,56,1,56,1,56,3,56,1111,8,56,1,57,1,57,1,57,
-        1,57,1,58,1,58,5,58,1119,8,58,10,58,12,58,1122,9,58,1,58,1,58,3,
-        58,1126,8,58,5,58,1128,8,58,10,58,12,58,1131,9,58,1,58,5,58,1134,
-        8,58,10,58,12,58,1137,9,58,1,58,1,58,3,58,1141,8,58,4,58,1143,8,
-        58,11,58,12,58,1144,3,58,1147,8,58,1,59,1,59,3,59,1151,8,59,1,60,
-        1,60,5,60,1155,8,60,10,60,12,60,1158,9,60,1,60,1,60,5,60,1162,8,
-        60,10,60,12,60,1165,9,60,1,61,1,61,5,61,1169,8,61,10,61,12,61,1172,
-        9,61,1,61,1,61,5,61,1176,8,61,10,61,12,61,1179,9,61,3,61,1181,8,
-        61,1,61,1,61,1,62,1,62,1,62,1,62,5,62,1189,8,62,10,62,12,62,1192,
-        9,62,1,62,1,62,1,62,1,62,5,62,1198,8,62,10,62,12,62,1201,9,62,1,
-        62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,3,62,1213,8,62,1,
-        62,1,62,1,62,1,62,1,62,1,62,5,62,1221,8,62,10,62,12,62,1224,9,62,
-        1,62,1,62,1,62,5,62,1229,8,62,10,62,12,62,1232,9,62,1,62,1,62,5,
-        62,1236,8,62,10,62,12,62,1239,9,62,1,62,1,62,1,62,1,62,1,62,1,62,
-        5,62,1247,8,62,10,62,12,62,1250,9,62,1,62,1,62,5,62,1254,8,62,10,
-        62,12,62,1257,9,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,
-        1,62,4,62,1269,8,62,11,62,12,62,1270,3,62,1273,8,62,1,62,1,62,1,
-        62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,3,62,1288,8,
-        62,1,62,1,62,1,62,1,62,3,62,1294,8,62,1,62,1,62,1,62,1,62,1,62,1,
-        62,5,62,1302,8,62,10,62,12,62,1305,9,62,1,62,1,62,5,62,1309,8,62,
-        10,62,12,62,1312,9,62,1,62,1,62,5,62,1316,8,62,10,62,12,62,1319,
-        9,62,1,62,1,62,5,62,1323,8,62,10,62,12,62,1326,9,62,1,62,1,62,1,
-        62,1,62,1,62,1,62,5,62,1334,8,62,10,62,12,62,1337,9,62,1,62,1,62,
-        5,62,1341,8,62,10,62,12,62,1344,9,62,1,62,5,62,1347,8,62,10,62,12,
-        62,1350,9,62,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,
-        63,1,63,3,63,1364,8,63,1,63,1,63,5,63,1368,8,63,10,63,12,63,1371,
-        9,63,1,64,1,64,1,64,3,64,1376,8,64,1,64,1,64,3,64,1380,8,64,1,64,
-        1,64,3,64,1384,8,64,1,64,1,64,3,64,1388,8,64,1,65,4,65,1391,8,65,
-        11,65,12,65,1392,1,65,1,65,1,65,5,65,1398,8,65,10,65,12,65,1401,
-        9,65,1,65,5,65,1404,8,65,10,65,12,65,1407,9,65,1,65,1,65,5,65,1411,
-        8,65,10,65,12,65,1414,9,65,3,65,1416,8,65,1,66,1,66,3,66,1420,8,
-        66,1,67,1,67,1,67,1,67,5,67,1426,8,67,10,67,12,67,1429,9,67,1,67,
-        1,67,1,67,5,67,1434,8,67,10,67,12,67,1437,9,67,3,67,1439,8,67,1,
-        68,1,68,1,68,1,69,1,69,1,70,1,70,5,70,1448,8,70,10,70,12,70,1451,
-        9,70,1,70,1,70,5,70,1455,8,70,10,70,12,70,1458,9,70,1,70,1,70,5,
-        70,1462,8,70,10,70,12,70,1465,9,70,1,70,5,70,1468,8,70,10,70,12,
-        70,1471,9,70,3,70,1473,8,70,1,70,1,70,1,71,3,71,1478,8,71,1,71,1,
-        71,1,71,3,71,1483,8,71,1,71,1,71,1,72,1,72,5,72,1489,8,72,10,72,
-        12,72,1492,9,72,1,73,1,73,3,73,1496,8,73,1,73,1,73,3,73,1500,8,73,
-        1,73,3,73,1503,8,73,1,74,3,74,1506,8,74,1,74,3,74,1509,8,74,1,74,
-        1,74,3,74,1513,8,74,1,74,3,74,1516,8,74,1,74,1,74,3,74,1520,8,74,
-        1,74,3,74,1523,8,74,1,75,1,75,1,75,5,75,1528,8,75,10,75,12,75,1531,
-        9,75,1,75,3,75,1534,8,75,1,76,1,76,1,77,1,77,1,77,3,77,1541,8,77,
+        1104,9,55,1,55,1,55,1,56,1,56,1,56,1,56,3,56,1112,8,56,1,57,1,57,
+        1,57,1,57,1,58,1,58,5,58,1120,8,58,10,58,12,58,1123,9,58,1,58,1,
+        58,3,58,1127,8,58,5,58,1129,8,58,10,58,12,58,1132,9,58,1,58,5,58,
+        1135,8,58,10,58,12,58,1138,9,58,1,58,1,58,3,58,1142,8,58,4,58,1144,
+        8,58,11,58,12,58,1145,3,58,1148,8,58,1,59,1,59,3,59,1152,8,59,1,
+        60,1,60,5,60,1156,8,60,10,60,12,60,1159,9,60,1,60,1,60,5,60,1163,
+        8,60,10,60,12,60,1166,9,60,1,61,1,61,5,61,1170,8,61,10,61,12,61,
+        1173,9,61,1,61,1,61,5,61,1177,8,61,10,61,12,61,1180,9,61,3,61,1182,
+        8,61,1,61,1,61,1,62,1,62,1,62,1,62,5,62,1190,8,62,10,62,12,62,1193,
+        9,62,1,62,1,62,1,62,1,62,5,62,1199,8,62,10,62,12,62,1202,9,62,1,
+        62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,3,62,1214,8,62,1,
+        62,1,62,1,62,1,62,1,62,1,62,5,62,1222,8,62,10,62,12,62,1225,9,62,
+        1,62,1,62,1,62,5,62,1230,8,62,10,62,12,62,1233,9,62,1,62,1,62,5,
+        62,1237,8,62,10,62,12,62,1240,9,62,1,62,1,62,1,62,1,62,1,62,1,62,
+        5,62,1248,8,62,10,62,12,62,1251,9,62,1,62,1,62,5,62,1255,8,62,10,
+        62,12,62,1258,9,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,
+        1,62,4,62,1270,8,62,11,62,12,62,1271,3,62,1274,8,62,1,62,1,62,1,
+        62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,1,62,3,62,1289,8,
+        62,1,62,1,62,1,62,1,62,3,62,1295,8,62,1,62,1,62,1,62,1,62,1,62,1,
+        62,5,62,1303,8,62,10,62,12,62,1306,9,62,1,62,1,62,5,62,1310,8,62,
+        10,62,12,62,1313,9,62,1,62,1,62,5,62,1317,8,62,10,62,12,62,1320,
+        9,62,1,62,1,62,5,62,1324,8,62,10,62,12,62,1327,9,62,1,62,1,62,1,
+        62,1,62,1,62,1,62,5,62,1335,8,62,10,62,12,62,1338,9,62,1,62,1,62,
+        5,62,1342,8,62,10,62,12,62,1345,9,62,1,62,5,62,1348,8,62,10,62,12,
+        62,1351,9,62,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,
+        63,1,63,3,63,1365,8,63,1,63,1,63,5,63,1369,8,63,10,63,12,63,1372,
+        9,63,1,64,1,64,1,64,3,64,1377,8,64,1,64,1,64,3,64,1381,8,64,1,64,
+        1,64,3,64,1385,8,64,1,64,1,64,3,64,1389,8,64,1,65,4,65,1392,8,65,
+        11,65,12,65,1393,1,65,1,65,1,65,5,65,1399,8,65,10,65,12,65,1402,
+        9,65,1,65,5,65,1405,8,65,10,65,12,65,1408,9,65,1,65,1,65,5,65,1412,
+        8,65,10,65,12,65,1415,9,65,3,65,1417,8,65,1,66,1,66,3,66,1421,8,
+        66,1,67,1,67,1,67,1,67,5,67,1427,8,67,10,67,12,67,1430,9,67,1,67,
+        1,67,1,67,5,67,1435,8,67,10,67,12,67,1438,9,67,3,67,1440,8,67,1,
+        68,1,68,1,68,1,69,1,69,1,70,1,70,5,70,1449,8,70,10,70,12,70,1452,
+        9,70,1,70,1,70,5,70,1456,8,70,10,70,12,70,1459,9,70,1,70,1,70,5,
+        70,1463,8,70,10,70,12,70,1466,9,70,1,70,5,70,1469,8,70,10,70,12,
+        70,1472,9,70,3,70,1474,8,70,1,70,1,70,1,71,3,71,1479,8,71,1,71,1,
+        71,1,71,3,71,1484,8,71,1,71,1,71,1,72,1,72,5,72,1490,8,72,10,72,
+        12,72,1493,9,72,1,73,1,73,3,73,1497,8,73,1,73,1,73,3,73,1501,8,73,
+        1,73,3,73,1504,8,73,1,74,3,74,1507,8,74,1,74,3,74,1510,8,74,1,74,
+        1,74,3,74,1514,8,74,1,74,3,74,1517,8,74,1,74,1,74,3,74,1521,8,74,
+        1,74,3,74,1524,8,74,1,75,1,75,1,75,5,75,1529,8,75,10,75,12,75,1532,
+        9,75,1,75,3,75,1535,8,75,1,76,1,76,1,77,1,77,1,77,3,77,1542,8,77,
         1,78,1,78,1,79,1,79,1,80,1,80,1,80,1,81,1,81,1,81,1,82,1,82,3,82,
-        1555,8,82,1,83,1,83,1,84,1,84,1,84,3,84,1562,8,84,1,85,1,85,1,86,
+        1556,8,82,1,83,1,83,1,84,1,84,1,84,3,84,1563,8,84,1,85,1,85,1,86,
         1,86,1,87,1,87,1,87,0,2,124,126,88,0,2,4,6,8,10,12,14,16,18,20,22,
         24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,
         68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,
@@ -7450,7 +7469,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         25,1,0,35,37,1,0,38,41,1,0,42,45,2,0,16,16,20,20,2,0,14,14,52,66,
         2,0,109,109,115,115,1,0,68,69,1,0,70,71,6,0,73,73,76,76,84,87,90,
         90,101,108,113,113,7,0,72,72,74,75,77,83,88,89,91,100,106,106,108,
-        112,1,1,116,116,1780,0,180,1,0,0,0,2,187,1,0,0,0,4,197,1,0,0,0,6,
+        112,1,1,116,116,1782,0,180,1,0,0,0,2,187,1,0,0,0,4,197,1,0,0,0,6,
         199,1,0,0,0,8,229,1,0,0,0,10,244,1,0,0,0,12,246,1,0,0,0,14,248,1,
         0,0,0,16,273,1,0,0,0,18,275,1,0,0,0,20,309,1,0,0,0,22,311,1,0,0,
         0,24,313,1,0,0,0,26,328,1,0,0,0,28,332,1,0,0,0,30,344,1,0,0,0,32,
@@ -7463,15 +7482,15 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         84,921,1,0,0,0,86,929,1,0,0,0,88,976,1,0,0,0,90,978,1,0,0,0,92,1006,
         1,0,0,0,94,1022,1,0,0,0,96,1024,1,0,0,0,98,1027,1,0,0,0,100,1030,
         1,0,0,0,102,1052,1,0,0,0,104,1058,1,0,0,0,106,1071,1,0,0,0,108,1073,
-        1,0,0,0,110,1091,1,0,0,0,112,1110,1,0,0,0,114,1112,1,0,0,0,116,1146,
-        1,0,0,0,118,1148,1,0,0,0,120,1152,1,0,0,0,122,1166,1,0,0,0,124,1212,
-        1,0,0,0,126,1363,1,0,0,0,128,1387,1,0,0,0,130,1415,1,0,0,0,132,1419,
-        1,0,0,0,134,1438,1,0,0,0,136,1440,1,0,0,0,138,1443,1,0,0,0,140,1445,
-        1,0,0,0,142,1477,1,0,0,0,144,1486,1,0,0,0,146,1502,1,0,0,0,148,1522,
-        1,0,0,0,150,1533,1,0,0,0,152,1535,1,0,0,0,154,1540,1,0,0,0,156,1542,
-        1,0,0,0,158,1544,1,0,0,0,160,1546,1,0,0,0,162,1549,1,0,0,0,164,1554,
-        1,0,0,0,166,1556,1,0,0,0,168,1561,1,0,0,0,170,1563,1,0,0,0,172,1565,
-        1,0,0,0,174,1567,1,0,0,0,176,177,3,2,1,0,177,178,5,0,0,1,178,181,
+        1,0,0,0,110,1091,1,0,0,0,112,1111,1,0,0,0,114,1113,1,0,0,0,116,1147,
+        1,0,0,0,118,1149,1,0,0,0,120,1153,1,0,0,0,122,1167,1,0,0,0,124,1213,
+        1,0,0,0,126,1364,1,0,0,0,128,1388,1,0,0,0,130,1416,1,0,0,0,132,1420,
+        1,0,0,0,134,1439,1,0,0,0,136,1441,1,0,0,0,138,1444,1,0,0,0,140,1446,
+        1,0,0,0,142,1478,1,0,0,0,144,1487,1,0,0,0,146,1503,1,0,0,0,148,1523,
+        1,0,0,0,150,1534,1,0,0,0,152,1536,1,0,0,0,154,1541,1,0,0,0,156,1543,
+        1,0,0,0,158,1545,1,0,0,0,160,1547,1,0,0,0,162,1550,1,0,0,0,164,1555,
+        1,0,0,0,166,1557,1,0,0,0,168,1562,1,0,0,0,170,1564,1,0,0,0,172,1566,
+        1,0,0,0,174,1568,1,0,0,0,176,177,3,2,1,0,177,178,5,0,0,1,178,181,
         1,0,0,0,179,181,5,0,0,1,180,176,1,0,0,0,180,179,1,0,0,0,181,1,1,
         0,0,0,182,183,3,4,2,0,183,184,3,174,87,0,184,188,1,0,0,0,185,188,
         5,117,0,0,186,188,5,116,0,0,187,182,1,0,0,0,187,185,1,0,0,0,187,
@@ -7761,168 +7780,169 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         1096,1,0,0,0,1096,1098,1,0,0,0,1097,1095,1,0,0,0,1098,1102,5,17,
         0,0,1099,1101,7,9,0,0,1100,1099,1,0,0,0,1101,1104,1,0,0,0,1102,1100,
         1,0,0,0,1102,1103,1,0,0,0,1103,1105,1,0,0,0,1104,1102,1,0,0,0,1105,
-        1106,3,124,62,0,1106,111,1,0,0,0,1107,1111,3,166,83,0,1108,1111,
-        5,114,0,0,1109,1111,3,168,84,0,1110,1107,1,0,0,0,1110,1108,1,0,0,
-        0,1110,1109,1,0,0,0,1111,113,1,0,0,0,1112,1113,5,1,0,0,1113,1114,
-        3,124,62,0,1114,1115,5,2,0,0,1115,115,1,0,0,0,1116,1129,3,118,59,
-        0,1117,1119,5,117,0,0,1118,1117,1,0,0,0,1119,1122,1,0,0,0,1120,1118,
-        1,0,0,0,1120,1121,1,0,0,0,1121,1123,1,0,0,0,1122,1120,1,0,0,0,1123,
-        1125,5,13,0,0,1124,1126,3,118,59,0,1125,1124,1,0,0,0,1125,1126,1,
-        0,0,0,1126,1128,1,0,0,0,1127,1120,1,0,0,0,1128,1131,1,0,0,0,1129,
-        1127,1,0,0,0,1129,1130,1,0,0,0,1130,1147,1,0,0,0,1131,1129,1,0,0,
-        0,1132,1134,5,117,0,0,1133,1132,1,0,0,0,1134,1137,1,0,0,0,1135,1133,
-        1,0,0,0,1135,1136,1,0,0,0,1136,1138,1,0,0,0,1137,1135,1,0,0,0,1138,
-        1140,5,13,0,0,1139,1141,3,118,59,0,1140,1139,1,0,0,0,1140,1141,1,
-        0,0,0,1141,1143,1,0,0,0,1142,1135,1,0,0,0,1143,1144,1,0,0,0,1144,
-        1142,1,0,0,0,1144,1145,1,0,0,0,1145,1147,1,0,0,0,1146,1116,1,0,0,
-        0,1146,1142,1,0,0,0,1147,117,1,0,0,0,1148,1150,3,124,62,0,1149,1151,
-        7,10,0,0,1150,1149,1,0,0,0,1150,1151,1,0,0,0,1151,119,1,0,0,0,1152,
-        1163,3,124,62,0,1153,1155,5,117,0,0,1154,1153,1,0,0,0,1155,1158,
-        1,0,0,0,1156,1154,1,0,0,0,1156,1157,1,0,0,0,1157,1159,1,0,0,0,1158,
-        1156,1,0,0,0,1159,1160,5,13,0,0,1160,1162,3,124,62,0,1161,1156,1,
-        0,0,0,1162,1165,1,0,0,0,1163,1161,1,0,0,0,1163,1164,1,0,0,0,1164,
-        121,1,0,0,0,1165,1163,1,0,0,0,1166,1170,5,7,0,0,1167,1169,3,172,
-        86,0,1168,1167,1,0,0,0,1169,1172,1,0,0,0,1170,1168,1,0,0,0,1170,
-        1171,1,0,0,0,1171,1180,1,0,0,0,1172,1170,1,0,0,0,1173,1177,3,116,
-        58,0,1174,1176,3,172,86,0,1175,1174,1,0,0,0,1176,1179,1,0,0,0,1177,
-        1175,1,0,0,0,1177,1178,1,0,0,0,1178,1181,1,0,0,0,1179,1177,1,0,0,
-        0,1180,1173,1,0,0,0,1180,1181,1,0,0,0,1181,1182,1,0,0,0,1182,1183,
-        5,8,0,0,1183,123,1,0,0,0,1184,1185,6,62,-1,0,1185,1186,7,7,0,0,1186,
-        1213,3,124,62,22,1187,1189,7,9,0,0,1188,1187,1,0,0,0,1189,1192,1,
-        0,0,0,1190,1188,1,0,0,0,1190,1191,1,0,0,0,1191,1193,1,0,0,0,1192,
-        1190,1,0,0,0,1193,1194,7,11,0,0,1194,1213,3,124,62,20,1195,1199,
-        5,98,0,0,1196,1198,5,117,0,0,1197,1196,1,0,0,0,1198,1201,1,0,0,0,
-        1199,1197,1,0,0,0,1199,1200,1,0,0,0,1200,1202,1,0,0,0,1201,1199,
-        1,0,0,0,1202,1213,3,124,62,8,1203,1204,3,126,63,0,1204,1205,3,152,
-        76,0,1205,1206,3,124,62,3,1206,1213,1,0,0,0,1207,1208,3,148,74,0,
-        1208,1209,5,67,0,0,1209,1210,3,124,62,2,1210,1213,1,0,0,0,1211,1213,
-        3,126,63,0,1212,1184,1,0,0,0,1212,1190,1,0,0,0,1212,1195,1,0,0,0,
-        1212,1203,1,0,0,0,1212,1207,1,0,0,0,1212,1211,1,0,0,0,1213,1348,
-        1,0,0,0,1214,1215,10,21,0,0,1215,1216,5,32,0,0,1216,1347,3,124,62,
-        21,1217,1218,10,19,0,0,1218,1222,7,12,0,0,1219,1221,7,9,0,0,1220,
-        1219,1,0,0,0,1221,1224,1,0,0,0,1222,1220,1,0,0,0,1222,1223,1,0,0,
-        0,1223,1225,1,0,0,0,1224,1222,1,0,0,0,1225,1347,3,124,62,20,1226,
-        1230,10,18,0,0,1227,1229,7,9,0,0,1228,1227,1,0,0,0,1229,1232,1,0,
-        0,0,1230,1228,1,0,0,0,1230,1231,1,0,0,0,1231,1233,1,0,0,0,1232,1230,
-        1,0,0,0,1233,1237,7,13,0,0,1234,1236,7,9,0,0,1235,1234,1,0,0,0,1236,
-        1239,1,0,0,0,1237,1235,1,0,0,0,1237,1238,1,0,0,0,1238,1240,1,0,0,
-        0,1239,1237,1,0,0,0,1240,1347,3,124,62,19,1241,1242,10,17,0,0,1242,
-        1243,7,14,0,0,1243,1347,3,124,62,18,1244,1248,10,16,0,0,1245,1247,
-        7,9,0,0,1246,1245,1,0,0,0,1247,1250,1,0,0,0,1248,1246,1,0,0,0,1248,
-        1249,1,0,0,0,1249,1251,1,0,0,0,1250,1248,1,0,0,0,1251,1255,5,47,
-        0,0,1252,1254,7,9,0,0,1253,1252,1,0,0,0,1254,1257,1,0,0,0,1255,1253,
-        1,0,0,0,1255,1256,1,0,0,0,1256,1258,1,0,0,0,1257,1255,1,0,0,0,1258,
-        1347,3,124,62,17,1259,1260,10,15,0,0,1260,1261,5,48,0,0,1261,1347,
-        3,124,62,16,1262,1263,10,14,0,0,1263,1264,5,49,0,0,1264,1347,3,124,
-        62,15,1265,1272,10,13,0,0,1266,1273,5,21,0,0,1267,1269,5,117,0,0,
-        1268,1267,1,0,0,0,1269,1270,1,0,0,0,1270,1268,1,0,0,0,1270,1271,
-        1,0,0,0,1271,1273,1,0,0,0,1272,1266,1,0,0,0,1272,1268,1,0,0,0,1273,
-        1274,1,0,0,0,1274,1347,3,124,62,14,1275,1276,10,12,0,0,1276,1277,
-        5,46,0,0,1277,1347,3,124,62,13,1278,1279,10,11,0,0,1279,1280,7,15,
-        0,0,1280,1347,3,124,62,12,1281,1282,10,10,0,0,1282,1283,7,16,0,0,
-        1283,1347,3,124,62,11,1284,1287,10,7,0,0,1285,1288,5,50,0,0,1286,
-        1288,5,97,0,0,1287,1285,1,0,0,0,1287,1286,1,0,0,0,1288,1289,1,0,
-        0,0,1289,1347,3,124,62,8,1290,1293,10,6,0,0,1291,1294,5,51,0,0,1292,
-        1294,5,99,0,0,1293,1291,1,0,0,0,1293,1292,1,0,0,0,1294,1295,1,0,
-        0,0,1295,1347,3,124,62,7,1296,1297,10,5,0,0,1297,1298,5,33,0,0,1298,
-        1347,3,124,62,5,1299,1303,10,4,0,0,1300,1302,7,9,0,0,1301,1300,1,
-        0,0,0,1302,1305,1,0,0,0,1303,1301,1,0,0,0,1303,1304,1,0,0,0,1304,
-        1306,1,0,0,0,1305,1303,1,0,0,0,1306,1310,5,15,0,0,1307,1309,7,9,
-        0,0,1308,1307,1,0,0,0,1309,1312,1,0,0,0,1310,1308,1,0,0,0,1310,1311,
-        1,0,0,0,1311,1313,1,0,0,0,1312,1310,1,0,0,0,1313,1317,3,124,62,0,
-        1314,1316,7,9,0,0,1315,1314,1,0,0,0,1316,1319,1,0,0,0,1317,1315,
-        1,0,0,0,1317,1318,1,0,0,0,1318,1320,1,0,0,0,1319,1317,1,0,0,0,1320,
-        1324,5,17,0,0,1321,1323,7,9,0,0,1322,1321,1,0,0,0,1323,1326,1,0,
-        0,0,1324,1322,1,0,0,0,1324,1325,1,0,0,0,1325,1327,1,0,0,0,1326,1324,
-        1,0,0,0,1327,1328,3,124,62,4,1328,1347,1,0,0,0,1329,1330,10,23,0,
-        0,1330,1347,7,7,0,0,1331,1335,10,9,0,0,1332,1334,7,9,0,0,1333,1332,
-        1,0,0,0,1334,1337,1,0,0,0,1335,1333,1,0,0,0,1335,1336,1,0,0,0,1336,
-        1338,1,0,0,0,1337,1335,1,0,0,0,1338,1342,5,95,0,0,1339,1341,7,9,
-        0,0,1340,1339,1,0,0,0,1341,1344,1,0,0,0,1342,1340,1,0,0,0,1342,1343,
-        1,0,0,0,1343,1345,1,0,0,0,1344,1342,1,0,0,0,1345,1347,3,126,63,0,
-        1346,1214,1,0,0,0,1346,1217,1,0,0,0,1346,1226,1,0,0,0,1346,1241,
-        1,0,0,0,1346,1244,1,0,0,0,1346,1259,1,0,0,0,1346,1262,1,0,0,0,1346,
-        1265,1,0,0,0,1346,1275,1,0,0,0,1346,1278,1,0,0,0,1346,1281,1,0,0,
-        0,1346,1284,1,0,0,0,1346,1290,1,0,0,0,1346,1296,1,0,0,0,1346,1299,
-        1,0,0,0,1346,1329,1,0,0,0,1346,1331,1,0,0,0,1347,1350,1,0,0,0,1348,
-        1346,1,0,0,0,1348,1349,1,0,0,0,1349,125,1,0,0,0,1350,1348,1,0,0,
-        0,1351,1352,6,63,-1,0,1352,1353,5,47,0,0,1353,1364,3,126,63,7,1354,
-        1364,3,166,83,0,1355,1364,3,134,67,0,1356,1364,3,154,77,0,1357,1364,
-        3,108,54,0,1358,1364,3,140,70,0,1359,1360,5,9,0,0,1360,1361,3,120,
-        60,0,1361,1362,5,10,0,0,1362,1364,1,0,0,0,1363,1351,1,0,0,0,1363,
-        1354,1,0,0,0,1363,1355,1,0,0,0,1363,1356,1,0,0,0,1363,1357,1,0,0,
-        0,1363,1358,1,0,0,0,1363,1359,1,0,0,0,1364,1369,1,0,0,0,1365,1366,
-        10,8,0,0,1366,1368,3,128,64,0,1367,1365,1,0,0,0,1368,1371,1,0,0,
-        0,1369,1367,1,0,0,0,1369,1370,1,0,0,0,1370,127,1,0,0,0,1371,1369,
-        1,0,0,0,1372,1373,7,17,0,0,1373,1388,3,132,66,0,1374,1376,5,16,0,
-        0,1375,1374,1,0,0,0,1375,1376,1,0,0,0,1376,1377,1,0,0,0,1377,1388,
-        3,122,61,0,1378,1380,5,16,0,0,1379,1378,1,0,0,0,1379,1380,1,0,0,
-        0,1380,1381,1,0,0,0,1381,1383,5,9,0,0,1382,1384,3,116,58,0,1383,
-        1382,1,0,0,0,1383,1384,1,0,0,0,1384,1385,1,0,0,0,1385,1388,5,10,
-        0,0,1386,1388,5,15,0,0,1387,1372,1,0,0,0,1387,1375,1,0,0,0,1387,
-        1379,1,0,0,0,1387,1386,1,0,0,0,1388,129,1,0,0,0,1389,1391,7,9,0,
-        0,1390,1389,1,0,0,0,1391,1392,1,0,0,0,1392,1390,1,0,0,0,1392,1393,
-        1,0,0,0,1393,1394,1,0,0,0,1394,1416,5,20,0,0,1395,1399,5,20,0,0,
-        1396,1398,7,9,0,0,1397,1396,1,0,0,0,1398,1401,1,0,0,0,1399,1397,
-        1,0,0,0,1399,1400,1,0,0,0,1400,1416,1,0,0,0,1401,1399,1,0,0,0,1402,
-        1404,7,9,0,0,1403,1402,1,0,0,0,1404,1407,1,0,0,0,1405,1403,1,0,0,
-        0,1405,1406,1,0,0,0,1406,1408,1,0,0,0,1407,1405,1,0,0,0,1408,1412,
-        5,16,0,0,1409,1411,7,9,0,0,1410,1409,1,0,0,0,1411,1414,1,0,0,0,1412,
-        1410,1,0,0,0,1412,1413,1,0,0,0,1413,1416,1,0,0,0,1414,1412,1,0,0,
-        0,1415,1390,1,0,0,0,1415,1395,1,0,0,0,1415,1405,1,0,0,0,1416,131,
-        1,0,0,0,1417,1420,3,112,56,0,1418,1420,3,134,67,0,1419,1417,1,0,
-        0,0,1419,1418,1,0,0,0,1420,133,1,0,0,0,1421,1422,3,112,56,0,1422,
-        1427,3,114,57,0,1423,1426,3,112,56,0,1424,1426,3,114,57,0,1425,1423,
-        1,0,0,0,1425,1424,1,0,0,0,1426,1429,1,0,0,0,1427,1425,1,0,0,0,1427,
-        1428,1,0,0,0,1428,1439,1,0,0,0,1429,1427,1,0,0,0,1430,1435,3,114,
-        57,0,1431,1434,3,112,56,0,1432,1434,3,114,57,0,1433,1431,1,0,0,0,
-        1433,1432,1,0,0,0,1434,1437,1,0,0,0,1435,1433,1,0,0,0,1435,1436,
-        1,0,0,0,1436,1439,1,0,0,0,1437,1435,1,0,0,0,1438,1421,1,0,0,0,1438,
-        1430,1,0,0,0,1439,135,1,0,0,0,1440,1441,5,14,0,0,1441,1442,3,124,
-        62,0,1442,137,1,0,0,0,1443,1444,3,166,83,0,1444,139,1,0,0,0,1445,
-        1449,5,11,0,0,1446,1448,3,172,86,0,1447,1446,1,0,0,0,1448,1451,1,
-        0,0,0,1449,1447,1,0,0,0,1449,1450,1,0,0,0,1450,1472,1,0,0,0,1451,
-        1449,1,0,0,0,1452,1463,3,110,55,0,1453,1455,5,117,0,0,1454,1453,
-        1,0,0,0,1455,1458,1,0,0,0,1456,1454,1,0,0,0,1456,1457,1,0,0,0,1457,
-        1459,1,0,0,0,1458,1456,1,0,0,0,1459,1460,5,13,0,0,1460,1462,3,110,
-        55,0,1461,1456,1,0,0,0,1462,1465,1,0,0,0,1463,1461,1,0,0,0,1463,
-        1464,1,0,0,0,1464,1469,1,0,0,0,1465,1463,1,0,0,0,1466,1468,3,172,
-        86,0,1467,1466,1,0,0,0,1468,1471,1,0,0,0,1469,1467,1,0,0,0,1469,
-        1470,1,0,0,0,1470,1473,1,0,0,0,1471,1469,1,0,0,0,1472,1452,1,0,0,
-        0,1472,1473,1,0,0,0,1473,1474,1,0,0,0,1474,1475,5,12,0,0,1475,141,
-        1,0,0,0,1476,1478,3,144,72,0,1477,1476,1,0,0,0,1477,1478,1,0,0,0,
-        1478,1479,1,0,0,0,1479,1480,3,164,82,0,1480,1482,5,9,0,0,1481,1483,
-        3,102,51,0,1482,1481,1,0,0,0,1482,1483,1,0,0,0,1483,1484,1,0,0,0,
-        1484,1485,5,10,0,0,1485,143,1,0,0,0,1486,1490,5,110,0,0,1487,1489,
-        5,117,0,0,1488,1487,1,0,0,0,1489,1492,1,0,0,0,1490,1488,1,0,0,0,
-        1490,1491,1,0,0,0,1491,145,1,0,0,0,1492,1490,1,0,0,0,1493,1503,3,
-        142,71,0,1494,1496,3,144,72,0,1495,1494,1,0,0,0,1495,1496,1,0,0,
-        0,1496,1497,1,0,0,0,1497,1499,5,9,0,0,1498,1500,3,102,51,0,1499,
-        1498,1,0,0,0,1499,1500,1,0,0,0,1500,1501,1,0,0,0,1501,1503,5,10,
-        0,0,1502,1493,1,0,0,0,1502,1495,1,0,0,0,1503,147,1,0,0,0,1504,1506,
-        3,144,72,0,1505,1504,1,0,0,0,1505,1506,1,0,0,0,1506,1507,1,0,0,0,
-        1507,1509,3,164,82,0,1508,1505,1,0,0,0,1508,1509,1,0,0,0,1509,1510,
-        1,0,0,0,1510,1523,5,28,0,0,1511,1513,3,144,72,0,1512,1511,1,0,0,
-        0,1512,1513,1,0,0,0,1513,1515,1,0,0,0,1514,1516,5,47,0,0,1515,1514,
-        1,0,0,0,1515,1516,1,0,0,0,1516,1517,1,0,0,0,1517,1519,3,164,82,0,
-        1518,1520,5,15,0,0,1519,1518,1,0,0,0,1519,1520,1,0,0,0,1520,1523,
-        1,0,0,0,1521,1523,3,146,73,0,1522,1508,1,0,0,0,1522,1512,1,0,0,0,
-        1522,1521,1,0,0,0,1523,149,1,0,0,0,1524,1525,5,67,0,0,1525,1534,
-        3,124,62,0,1526,1528,7,9,0,0,1527,1526,1,0,0,0,1528,1531,1,0,0,0,
-        1529,1527,1,0,0,0,1529,1530,1,0,0,0,1530,1532,1,0,0,0,1531,1529,
-        1,0,0,0,1532,1534,3,24,12,0,1533,1524,1,0,0,0,1533,1529,1,0,0,0,
-        1534,151,1,0,0,0,1535,1536,7,18,0,0,1536,153,1,0,0,0,1537,1541,3,
-        156,78,0,1538,1541,3,158,79,0,1539,1541,7,19,0,0,1540,1537,1,0,0,
-        0,1540,1538,1,0,0,0,1540,1539,1,0,0,0,1541,155,1,0,0,0,1542,1543,
-        7,20,0,0,1543,157,1,0,0,0,1544,1545,7,21,0,0,1545,159,1,0,0,0,1546,
-        1547,5,101,0,0,1547,1548,3,112,56,0,1548,161,1,0,0,0,1549,1550,5,
-        102,0,0,1550,1551,3,112,56,0,1551,163,1,0,0,0,1552,1555,3,166,83,
-        0,1553,1555,3,168,84,0,1554,1552,1,0,0,0,1554,1553,1,0,0,0,1555,
-        165,1,0,0,0,1556,1557,7,22,0,0,1557,167,1,0,0,0,1558,1562,3,170,
-        85,0,1559,1562,5,109,0,0,1560,1562,3,156,78,0,1561,1558,1,0,0,0,
-        1561,1559,1,0,0,0,1561,1560,1,0,0,0,1562,169,1,0,0,0,1563,1564,7,
-        23,0,0,1564,171,1,0,0,0,1565,1566,7,9,0,0,1566,173,1,0,0,0,1567,
-        1568,7,24,0,0,1568,175,1,0,0,0,229,180,187,189,197,202,206,213,217,
+        1106,3,124,62,0,1106,111,1,0,0,0,1107,1112,3,166,83,0,1108,1112,
+        5,114,0,0,1109,1112,3,168,84,0,1110,1112,3,158,79,0,1111,1107,1,
+        0,0,0,1111,1108,1,0,0,0,1111,1109,1,0,0,0,1111,1110,1,0,0,0,1112,
+        113,1,0,0,0,1113,1114,5,1,0,0,1114,1115,3,124,62,0,1115,1116,5,2,
+        0,0,1116,115,1,0,0,0,1117,1130,3,118,59,0,1118,1120,5,117,0,0,1119,
+        1118,1,0,0,0,1120,1123,1,0,0,0,1121,1119,1,0,0,0,1121,1122,1,0,0,
+        0,1122,1124,1,0,0,0,1123,1121,1,0,0,0,1124,1126,5,13,0,0,1125,1127,
+        3,118,59,0,1126,1125,1,0,0,0,1126,1127,1,0,0,0,1127,1129,1,0,0,0,
+        1128,1121,1,0,0,0,1129,1132,1,0,0,0,1130,1128,1,0,0,0,1130,1131,
+        1,0,0,0,1131,1148,1,0,0,0,1132,1130,1,0,0,0,1133,1135,5,117,0,0,
+        1134,1133,1,0,0,0,1135,1138,1,0,0,0,1136,1134,1,0,0,0,1136,1137,
+        1,0,0,0,1137,1139,1,0,0,0,1138,1136,1,0,0,0,1139,1141,5,13,0,0,1140,
+        1142,3,118,59,0,1141,1140,1,0,0,0,1141,1142,1,0,0,0,1142,1144,1,
+        0,0,0,1143,1136,1,0,0,0,1144,1145,1,0,0,0,1145,1143,1,0,0,0,1145,
+        1146,1,0,0,0,1146,1148,1,0,0,0,1147,1117,1,0,0,0,1147,1143,1,0,0,
+        0,1148,117,1,0,0,0,1149,1151,3,124,62,0,1150,1152,7,10,0,0,1151,
+        1150,1,0,0,0,1151,1152,1,0,0,0,1152,119,1,0,0,0,1153,1164,3,124,
+        62,0,1154,1156,5,117,0,0,1155,1154,1,0,0,0,1156,1159,1,0,0,0,1157,
+        1155,1,0,0,0,1157,1158,1,0,0,0,1158,1160,1,0,0,0,1159,1157,1,0,0,
+        0,1160,1161,5,13,0,0,1161,1163,3,124,62,0,1162,1157,1,0,0,0,1163,
+        1166,1,0,0,0,1164,1162,1,0,0,0,1164,1165,1,0,0,0,1165,121,1,0,0,
+        0,1166,1164,1,0,0,0,1167,1171,5,7,0,0,1168,1170,3,172,86,0,1169,
+        1168,1,0,0,0,1170,1173,1,0,0,0,1171,1169,1,0,0,0,1171,1172,1,0,0,
+        0,1172,1181,1,0,0,0,1173,1171,1,0,0,0,1174,1178,3,116,58,0,1175,
+        1177,3,172,86,0,1176,1175,1,0,0,0,1177,1180,1,0,0,0,1178,1176,1,
+        0,0,0,1178,1179,1,0,0,0,1179,1182,1,0,0,0,1180,1178,1,0,0,0,1181,
+        1174,1,0,0,0,1181,1182,1,0,0,0,1182,1183,1,0,0,0,1183,1184,5,8,0,
+        0,1184,123,1,0,0,0,1185,1186,6,62,-1,0,1186,1187,7,7,0,0,1187,1214,
+        3,124,62,22,1188,1190,7,9,0,0,1189,1188,1,0,0,0,1190,1193,1,0,0,
+        0,1191,1189,1,0,0,0,1191,1192,1,0,0,0,1192,1194,1,0,0,0,1193,1191,
+        1,0,0,0,1194,1195,7,11,0,0,1195,1214,3,124,62,20,1196,1200,5,98,
+        0,0,1197,1199,5,117,0,0,1198,1197,1,0,0,0,1199,1202,1,0,0,0,1200,
+        1198,1,0,0,0,1200,1201,1,0,0,0,1201,1203,1,0,0,0,1202,1200,1,0,0,
+        0,1203,1214,3,124,62,8,1204,1205,3,126,63,0,1205,1206,3,152,76,0,
+        1206,1207,3,124,62,3,1207,1214,1,0,0,0,1208,1209,3,148,74,0,1209,
+        1210,5,67,0,0,1210,1211,3,124,62,2,1211,1214,1,0,0,0,1212,1214,3,
+        126,63,0,1213,1185,1,0,0,0,1213,1191,1,0,0,0,1213,1196,1,0,0,0,1213,
+        1204,1,0,0,0,1213,1208,1,0,0,0,1213,1212,1,0,0,0,1214,1349,1,0,0,
+        0,1215,1216,10,21,0,0,1216,1217,5,32,0,0,1217,1348,3,124,62,21,1218,
+        1219,10,19,0,0,1219,1223,7,12,0,0,1220,1222,7,9,0,0,1221,1220,1,
+        0,0,0,1222,1225,1,0,0,0,1223,1221,1,0,0,0,1223,1224,1,0,0,0,1224,
+        1226,1,0,0,0,1225,1223,1,0,0,0,1226,1348,3,124,62,20,1227,1231,10,
+        18,0,0,1228,1230,7,9,0,0,1229,1228,1,0,0,0,1230,1233,1,0,0,0,1231,
+        1229,1,0,0,0,1231,1232,1,0,0,0,1232,1234,1,0,0,0,1233,1231,1,0,0,
+        0,1234,1238,7,13,0,0,1235,1237,7,9,0,0,1236,1235,1,0,0,0,1237,1240,
+        1,0,0,0,1238,1236,1,0,0,0,1238,1239,1,0,0,0,1239,1241,1,0,0,0,1240,
+        1238,1,0,0,0,1241,1348,3,124,62,19,1242,1243,10,17,0,0,1243,1244,
+        7,14,0,0,1244,1348,3,124,62,18,1245,1249,10,16,0,0,1246,1248,7,9,
+        0,0,1247,1246,1,0,0,0,1248,1251,1,0,0,0,1249,1247,1,0,0,0,1249,1250,
+        1,0,0,0,1250,1252,1,0,0,0,1251,1249,1,0,0,0,1252,1256,5,47,0,0,1253,
+        1255,7,9,0,0,1254,1253,1,0,0,0,1255,1258,1,0,0,0,1256,1254,1,0,0,
+        0,1256,1257,1,0,0,0,1257,1259,1,0,0,0,1258,1256,1,0,0,0,1259,1348,
+        3,124,62,17,1260,1261,10,15,0,0,1261,1262,5,48,0,0,1262,1348,3,124,
+        62,16,1263,1264,10,14,0,0,1264,1265,5,49,0,0,1265,1348,3,124,62,
+        15,1266,1273,10,13,0,0,1267,1274,5,21,0,0,1268,1270,5,117,0,0,1269,
+        1268,1,0,0,0,1270,1271,1,0,0,0,1271,1269,1,0,0,0,1271,1272,1,0,0,
+        0,1272,1274,1,0,0,0,1273,1267,1,0,0,0,1273,1269,1,0,0,0,1274,1275,
+        1,0,0,0,1275,1348,3,124,62,14,1276,1277,10,12,0,0,1277,1278,5,46,
+        0,0,1278,1348,3,124,62,13,1279,1280,10,11,0,0,1280,1281,7,15,0,0,
+        1281,1348,3,124,62,12,1282,1283,10,10,0,0,1283,1284,7,16,0,0,1284,
+        1348,3,124,62,11,1285,1288,10,7,0,0,1286,1289,5,50,0,0,1287,1289,
+        5,97,0,0,1288,1286,1,0,0,0,1288,1287,1,0,0,0,1289,1290,1,0,0,0,1290,
+        1348,3,124,62,8,1291,1294,10,6,0,0,1292,1295,5,51,0,0,1293,1295,
+        5,99,0,0,1294,1292,1,0,0,0,1294,1293,1,0,0,0,1295,1296,1,0,0,0,1296,
+        1348,3,124,62,7,1297,1298,10,5,0,0,1298,1299,5,33,0,0,1299,1348,
+        3,124,62,5,1300,1304,10,4,0,0,1301,1303,7,9,0,0,1302,1301,1,0,0,
+        0,1303,1306,1,0,0,0,1304,1302,1,0,0,0,1304,1305,1,0,0,0,1305,1307,
+        1,0,0,0,1306,1304,1,0,0,0,1307,1311,5,15,0,0,1308,1310,7,9,0,0,1309,
+        1308,1,0,0,0,1310,1313,1,0,0,0,1311,1309,1,0,0,0,1311,1312,1,0,0,
+        0,1312,1314,1,0,0,0,1313,1311,1,0,0,0,1314,1318,3,124,62,0,1315,
+        1317,7,9,0,0,1316,1315,1,0,0,0,1317,1320,1,0,0,0,1318,1316,1,0,0,
+        0,1318,1319,1,0,0,0,1319,1321,1,0,0,0,1320,1318,1,0,0,0,1321,1325,
+        5,17,0,0,1322,1324,7,9,0,0,1323,1322,1,0,0,0,1324,1327,1,0,0,0,1325,
+        1323,1,0,0,0,1325,1326,1,0,0,0,1326,1328,1,0,0,0,1327,1325,1,0,0,
+        0,1328,1329,3,124,62,4,1329,1348,1,0,0,0,1330,1331,10,23,0,0,1331,
+        1348,7,7,0,0,1332,1336,10,9,0,0,1333,1335,7,9,0,0,1334,1333,1,0,
+        0,0,1335,1338,1,0,0,0,1336,1334,1,0,0,0,1336,1337,1,0,0,0,1337,1339,
+        1,0,0,0,1338,1336,1,0,0,0,1339,1343,5,95,0,0,1340,1342,7,9,0,0,1341,
+        1340,1,0,0,0,1342,1345,1,0,0,0,1343,1341,1,0,0,0,1343,1344,1,0,0,
+        0,1344,1346,1,0,0,0,1345,1343,1,0,0,0,1346,1348,3,126,63,0,1347,
+        1215,1,0,0,0,1347,1218,1,0,0,0,1347,1227,1,0,0,0,1347,1242,1,0,0,
+        0,1347,1245,1,0,0,0,1347,1260,1,0,0,0,1347,1263,1,0,0,0,1347,1266,
+        1,0,0,0,1347,1276,1,0,0,0,1347,1279,1,0,0,0,1347,1282,1,0,0,0,1347,
+        1285,1,0,0,0,1347,1291,1,0,0,0,1347,1297,1,0,0,0,1347,1300,1,0,0,
+        0,1347,1330,1,0,0,0,1347,1332,1,0,0,0,1348,1351,1,0,0,0,1349,1347,
+        1,0,0,0,1349,1350,1,0,0,0,1350,125,1,0,0,0,1351,1349,1,0,0,0,1352,
+        1353,6,63,-1,0,1353,1354,5,47,0,0,1354,1365,3,126,63,7,1355,1365,
+        3,166,83,0,1356,1365,3,134,67,0,1357,1365,3,154,77,0,1358,1365,3,
+        108,54,0,1359,1365,3,140,70,0,1360,1361,5,9,0,0,1361,1362,3,120,
+        60,0,1362,1363,5,10,0,0,1363,1365,1,0,0,0,1364,1352,1,0,0,0,1364,
+        1355,1,0,0,0,1364,1356,1,0,0,0,1364,1357,1,0,0,0,1364,1358,1,0,0,
+        0,1364,1359,1,0,0,0,1364,1360,1,0,0,0,1365,1370,1,0,0,0,1366,1367,
+        10,8,0,0,1367,1369,3,128,64,0,1368,1366,1,0,0,0,1369,1372,1,0,0,
+        0,1370,1368,1,0,0,0,1370,1371,1,0,0,0,1371,127,1,0,0,0,1372,1370,
+        1,0,0,0,1373,1374,7,17,0,0,1374,1389,3,132,66,0,1375,1377,5,16,0,
+        0,1376,1375,1,0,0,0,1376,1377,1,0,0,0,1377,1378,1,0,0,0,1378,1389,
+        3,122,61,0,1379,1381,5,16,0,0,1380,1379,1,0,0,0,1380,1381,1,0,0,
+        0,1381,1382,1,0,0,0,1382,1384,5,9,0,0,1383,1385,3,116,58,0,1384,
+        1383,1,0,0,0,1384,1385,1,0,0,0,1385,1386,1,0,0,0,1386,1389,5,10,
+        0,0,1387,1389,5,15,0,0,1388,1373,1,0,0,0,1388,1376,1,0,0,0,1388,
+        1380,1,0,0,0,1388,1387,1,0,0,0,1389,129,1,0,0,0,1390,1392,7,9,0,
+        0,1391,1390,1,0,0,0,1392,1393,1,0,0,0,1393,1391,1,0,0,0,1393,1394,
+        1,0,0,0,1394,1395,1,0,0,0,1395,1417,5,20,0,0,1396,1400,5,20,0,0,
+        1397,1399,7,9,0,0,1398,1397,1,0,0,0,1399,1402,1,0,0,0,1400,1398,
+        1,0,0,0,1400,1401,1,0,0,0,1401,1417,1,0,0,0,1402,1400,1,0,0,0,1403,
+        1405,7,9,0,0,1404,1403,1,0,0,0,1405,1408,1,0,0,0,1406,1404,1,0,0,
+        0,1406,1407,1,0,0,0,1407,1409,1,0,0,0,1408,1406,1,0,0,0,1409,1413,
+        5,16,0,0,1410,1412,7,9,0,0,1411,1410,1,0,0,0,1412,1415,1,0,0,0,1413,
+        1411,1,0,0,0,1413,1414,1,0,0,0,1414,1417,1,0,0,0,1415,1413,1,0,0,
+        0,1416,1391,1,0,0,0,1416,1396,1,0,0,0,1416,1406,1,0,0,0,1417,131,
+        1,0,0,0,1418,1421,3,112,56,0,1419,1421,3,134,67,0,1420,1418,1,0,
+        0,0,1420,1419,1,0,0,0,1421,133,1,0,0,0,1422,1423,3,112,56,0,1423,
+        1428,3,114,57,0,1424,1427,3,112,56,0,1425,1427,3,114,57,0,1426,1424,
+        1,0,0,0,1426,1425,1,0,0,0,1427,1430,1,0,0,0,1428,1426,1,0,0,0,1428,
+        1429,1,0,0,0,1429,1440,1,0,0,0,1430,1428,1,0,0,0,1431,1436,3,114,
+        57,0,1432,1435,3,112,56,0,1433,1435,3,114,57,0,1434,1432,1,0,0,0,
+        1434,1433,1,0,0,0,1435,1438,1,0,0,0,1436,1434,1,0,0,0,1436,1437,
+        1,0,0,0,1437,1440,1,0,0,0,1438,1436,1,0,0,0,1439,1422,1,0,0,0,1439,
+        1431,1,0,0,0,1440,135,1,0,0,0,1441,1442,5,14,0,0,1442,1443,3,124,
+        62,0,1443,137,1,0,0,0,1444,1445,3,166,83,0,1445,139,1,0,0,0,1446,
+        1450,5,11,0,0,1447,1449,3,172,86,0,1448,1447,1,0,0,0,1449,1452,1,
+        0,0,0,1450,1448,1,0,0,0,1450,1451,1,0,0,0,1451,1473,1,0,0,0,1452,
+        1450,1,0,0,0,1453,1464,3,110,55,0,1454,1456,5,117,0,0,1455,1454,
+        1,0,0,0,1456,1459,1,0,0,0,1457,1455,1,0,0,0,1457,1458,1,0,0,0,1458,
+        1460,1,0,0,0,1459,1457,1,0,0,0,1460,1461,5,13,0,0,1461,1463,3,110,
+        55,0,1462,1457,1,0,0,0,1463,1466,1,0,0,0,1464,1462,1,0,0,0,1464,
+        1465,1,0,0,0,1465,1470,1,0,0,0,1466,1464,1,0,0,0,1467,1469,3,172,
+        86,0,1468,1467,1,0,0,0,1469,1472,1,0,0,0,1470,1468,1,0,0,0,1470,
+        1471,1,0,0,0,1471,1474,1,0,0,0,1472,1470,1,0,0,0,1473,1453,1,0,0,
+        0,1473,1474,1,0,0,0,1474,1475,1,0,0,0,1475,1476,5,12,0,0,1476,141,
+        1,0,0,0,1477,1479,3,144,72,0,1478,1477,1,0,0,0,1478,1479,1,0,0,0,
+        1479,1480,1,0,0,0,1480,1481,3,164,82,0,1481,1483,5,9,0,0,1482,1484,
+        3,102,51,0,1483,1482,1,0,0,0,1483,1484,1,0,0,0,1484,1485,1,0,0,0,
+        1485,1486,5,10,0,0,1486,143,1,0,0,0,1487,1491,5,110,0,0,1488,1490,
+        5,117,0,0,1489,1488,1,0,0,0,1490,1493,1,0,0,0,1491,1489,1,0,0,0,
+        1491,1492,1,0,0,0,1492,145,1,0,0,0,1493,1491,1,0,0,0,1494,1504,3,
+        142,71,0,1495,1497,3,144,72,0,1496,1495,1,0,0,0,1496,1497,1,0,0,
+        0,1497,1498,1,0,0,0,1498,1500,5,9,0,0,1499,1501,3,102,51,0,1500,
+        1499,1,0,0,0,1500,1501,1,0,0,0,1501,1502,1,0,0,0,1502,1504,5,10,
+        0,0,1503,1494,1,0,0,0,1503,1496,1,0,0,0,1504,147,1,0,0,0,1505,1507,
+        3,144,72,0,1506,1505,1,0,0,0,1506,1507,1,0,0,0,1507,1508,1,0,0,0,
+        1508,1510,3,164,82,0,1509,1506,1,0,0,0,1509,1510,1,0,0,0,1510,1511,
+        1,0,0,0,1511,1524,5,28,0,0,1512,1514,3,144,72,0,1513,1512,1,0,0,
+        0,1513,1514,1,0,0,0,1514,1516,1,0,0,0,1515,1517,5,47,0,0,1516,1515,
+        1,0,0,0,1516,1517,1,0,0,0,1517,1518,1,0,0,0,1518,1520,3,164,82,0,
+        1519,1521,5,15,0,0,1520,1519,1,0,0,0,1520,1521,1,0,0,0,1521,1524,
+        1,0,0,0,1522,1524,3,146,73,0,1523,1509,1,0,0,0,1523,1513,1,0,0,0,
+        1523,1522,1,0,0,0,1524,149,1,0,0,0,1525,1526,5,67,0,0,1526,1535,
+        3,124,62,0,1527,1529,7,9,0,0,1528,1527,1,0,0,0,1529,1532,1,0,0,0,
+        1530,1528,1,0,0,0,1530,1531,1,0,0,0,1531,1533,1,0,0,0,1532,1530,
+        1,0,0,0,1533,1535,3,24,12,0,1534,1525,1,0,0,0,1534,1530,1,0,0,0,
+        1535,151,1,0,0,0,1536,1537,7,18,0,0,1537,153,1,0,0,0,1538,1542,3,
+        156,78,0,1539,1542,3,158,79,0,1540,1542,7,19,0,0,1541,1538,1,0,0,
+        0,1541,1539,1,0,0,0,1541,1540,1,0,0,0,1542,155,1,0,0,0,1543,1544,
+        7,20,0,0,1544,157,1,0,0,0,1545,1546,7,21,0,0,1546,159,1,0,0,0,1547,
+        1548,5,101,0,0,1548,1549,3,112,56,0,1549,161,1,0,0,0,1550,1551,5,
+        102,0,0,1551,1552,3,112,56,0,1552,163,1,0,0,0,1553,1556,3,166,83,
+        0,1554,1556,3,168,84,0,1555,1553,1,0,0,0,1555,1554,1,0,0,0,1556,
+        165,1,0,0,0,1557,1558,7,22,0,0,1558,167,1,0,0,0,1559,1563,3,170,
+        85,0,1560,1563,5,109,0,0,1561,1563,3,156,78,0,1562,1559,1,0,0,0,
+        1562,1560,1,0,0,0,1562,1561,1,0,0,0,1563,169,1,0,0,0,1564,1565,7,
+        23,0,0,1565,171,1,0,0,0,1566,1567,7,9,0,0,1567,173,1,0,0,0,1568,
+        1569,7,24,0,0,1569,175,1,0,0,0,229,180,187,189,197,202,206,213,217,
         222,227,229,235,239,244,253,259,264,268,271,280,286,291,309,317,
         321,330,336,340,344,350,357,365,371,374,382,389,394,399,403,410,
         420,430,437,442,446,452,457,460,467,474,477,481,484,490,497,502,
@@ -7932,13 +7952,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         777,785,789,794,798,805,809,814,818,825,833,841,849,856,862,869,
         877,886,895,902,908,911,916,926,934,936,946,949,956,959,965,972,
         976,989,1000,1002,1006,1012,1017,1022,1035,1045,1052,1058,1064,1068,
-        1071,1077,1084,1087,1095,1102,1110,1120,1125,1129,1135,1140,1144,
-        1146,1150,1156,1163,1170,1177,1180,1190,1199,1212,1222,1230,1237,
-        1248,1255,1270,1272,1287,1293,1303,1310,1317,1324,1335,1342,1346,
-        1348,1363,1369,1375,1379,1383,1387,1392,1399,1405,1412,1415,1419,
-        1425,1427,1433,1435,1438,1449,1456,1463,1469,1472,1477,1482,1490,
-        1495,1499,1502,1505,1508,1512,1515,1519,1522,1529,1533,1540,1554,
-        1561
+        1071,1077,1084,1087,1095,1102,1111,1121,1126,1130,1136,1141,1145,
+        1147,1151,1157,1164,1171,1178,1181,1191,1200,1213,1223,1231,1238,
+        1249,1256,1271,1273,1288,1294,1304,1311,1318,1325,1336,1343,1347,
+        1349,1364,1370,1376,1380,1384,1388,1393,1400,1406,1413,1416,1420,
+        1426,1428,1434,1436,1439,1450,1457,1464,1470,1473,1478,1483,1491,
+        1496,1500,1503,1506,1509,1513,1516,1520,1523,1530,1534,1541,1555,
+        1562
     ];
 
     private static __ATN: antlr.ATN;
@@ -11203,6 +11223,9 @@ export class PropertyNameContext extends antlr.ParserRuleContext {
     }
     public reservedWord(): ReservedWordContext | null {
         return this.getRuleContext(0, ReservedWordContext);
+    }
+    public numericLiteral(): NumericLiteralContext | null {
+        return this.getRuleContext(0, NumericLiteralContext);
     }
     public override get ruleIndex(): number {
         return AutoHotkeyParser.RULE_propertyName;

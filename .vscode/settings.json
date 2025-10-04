@@ -5,6 +5,5 @@
     "listeners": true,
     "visitors": true,
     "outputDir": "../parser",
-    "importDir": "src/grammar"
   }
 }

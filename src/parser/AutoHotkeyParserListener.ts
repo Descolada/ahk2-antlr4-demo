@@ -1,4 +1,4 @@
-// Generated from ./AutoHotkeyParser.g4 by ANTLR 4.13.1
+// Generated from c:/Users/minip/source/repos/ahk2-antlr4-demo/src/grammar/AutoHotkeyParser.g4 by ANTLR 4.13.1
 
 import { ErrorNode, ParseTreeListener, ParserRuleContext, TerminalNode } from "antlr4ng";
 
