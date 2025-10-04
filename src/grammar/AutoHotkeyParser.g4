@@ -68,10 +68,12 @@ directive
     : Hashtag (positionalDirective | generalDirective)
     ;
 
-// Non-positional directives are handled elsewhere, mainly in PreReader.cs
 positionalDirective
     : HotIf singleExpression?                           # HotIfDirective
-    | Hotstring (EndChars? HotstringOptions | NoMouse)  # HotstringDirective
+    | Hotstring 
+        ( HotstringOptions 
+        | NoMouse 
+        | EndChars HotstringOptions )                   # HotstringDirective
     | InputLevel numericLiteral?                        # InputLevelDirective
     | UseHook (numericLiteral | boolean)?               # UseHookDirective
     | SuspendExempt (numericLiteral | boolean)?         # SuspendExemptDirective
@@ -140,7 +142,7 @@ block
 
 // Only to be used inside of a block, cannot meet EOF
 statementList
-    : (statement EOL)+
+    : (sourceElement EOL)+
     ;
 
 variableStatement
@@ -333,9 +335,8 @@ propertyAssignment
 
 propertyName
     : identifier
+    | PropertyIdentifier
     | reservedWord
-    | StringLiteral // Multi-line strings not supported
-    | numericLiteral
     ;
 
 dereference
@@ -410,10 +411,8 @@ memberDot
     ;
 
 memberIdentifier
-    : identifier
+    : propertyName
     | dynamicIdentifier
-    | keyword
-    | literal
     ;
 
 // A combination of identifiers and derefs, such as `a%b%`

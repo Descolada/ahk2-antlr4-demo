@@ -355,6 +355,13 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
                 }
                 break;
 
+            case AutoHotkeyLexer.HotIf:
+            case AutoHotkeyLexer.InputLevel:
+            case AutoHotkeyLexer.UseHook:
+            case AutoHotkeyLexer.SuspendExempt:
+                index = SkipWhitespaces(tokens, codeTokens, index, false);
+                break;
+
             default:
                 break;
         }
