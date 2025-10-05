@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/viz.js": "^2.1.5",
     "antlr4ng": "^3.0.16",
     "buffer": "^6.0.3",
     "parcel": "^2.15.4",

@@ -399,7 +399,7 @@ primaryExpression
     ;
 
 accessSuffix
-    : modifier = ('?.' | '.') memberIdentifier  # MemberAccess
+    : modifier = ('?.' | '.') memberIdentifier memberIndexArguments?  # MemberAccess
     | (modifier = '?.')? memberIndexArguments   # IndexAccess
     | (modifier = '?.')? '(' arguments? ')'     # FunctionCallAccess
     | modifier = '?'                            # AllowUnsetAccess

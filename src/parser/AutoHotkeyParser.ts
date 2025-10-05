@@ -5891,9 +5891,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 128, AutoHotkeyParser.RULE_accessSuffix);
         let _la: number;
         try {
-            this.state = 1388;
+            this.state = 1391;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 195, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 196, this.context) ) {
             case 1:
                 localContext = new MemberAccessContext(localContext);
                 this.enterOuterAlt(localContext, 1);
@@ -5910,23 +5910,33 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 }
                 this.state = 1374;
                 this.memberIdentifier();
+                this.state = 1376;
+                this.errorHandler.sync(this);
+                switch (this.interpreter.adaptivePredict(this.tokenStream, 192, this.context) ) {
+                case 1:
+                    {
+                    this.state = 1375;
+                    this.memberIndexArguments();
+                    }
+                    break;
+                }
                 }
                 break;
             case 2:
                 localContext = new IndexAccessContext(localContext);
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1376;
+                this.state = 1379;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 16) {
                     {
-                    this.state = 1375;
+                    this.state = 1378;
                     (localContext as IndexAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMarkDot);
                     }
                 }
 
-                this.state = 1378;
+                this.state = 1381;
                 this.memberIndexArguments();
                 }
                 break;
@@ -5934,29 +5944,29 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new FunctionCallAccessContext(localContext);
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1380;
+                this.state = 1383;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 16) {
                     {
-                    this.state = 1379;
+                    this.state = 1382;
                     (localContext as FunctionCallAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMarkDot);
                     }
                 }
 
-                this.state = 1382;
+                this.state = 1385;
                 this.match(AutoHotkeyParser.OpenParen);
-                this.state = 1384;
+                this.state = 1387;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 532687490) !== 0) || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 4292870145) !== 0) || ((((_la - 79)) & ~0x1F) === 0 && ((1 << (_la - 79)) & 4294967295) !== 0) || ((((_la - 111)) & ~0x1F) === 0 && ((1 << (_la - 111)) & 127) !== 0)) {
                     {
-                    this.state = 1383;
+                    this.state = 1386;
                     this.arguments();
                     }
                 }
 
-                this.state = 1386;
+                this.state = 1389;
                 this.match(AutoHotkeyParser.CloseParen);
                 }
                 break;
@@ -5964,7 +5974,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                 localContext = new AllowUnsetAccessContext(localContext);
                 this.enterOuterAlt(localContext, 4);
                 {
-                this.state = 1387;
+                this.state = 1390;
                 (localContext as AllowUnsetAccessContext)._modifier = this.match(AutoHotkeyParser.QuestionMark);
                 }
                 break;
@@ -5988,19 +5998,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 130, AutoHotkeyParser.RULE_memberDot);
         let _la: number;
         try {
-            this.state = 1416;
+            this.state = 1419;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 200, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 201, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1391;
+                this.state = 1394;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 do {
                     {
                     {
-                    this.state = 1390;
+                    this.state = 1393;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6011,26 +6021,26 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1393;
+                    this.state = 1396;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 } while (_la === 116 || _la === 117);
-                this.state = 1395;
+                this.state = 1398;
                 this.match(AutoHotkeyParser.Dot);
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1396;
+                this.state = 1399;
                 this.match(AutoHotkeyParser.Dot);
-                this.state = 1400;
+                this.state = 1403;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1397;
+                    this.state = 1400;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6041,7 +6051,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1402;
+                    this.state = 1405;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
@@ -6050,13 +6060,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1406;
+                this.state = 1409;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1403;
+                    this.state = 1406;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6067,19 +6077,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1408;
+                    this.state = 1411;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
-                this.state = 1409;
+                this.state = 1412;
                 this.match(AutoHotkeyParser.QuestionMarkDot);
-                this.state = 1413;
+                this.state = 1416;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1410;
+                    this.state = 1413;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6090,7 +6100,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1415;
+                    this.state = 1418;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
@@ -6115,20 +6125,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new MemberIdentifierContext(this.context, this.state);
         this.enterRule(localContext, 132, AutoHotkeyParser.RULE_memberIdentifier);
         try {
-            this.state = 1420;
+            this.state = 1423;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 201, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 202, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1418;
+                this.state = 1421;
                 this.propertyName();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1419;
+                this.state = 1422;
                 this.dynamicIdentifier();
                 }
                 break;
@@ -6152,7 +6162,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 134, AutoHotkeyParser.RULE_dynamicIdentifier);
         try {
             let alternative: number;
-            this.state = 1439;
+            this.state = 1442;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.True:
@@ -6204,17 +6214,17 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.PropertyIdentifier:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1422;
+                this.state = 1425;
                 this.propertyName();
-                this.state = 1423;
+                this.state = 1426;
                 this.dereference();
-                this.state = 1428;
+                this.state = 1431;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 203, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 204, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
-                        this.state = 1426;
+                        this.state = 1429;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.True:
@@ -6265,13 +6275,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         case AutoHotkeyParser.Identifier:
                         case AutoHotkeyParser.PropertyIdentifier:
                             {
-                            this.state = 1424;
+                            this.state = 1427;
                             this.propertyName();
                             }
                             break;
                         case AutoHotkeyParser.DerefStart:
                             {
-                            this.state = 1425;
+                            this.state = 1428;
                             this.dereference();
                             }
                             break;
@@ -6280,24 +6290,24 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         }
                         }
                     }
-                    this.state = 1430;
+                    this.state = 1433;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 203, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 204, this.context);
                 }
                 }
                 break;
             case AutoHotkeyParser.DerefStart:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1431;
+                this.state = 1434;
                 this.dereference();
-                this.state = 1436;
+                this.state = 1439;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 205, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 206, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
-                        this.state = 1434;
+                        this.state = 1437;
                         this.errorHandler.sync(this);
                         switch (this.tokenStream.LA(1)) {
                         case AutoHotkeyParser.True:
@@ -6348,13 +6358,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         case AutoHotkeyParser.Identifier:
                         case AutoHotkeyParser.PropertyIdentifier:
                             {
-                            this.state = 1432;
+                            this.state = 1435;
                             this.propertyName();
                             }
                             break;
                         case AutoHotkeyParser.DerefStart:
                             {
-                            this.state = 1433;
+                            this.state = 1436;
                             this.dereference();
                             }
                             break;
@@ -6363,9 +6373,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                         }
                         }
                     }
-                    this.state = 1438;
+                    this.state = 1441;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 205, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 206, this.context);
                 }
                 }
                 break;
@@ -6392,9 +6402,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1441;
+            this.state = 1444;
             this.match(AutoHotkeyParser.Assign);
-            this.state = 1442;
+            this.state = 1445;
             this.singleExpression(0);
             }
         }
@@ -6417,7 +6427,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1444;
+            this.state = 1447;
             this.identifier();
             }
         }
@@ -6442,79 +6452,79 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             let alternative: number;
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1446;
+            this.state = 1449;
             this.match(AutoHotkeyParser.OpenBrace);
-            this.state = 1450;
+            this.state = 1453;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             while (_la === 116 || _la === 117) {
                 {
                 {
-                this.state = 1447;
+                this.state = 1450;
                 this.s();
                 }
                 }
-                this.state = 1452;
+                this.state = 1455;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
             }
-            this.state = 1473;
+            this.state = 1476;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 1 || ((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967295) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 32767) !== 0)) {
                 {
-                this.state = 1453;
+                this.state = 1456;
                 this.propertyAssignment();
-                this.state = 1464;
+                this.state = 1467;
                 this.errorHandler.sync(this);
-                alternative = this.interpreter.adaptivePredict(this.tokenStream, 209, this.context);
+                alternative = this.interpreter.adaptivePredict(this.tokenStream, 210, this.context);
                 while (alternative !== 2 && alternative !== antlr.ATN.INVALID_ALT_NUMBER) {
                     if (alternative === 1) {
                         {
                         {
-                        this.state = 1457;
+                        this.state = 1460;
                         this.errorHandler.sync(this);
                         _la = this.tokenStream.LA(1);
                         while (_la === 117) {
                             {
                             {
-                            this.state = 1454;
+                            this.state = 1457;
                             this.match(AutoHotkeyParser.WS);
                             }
                             }
-                            this.state = 1459;
+                            this.state = 1462;
                             this.errorHandler.sync(this);
                             _la = this.tokenStream.LA(1);
                         }
-                        this.state = 1460;
+                        this.state = 1463;
                         this.match(AutoHotkeyParser.Comma);
-                        this.state = 1461;
+                        this.state = 1464;
                         this.propertyAssignment();
                         }
                         }
                     }
-                    this.state = 1466;
+                    this.state = 1469;
                     this.errorHandler.sync(this);
-                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 209, this.context);
+                    alternative = this.interpreter.adaptivePredict(this.tokenStream, 210, this.context);
                 }
-                this.state = 1470;
+                this.state = 1473;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1467;
+                    this.state = 1470;
                     this.s();
                     }
                     }
-                    this.state = 1472;
+                    this.state = 1475;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
                 }
             }
 
-            this.state = 1475;
+            this.state = 1478;
             this.match(AutoHotkeyParser.CloseBrace);
             }
         }
@@ -6538,31 +6548,31 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1478;
+            this.state = 1481;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 212, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 213, this.context) ) {
             case 1:
                 {
-                this.state = 1477;
+                this.state = 1480;
                 this.functionHeadPrefix();
                 }
                 break;
             }
-            this.state = 1480;
-            this.identifierName();
-            this.state = 1481;
-            this.match(AutoHotkeyParser.OpenParen);
             this.state = 1483;
+            this.identifierName();
+            this.state = 1484;
+            this.match(AutoHotkeyParser.OpenParen);
+            this.state = 1486;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             if (_la === 28 || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 603979777) !== 0) || ((((_la - 84)) & ~0x1F) === 0 && ((1 << (_la - 84)) & 570294351) !== 0)) {
                 {
-                this.state = 1482;
+                this.state = 1485;
                 this.formalParameterList();
                 }
             }
 
-            this.state = 1485;
+            this.state = 1488;
             this.match(AutoHotkeyParser.CloseParen);
             }
         }
@@ -6586,19 +6596,19 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1487;
+            this.state = 1490;
             this.match(AutoHotkeyParser.Static);
-            this.state = 1491;
+            this.state = 1494;
             this.errorHandler.sync(this);
             _la = this.tokenStream.LA(1);
             while (_la === 117) {
                 {
                 {
-                this.state = 1488;
+                this.state = 1491;
                 this.match(AutoHotkeyParser.WS);
                 }
                 }
-                this.state = 1493;
+                this.state = 1496;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
             }
@@ -6622,42 +6632,42 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 146, AutoHotkeyParser.RULE_functionExpressionHead);
         let _la: number;
         try {
-            this.state = 1503;
+            this.state = 1506;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 217, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 218, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1494;
+                this.state = 1497;
                 this.functionHead();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1496;
+                this.state = 1499;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 110) {
                     {
-                    this.state = 1495;
+                    this.state = 1498;
                     this.functionHeadPrefix();
                     }
                 }
 
-                this.state = 1498;
+                this.state = 1501;
                 this.match(AutoHotkeyParser.OpenParen);
-                this.state = 1500;
+                this.state = 1503;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 28 || ((((_la - 47)) & ~0x1F) === 0 && ((1 << (_la - 47)) & 603979777) !== 0) || ((((_la - 84)) & ~0x1F) === 0 && ((1 << (_la - 84)) & 570294351) !== 0)) {
                     {
-                    this.state = 1499;
+                    this.state = 1502;
                     this.formalParameterList();
                     }
                 }
 
-                this.state = 1502;
+                this.state = 1505;
                 this.match(AutoHotkeyParser.CloseParen);
                 }
                 break;
@@ -6681,67 +6691,67 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 148, AutoHotkeyParser.RULE_fatArrowExpressionHead);
         let _la: number;
         try {
-            this.state = 1523;
+            this.state = 1526;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 223, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 224, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1509;
+                this.state = 1512;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (((((_la - 68)) & ~0x1F) === 0 && ((1 << (_la - 68)) & 4294967283) !== 0) || ((((_la - 100)) & ~0x1F) === 0 && ((1 << (_la - 100)) & 16383) !== 0)) {
                     {
-                    this.state = 1506;
+                    this.state = 1509;
                     this.errorHandler.sync(this);
-                    switch (this.interpreter.adaptivePredict(this.tokenStream, 218, this.context) ) {
+                    switch (this.interpreter.adaptivePredict(this.tokenStream, 219, this.context) ) {
                     case 1:
                         {
-                        this.state = 1505;
+                        this.state = 1508;
                         this.functionHeadPrefix();
                         }
                         break;
                     }
-                    this.state = 1508;
+                    this.state = 1511;
                     this.identifierName();
                     }
                 }
 
-                this.state = 1511;
+                this.state = 1514;
                 this.match(AutoHotkeyParser.Multiply);
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1513;
+                this.state = 1516;
                 this.errorHandler.sync(this);
-                switch (this.interpreter.adaptivePredict(this.tokenStream, 220, this.context) ) {
+                switch (this.interpreter.adaptivePredict(this.tokenStream, 221, this.context) ) {
                 case 1:
                     {
-                    this.state = 1512;
+                    this.state = 1515;
                     this.functionHeadPrefix();
                     }
                     break;
                 }
-                this.state = 1516;
+                this.state = 1519;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 47) {
                     {
-                    this.state = 1515;
+                    this.state = 1518;
                     this.match(AutoHotkeyParser.BitAnd);
                     }
                 }
 
-                this.state = 1518;
+                this.state = 1521;
                 this.identifierName();
-                this.state = 1520;
+                this.state = 1523;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 if (_la === 15) {
                     {
-                    this.state = 1519;
+                    this.state = 1522;
                     this.match(AutoHotkeyParser.QuestionMark);
                     }
                 }
@@ -6751,7 +6761,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1522;
+                this.state = 1525;
                 this.functionExpressionHead();
                 }
                 break;
@@ -6775,15 +6785,15 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 150, AutoHotkeyParser.RULE_functionBody);
         let _la: number;
         try {
-            this.state = 1534;
+            this.state = 1537;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.Arrow:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1525;
+                this.state = 1528;
                 this.match(AutoHotkeyParser.Arrow);
-                this.state = 1526;
+                this.state = 1529;
                 this.singleExpression(0);
                 }
                 break;
@@ -6792,13 +6802,13 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.WS:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1530;
+                this.state = 1533;
                 this.errorHandler.sync(this);
                 _la = this.tokenStream.LA(1);
                 while (_la === 116 || _la === 117) {
                     {
                     {
-                    this.state = 1527;
+                    this.state = 1530;
                     _la = this.tokenStream.LA(1);
                     if(!(_la === 116 || _la === 117)) {
                     this.errorHandler.recoverInline(this);
@@ -6809,11 +6819,11 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
                     }
                     }
                     }
-                    this.state = 1532;
+                    this.state = 1535;
                     this.errorHandler.sync(this);
                     _la = this.tokenStream.LA(1);
                 }
-                this.state = 1533;
+                this.state = 1536;
                 this.block();
                 }
                 break;
@@ -6841,7 +6851,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1536;
+            this.state = 1539;
             _la = this.tokenStream.LA(1);
             if(!(_la === 14 || ((((_la - 52)) & ~0x1F) === 0 && ((1 << (_la - 52)) & 32767) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -6870,14 +6880,14 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         this.enterRule(localContext, 154, AutoHotkeyParser.RULE_literal);
         let _la: number;
         try {
-            this.state = 1541;
+            this.state = 1544;
             this.errorHandler.sync(this);
             switch (this.tokenStream.LA(1)) {
             case AutoHotkeyParser.True:
             case AutoHotkeyParser.False:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1538;
+                this.state = 1541;
                 this.boolean_();
                 }
                 break;
@@ -6885,7 +6895,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.HexIntegerLiteral:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1539;
+                this.state = 1542;
                 this.numericLiteral();
                 }
                 break;
@@ -6893,7 +6903,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
             case AutoHotkeyParser.StringLiteral:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1540;
+                this.state = 1543;
                 _la = this.tokenStream.LA(1);
                 if(!(_la === 109 || _la === 115)) {
                 this.errorHandler.recoverInline(this);
@@ -6928,7 +6938,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1543;
+            this.state = 1546;
             _la = this.tokenStream.LA(1);
             if(!(_la === 68 || _la === 69)) {
             this.errorHandler.recoverInline(this);
@@ -6959,7 +6969,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1545;
+            this.state = 1548;
             _la = this.tokenStream.LA(1);
             if(!(_la === 70 || _la === 71)) {
             this.errorHandler.recoverInline(this);
@@ -6989,9 +6999,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1547;
+            this.state = 1550;
             this.match(AutoHotkeyParser.Get);
-            this.state = 1548;
+            this.state = 1551;
             this.propertyName();
             }
         }
@@ -7014,9 +7024,9 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1550;
+            this.state = 1553;
             this.match(AutoHotkeyParser.Set);
-            this.state = 1551;
+            this.state = 1554;
             this.propertyName();
             }
         }
@@ -7037,20 +7047,20 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new IdentifierNameContext(this.context, this.state);
         this.enterRule(localContext, 164, AutoHotkeyParser.RULE_identifierName);
         try {
-            this.state = 1555;
+            this.state = 1558;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 227, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 228, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1553;
+                this.state = 1556;
                 this.identifier();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1554;
+                this.state = 1557;
                 this.reservedWord();
                 }
                 break;
@@ -7076,7 +7086,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1557;
+            this.state = 1560;
             _la = this.tokenStream.LA(1);
             if(!(((((_la - 73)) & ~0x1F) === 0 && ((1 << (_la - 73)) & 4026693641) !== 0) || ((((_la - 105)) & ~0x1F) === 0 && ((1 << (_la - 105)) & 271) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -7104,27 +7114,27 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         let localContext = new ReservedWordContext(this.context, this.state);
         this.enterRule(localContext, 168, AutoHotkeyParser.RULE_reservedWord);
         try {
-            this.state = 1562;
+            this.state = 1565;
             this.errorHandler.sync(this);
-            switch (this.interpreter.adaptivePredict(this.tokenStream, 228, this.context) ) {
+            switch (this.interpreter.adaptivePredict(this.tokenStream, 229, this.context) ) {
             case 1:
                 this.enterOuterAlt(localContext, 1);
                 {
-                this.state = 1559;
+                this.state = 1562;
                 this.keyword();
                 }
                 break;
             case 2:
                 this.enterOuterAlt(localContext, 2);
                 {
-                this.state = 1560;
+                this.state = 1563;
                 this.match(AutoHotkeyParser.Unset);
                 }
                 break;
             case 3:
                 this.enterOuterAlt(localContext, 3);
                 {
-                this.state = 1561;
+                this.state = 1564;
                 this.boolean_();
                 }
                 break;
@@ -7150,7 +7160,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1564;
+            this.state = 1567;
             _la = this.tokenStream.LA(1);
             if(!(((((_la - 72)) & ~0x1F) === 0 && ((1 << (_la - 72)) & 536547309) !== 0) || ((((_la - 106)) & ~0x1F) === 0 && ((1 << (_la - 106)) & 125) !== 0))) {
             this.errorHandler.recoverInline(this);
@@ -7181,7 +7191,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1566;
+            this.state = 1569;
             _la = this.tokenStream.LA(1);
             if(!(_la === 116 || _la === 117)) {
             this.errorHandler.recoverInline(this);
@@ -7212,7 +7222,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         try {
             this.enterOuterAlt(localContext, 1);
             {
-            this.state = 1568;
+            this.state = 1571;
             _la = this.tokenStream.LA(1);
             if(!(_la === -1 || _la === 116)) {
             this.errorHandler.recoverInline(this);
@@ -7312,7 +7322,7 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
     }
 
     public static readonly _serializedATN: number[] = [
-        4,1,153,1571,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,
+        4,1,153,1574,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,
         7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,
         13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,
         20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,
@@ -7439,227 +7449,227 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         5,62,1342,8,62,10,62,12,62,1345,9,62,1,62,5,62,1348,8,62,10,62,12,
         62,1351,9,62,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,63,1,
         63,1,63,3,63,1365,8,63,1,63,1,63,5,63,1369,8,63,10,63,12,63,1372,
-        9,63,1,64,1,64,1,64,3,64,1377,8,64,1,64,1,64,3,64,1381,8,64,1,64,
-        1,64,3,64,1385,8,64,1,64,1,64,3,64,1389,8,64,1,65,4,65,1392,8,65,
-        11,65,12,65,1393,1,65,1,65,1,65,5,65,1399,8,65,10,65,12,65,1402,
-        9,65,1,65,5,65,1405,8,65,10,65,12,65,1408,9,65,1,65,1,65,5,65,1412,
-        8,65,10,65,12,65,1415,9,65,3,65,1417,8,65,1,66,1,66,3,66,1421,8,
-        66,1,67,1,67,1,67,1,67,5,67,1427,8,67,10,67,12,67,1430,9,67,1,67,
-        1,67,1,67,5,67,1435,8,67,10,67,12,67,1438,9,67,3,67,1440,8,67,1,
-        68,1,68,1,68,1,69,1,69,1,70,1,70,5,70,1449,8,70,10,70,12,70,1452,
-        9,70,1,70,1,70,5,70,1456,8,70,10,70,12,70,1459,9,70,1,70,1,70,5,
-        70,1463,8,70,10,70,12,70,1466,9,70,1,70,5,70,1469,8,70,10,70,12,
-        70,1472,9,70,3,70,1474,8,70,1,70,1,70,1,71,3,71,1479,8,71,1,71,1,
-        71,1,71,3,71,1484,8,71,1,71,1,71,1,72,1,72,5,72,1490,8,72,10,72,
-        12,72,1493,9,72,1,73,1,73,3,73,1497,8,73,1,73,1,73,3,73,1501,8,73,
-        1,73,3,73,1504,8,73,1,74,3,74,1507,8,74,1,74,3,74,1510,8,74,1,74,
-        1,74,3,74,1514,8,74,1,74,3,74,1517,8,74,1,74,1,74,3,74,1521,8,74,
-        1,74,3,74,1524,8,74,1,75,1,75,1,75,5,75,1529,8,75,10,75,12,75,1532,
-        9,75,1,75,3,75,1535,8,75,1,76,1,76,1,77,1,77,1,77,3,77,1542,8,77,
-        1,78,1,78,1,79,1,79,1,80,1,80,1,80,1,81,1,81,1,81,1,82,1,82,3,82,
-        1556,8,82,1,83,1,83,1,84,1,84,1,84,3,84,1563,8,84,1,85,1,85,1,86,
-        1,86,1,87,1,87,1,87,0,2,124,126,88,0,2,4,6,8,10,12,14,16,18,20,22,
-        24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,
-        68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,
-        108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,
-        140,142,144,146,148,150,152,154,156,158,160,162,164,166,168,170,
-        172,174,0,25,1,0,129,132,2,0,68,69,123,123,2,0,133,133,135,135,2,
-        0,136,136,142,143,1,0,137,141,1,0,120,121,1,0,110,112,1,0,22,23,
-        1,0,84,87,1,0,116,117,2,0,15,15,28,28,1,0,24,27,1,0,28,30,1,0,24,
-        25,1,0,35,37,1,0,38,41,1,0,42,45,2,0,16,16,20,20,2,0,14,14,52,66,
-        2,0,109,109,115,115,1,0,68,69,1,0,70,71,6,0,73,73,76,76,84,87,90,
-        90,101,108,113,113,7,0,72,72,74,75,77,83,88,89,91,100,106,106,108,
-        112,1,1,116,116,1782,0,180,1,0,0,0,2,187,1,0,0,0,4,197,1,0,0,0,6,
-        199,1,0,0,0,8,229,1,0,0,0,10,244,1,0,0,0,12,246,1,0,0,0,14,248,1,
-        0,0,0,16,273,1,0,0,0,18,275,1,0,0,0,20,309,1,0,0,0,22,311,1,0,0,
-        0,24,313,1,0,0,0,26,328,1,0,0,0,28,332,1,0,0,0,30,344,1,0,0,0,32,
-        346,1,0,0,0,34,360,1,0,0,0,36,367,1,0,0,0,38,376,1,0,0,0,40,378,
-        1,0,0,0,42,403,1,0,0,0,44,405,1,0,0,0,46,415,1,0,0,0,48,528,1,0,
-        0,0,50,597,1,0,0,0,52,599,1,0,0,0,54,613,1,0,0,0,56,627,1,0,0,0,
-        58,637,1,0,0,0,60,665,1,0,0,0,62,689,1,0,0,0,64,708,1,0,0,0,66,730,
-        1,0,0,0,68,732,1,0,0,0,70,742,1,0,0,0,72,762,1,0,0,0,74,856,1,0,
-        0,0,76,858,1,0,0,0,78,872,1,0,0,0,80,882,1,0,0,0,82,891,1,0,0,0,
-        84,921,1,0,0,0,86,929,1,0,0,0,88,976,1,0,0,0,90,978,1,0,0,0,92,1006,
-        1,0,0,0,94,1022,1,0,0,0,96,1024,1,0,0,0,98,1027,1,0,0,0,100,1030,
-        1,0,0,0,102,1052,1,0,0,0,104,1058,1,0,0,0,106,1071,1,0,0,0,108,1073,
-        1,0,0,0,110,1091,1,0,0,0,112,1111,1,0,0,0,114,1113,1,0,0,0,116,1147,
-        1,0,0,0,118,1149,1,0,0,0,120,1153,1,0,0,0,122,1167,1,0,0,0,124,1213,
-        1,0,0,0,126,1364,1,0,0,0,128,1388,1,0,0,0,130,1416,1,0,0,0,132,1420,
-        1,0,0,0,134,1439,1,0,0,0,136,1441,1,0,0,0,138,1444,1,0,0,0,140,1446,
-        1,0,0,0,142,1478,1,0,0,0,144,1487,1,0,0,0,146,1503,1,0,0,0,148,1523,
-        1,0,0,0,150,1534,1,0,0,0,152,1536,1,0,0,0,154,1541,1,0,0,0,156,1543,
-        1,0,0,0,158,1545,1,0,0,0,160,1547,1,0,0,0,162,1550,1,0,0,0,164,1555,
-        1,0,0,0,166,1557,1,0,0,0,168,1562,1,0,0,0,170,1564,1,0,0,0,172,1566,
-        1,0,0,0,174,1568,1,0,0,0,176,177,3,2,1,0,177,178,5,0,0,1,178,181,
-        1,0,0,0,179,181,5,0,0,1,180,176,1,0,0,0,180,179,1,0,0,0,181,1,1,
-        0,0,0,182,183,3,4,2,0,183,184,3,174,87,0,184,188,1,0,0,0,185,188,
-        5,117,0,0,186,188,5,116,0,0,187,182,1,0,0,0,187,185,1,0,0,0,187,
-        186,1,0,0,0,188,189,1,0,0,0,189,187,1,0,0,0,189,190,1,0,0,0,190,
-        3,1,0,0,0,191,198,3,82,41,0,192,198,3,6,3,0,193,198,3,12,6,0,194,
-        198,3,14,7,0,195,198,3,18,9,0,196,198,3,20,10,0,197,191,1,0,0,0,
-        197,192,1,0,0,0,197,193,1,0,0,0,197,194,1,0,0,0,197,195,1,0,0,0,
-        197,196,1,0,0,0,198,5,1,0,0,0,199,202,5,34,0,0,200,203,3,8,4,0,201,
-        203,3,10,5,0,202,200,1,0,0,0,202,201,1,0,0,0,203,7,1,0,0,0,204,206,
-        5,124,0,0,205,207,3,124,62,0,206,205,1,0,0,0,206,207,1,0,0,0,207,
-        230,1,0,0,0,208,213,5,128,0,0,209,214,5,152,0,0,210,214,5,150,0,
-        0,211,212,5,151,0,0,212,214,5,152,0,0,213,209,1,0,0,0,213,210,1,
-        0,0,0,213,211,1,0,0,0,214,230,1,0,0,0,215,217,5,125,0,0,216,218,
-        3,158,79,0,217,216,1,0,0,0,217,218,1,0,0,0,218,230,1,0,0,0,219,222,
-        5,127,0,0,220,223,3,158,79,0,221,223,3,156,78,0,222,220,1,0,0,0,
-        222,221,1,0,0,0,222,223,1,0,0,0,223,230,1,0,0,0,224,227,5,126,0,
-        0,225,228,3,158,79,0,226,228,3,156,78,0,227,225,1,0,0,0,227,226,
-        1,0,0,0,227,228,1,0,0,0,228,230,1,0,0,0,229,204,1,0,0,0,229,208,
-        1,0,0,0,229,215,1,0,0,0,229,219,1,0,0,0,229,224,1,0,0,0,230,9,1,
-        0,0,0,231,232,7,0,0,0,232,245,5,147,0,0,233,235,5,134,0,0,234,236,
-        7,1,0,0,235,234,1,0,0,0,235,236,1,0,0,0,236,245,1,0,0,0,237,239,
-        7,2,0,0,238,240,5,147,0,0,239,238,1,0,0,0,239,240,1,0,0,0,240,245,
-        1,0,0,0,241,245,7,3,0,0,242,243,7,4,0,0,243,245,5,123,0,0,244,231,
-        1,0,0,0,244,233,1,0,0,0,244,237,1,0,0,0,244,241,1,0,0,0,244,242,
-        1,0,0,0,245,11,1,0,0,0,246,247,5,5,0,0,247,13,1,0,0,0,248,253,5,
-        4,0,0,249,250,5,116,0,0,250,252,5,4,0,0,251,249,1,0,0,0,252,255,
-        1,0,0,0,253,251,1,0,0,0,253,254,1,0,0,0,254,259,1,0,0,0,255,253,
-        1,0,0,0,256,258,5,117,0,0,257,256,1,0,0,0,258,261,1,0,0,0,259,257,
-        1,0,0,0,259,260,1,0,0,0,260,271,1,0,0,0,261,259,1,0,0,0,262,272,
-        3,16,8,0,263,265,5,116,0,0,264,263,1,0,0,0,264,265,1,0,0,0,265,266,
-        1,0,0,0,266,272,3,80,40,0,267,269,5,116,0,0,268,267,1,0,0,0,268,
-        269,1,0,0,0,269,270,1,0,0,0,270,272,3,20,10,0,271,262,1,0,0,0,271,
-        264,1,0,0,0,271,268,1,0,0,0,272,15,1,0,0,0,273,274,7,5,0,0,274,17,
-        1,0,0,0,275,280,5,6,0,0,276,277,5,116,0,0,277,279,5,6,0,0,278,276,
-        1,0,0,0,279,282,1,0,0,0,280,278,1,0,0,0,280,281,1,0,0,0,281,286,
-        1,0,0,0,282,280,1,0,0,0,283,285,3,172,86,0,284,283,1,0,0,0,285,288,
-        1,0,0,0,286,284,1,0,0,0,286,287,1,0,0,0,287,291,1,0,0,0,288,286,
-        1,0,0,0,289,292,3,80,40,0,290,292,3,20,10,0,291,289,1,0,0,0,291,
-        290,1,0,0,0,292,19,1,0,0,0,293,310,3,28,14,0,294,310,3,40,20,0,295,
-        310,3,48,24,0,296,310,3,52,26,0,297,310,3,54,27,0,298,310,3,56,28,
-        0,299,310,3,64,32,0,300,310,3,66,33,0,301,310,3,58,29,0,302,310,
-        3,68,34,0,303,310,3,70,35,0,304,310,3,80,40,0,305,306,4,10,0,0,306,
-        310,3,36,18,0,307,310,3,22,11,0,308,310,3,38,19,0,309,293,1,0,0,
-        0,309,294,1,0,0,0,309,295,1,0,0,0,309,296,1,0,0,0,309,297,1,0,0,
-        0,309,298,1,0,0,0,309,299,1,0,0,0,309,300,1,0,0,0,309,301,1,0,0,
-        0,309,302,1,0,0,0,309,303,1,0,0,0,309,304,1,0,0,0,309,305,1,0,0,
-        0,309,307,1,0,0,0,309,308,1,0,0,0,310,21,1,0,0,0,311,312,3,24,12,
-        0,312,23,1,0,0,0,313,317,5,11,0,0,314,316,3,172,86,0,315,314,1,0,
-        0,0,316,319,1,0,0,0,317,315,1,0,0,0,317,318,1,0,0,0,318,321,1,0,
-        0,0,319,317,1,0,0,0,320,322,3,26,13,0,321,320,1,0,0,0,321,322,1,
-        0,0,0,322,323,1,0,0,0,323,324,5,12,0,0,324,25,1,0,0,0,325,326,3,
-        4,2,0,326,327,5,116,0,0,327,329,1,0,0,0,328,325,1,0,0,0,329,330,
-        1,0,0,0,330,328,1,0,0,0,330,331,1,0,0,0,331,27,1,0,0,0,332,340,7,
-        6,0,0,333,335,5,117,0,0,334,333,1,0,0,0,335,338,1,0,0,0,336,334,
-        1,0,0,0,336,337,1,0,0,0,337,339,1,0,0,0,338,336,1,0,0,0,339,341,
-        3,32,16,0,340,336,1,0,0,0,340,341,1,0,0,0,341,29,1,0,0,0,342,345,
-        3,82,41,0,343,345,3,80,40,0,344,342,1,0,0,0,344,343,1,0,0,0,345,
-        31,1,0,0,0,346,357,3,34,17,0,347,349,5,117,0,0,348,347,1,0,0,0,349,
-        352,1,0,0,0,350,348,1,0,0,0,350,351,1,0,0,0,351,353,1,0,0,0,352,
-        350,1,0,0,0,353,354,5,13,0,0,354,356,3,34,17,0,355,350,1,0,0,0,356,
-        359,1,0,0,0,357,355,1,0,0,0,357,358,1,0,0,0,358,33,1,0,0,0,359,357,
-        1,0,0,0,360,365,3,138,69,0,361,362,3,152,76,0,362,363,3,124,62,0,
-        363,366,1,0,0,0,364,366,7,7,0,0,365,361,1,0,0,0,365,364,1,0,0,0,
-        365,366,1,0,0,0,366,35,1,0,0,0,367,374,3,126,63,0,368,370,5,117,
-        0,0,369,368,1,0,0,0,370,371,1,0,0,0,371,369,1,0,0,0,371,372,1,0,
-        0,0,372,373,1,0,0,0,373,375,3,116,58,0,374,369,1,0,0,0,374,375,1,
-        0,0,0,375,37,1,0,0,0,376,377,3,120,60,0,377,39,1,0,0,0,378,382,5,
-        91,0,0,379,381,3,172,86,0,380,379,1,0,0,0,381,384,1,0,0,0,382,380,
-        1,0,0,0,382,383,1,0,0,0,383,385,1,0,0,0,384,382,1,0,0,0,385,389,
-        3,124,62,0,386,388,5,117,0,0,387,386,1,0,0,0,388,391,1,0,0,0,389,
-        387,1,0,0,0,389,390,1,0,0,0,390,392,1,0,0,0,391,389,1,0,0,0,392,
-        394,3,42,21,0,393,395,3,46,23,0,394,393,1,0,0,0,394,395,1,0,0,0,
-        395,41,1,0,0,0,396,398,5,116,0,0,397,396,1,0,0,0,398,399,1,0,0,0,
-        399,397,1,0,0,0,399,400,1,0,0,0,400,401,1,0,0,0,401,404,3,20,10,
-        0,402,404,3,24,12,0,403,397,1,0,0,0,403,402,1,0,0,0,404,43,1,0,0,
-        0,405,406,5,116,0,0,406,410,5,89,0,0,407,409,3,172,86,0,408,407,
-        1,0,0,0,409,412,1,0,0,0,410,408,1,0,0,0,410,411,1,0,0,0,411,413,
-        1,0,0,0,412,410,1,0,0,0,413,414,3,124,62,0,414,45,1,0,0,0,415,416,
-        5,116,0,0,416,420,5,77,0,0,417,419,3,172,86,0,418,417,1,0,0,0,419,
-        422,1,0,0,0,420,418,1,0,0,0,420,421,1,0,0,0,421,423,1,0,0,0,422,
-        420,1,0,0,0,423,424,3,20,10,0,424,47,1,0,0,0,425,426,5,88,0,0,426,
-        430,7,8,0,0,427,429,5,117,0,0,428,427,1,0,0,0,429,432,1,0,0,0,430,
-        428,1,0,0,0,430,431,1,0,0,0,431,433,1,0,0,0,432,430,1,0,0,0,433,
-        446,3,124,62,0,434,436,5,117,0,0,435,434,1,0,0,0,436,439,1,0,0,0,
-        437,435,1,0,0,0,437,438,1,0,0,0,438,440,1,0,0,0,439,437,1,0,0,0,
-        440,442,5,13,0,0,441,443,3,124,62,0,442,441,1,0,0,0,442,443,1,0,
-        0,0,443,445,1,0,0,0,444,437,1,0,0,0,445,448,1,0,0,0,446,444,1,0,
-        0,0,446,447,1,0,0,0,447,452,1,0,0,0,448,446,1,0,0,0,449,451,5,117,
-        0,0,450,449,1,0,0,0,451,454,1,0,0,0,452,450,1,0,0,0,452,453,1,0,
-        0,0,453,455,1,0,0,0,454,452,1,0,0,0,455,457,3,42,21,0,456,458,3,
-        44,22,0,457,456,1,0,0,0,457,458,1,0,0,0,458,460,1,0,0,0,459,461,
-        3,46,23,0,460,459,1,0,0,0,460,461,1,0,0,0,461,529,1,0,0,0,462,463,
-        4,24,1,0,463,467,5,88,0,0,464,466,5,117,0,0,465,464,1,0,0,0,466,
-        469,1,0,0,0,467,465,1,0,0,0,467,468,1,0,0,0,468,477,1,0,0,0,469,
-        467,1,0,0,0,470,474,3,124,62,0,471,473,5,117,0,0,472,471,1,0,0,0,
-        473,476,1,0,0,0,474,472,1,0,0,0,474,475,1,0,0,0,475,478,1,0,0,0,
-        476,474,1,0,0,0,477,470,1,0,0,0,477,478,1,0,0,0,478,479,1,0,0,0,
-        479,481,3,42,21,0,480,482,3,44,22,0,481,480,1,0,0,0,481,482,1,0,
-        0,0,482,484,1,0,0,0,483,485,3,46,23,0,484,483,1,0,0,0,484,485,1,
-        0,0,0,485,529,1,0,0,0,486,490,5,83,0,0,487,489,5,117,0,0,488,487,
-        1,0,0,0,489,492,1,0,0,0,490,488,1,0,0,0,490,491,1,0,0,0,491,493,
-        1,0,0,0,492,490,1,0,0,0,493,497,3,124,62,0,494,496,5,117,0,0,495,
-        494,1,0,0,0,496,499,1,0,0,0,497,495,1,0,0,0,497,498,1,0,0,0,498,
-        500,1,0,0,0,499,497,1,0,0,0,500,502,3,42,21,0,501,503,3,44,22,0,
-        502,501,1,0,0,0,502,503,1,0,0,0,503,505,1,0,0,0,504,506,3,46,23,
-        0,505,504,1,0,0,0,505,506,1,0,0,0,506,529,1,0,0,0,507,511,5,82,0,
-        0,508,510,5,117,0,0,509,508,1,0,0,0,510,513,1,0,0,0,511,509,1,0,
-        0,0,511,512,1,0,0,0,512,514,1,0,0,0,513,511,1,0,0,0,514,518,3,50,
-        25,0,515,517,5,117,0,0,516,515,1,0,0,0,517,520,1,0,0,0,518,516,1,
-        0,0,0,518,519,1,0,0,0,519,521,1,0,0,0,520,518,1,0,0,0,521,523,3,
-        42,21,0,522,524,3,44,22,0,523,522,1,0,0,0,523,524,1,0,0,0,524,526,
-        1,0,0,0,525,527,3,46,23,0,526,525,1,0,0,0,526,527,1,0,0,0,527,529,
-        1,0,0,0,528,425,1,0,0,0,528,462,1,0,0,0,528,486,1,0,0,0,528,507,
-        1,0,0,0,529,49,1,0,0,0,530,532,3,138,69,0,531,530,1,0,0,0,531,532,
-        1,0,0,0,532,545,1,0,0,0,533,535,5,117,0,0,534,533,1,0,0,0,535,538,
-        1,0,0,0,536,534,1,0,0,0,536,537,1,0,0,0,537,539,1,0,0,0,538,536,
-        1,0,0,0,539,541,5,13,0,0,540,542,3,138,69,0,541,540,1,0,0,0,541,
-        542,1,0,0,0,542,544,1,0,0,0,543,536,1,0,0,0,544,547,1,0,0,0,545,
-        543,1,0,0,0,545,546,1,0,0,0,546,551,1,0,0,0,547,545,1,0,0,0,548,
-        550,5,117,0,0,549,548,1,0,0,0,550,553,1,0,0,0,551,549,1,0,0,0,551,
-        552,1,0,0,0,552,554,1,0,0,0,553,551,1,0,0,0,554,558,5,93,0,0,555,
-        557,5,117,0,0,556,555,1,0,0,0,557,560,1,0,0,0,558,556,1,0,0,0,558,
-        559,1,0,0,0,559,561,1,0,0,0,560,558,1,0,0,0,561,598,3,124,62,0,562,
-        564,5,9,0,0,563,565,3,138,69,0,564,563,1,0,0,0,564,565,1,0,0,0,565,
-        578,1,0,0,0,566,568,5,117,0,0,567,566,1,0,0,0,568,571,1,0,0,0,569,
-        567,1,0,0,0,569,570,1,0,0,0,570,572,1,0,0,0,571,569,1,0,0,0,572,
-        574,5,13,0,0,573,575,3,138,69,0,574,573,1,0,0,0,574,575,1,0,0,0,
-        575,577,1,0,0,0,576,569,1,0,0,0,577,580,1,0,0,0,578,576,1,0,0,0,
-        578,579,1,0,0,0,579,584,1,0,0,0,580,578,1,0,0,0,581,583,7,9,0,0,
-        582,581,1,0,0,0,583,586,1,0,0,0,584,582,1,0,0,0,584,585,1,0,0,0,
-        585,587,1,0,0,0,586,584,1,0,0,0,587,591,5,93,0,0,588,590,7,9,0,0,
-        589,588,1,0,0,0,590,593,1,0,0,0,591,589,1,0,0,0,591,592,1,0,0,0,
-        592,594,1,0,0,0,593,591,1,0,0,0,594,595,3,124,62,0,595,596,5,10,
-        0,0,596,598,1,0,0,0,597,531,1,0,0,0,597,562,1,0,0,0,598,51,1,0,0,
-        0,599,603,5,81,0,0,600,602,5,117,0,0,601,600,1,0,0,0,602,605,1,0,
-        0,0,603,601,1,0,0,0,603,604,1,0,0,0,604,611,1,0,0,0,605,603,1,0,
-        0,0,606,612,3,112,56,0,607,608,5,9,0,0,608,609,3,112,56,0,609,610,
-        5,10,0,0,610,612,1,0,0,0,611,606,1,0,0,0,611,607,1,0,0,0,611,612,
-        1,0,0,0,612,53,1,0,0,0,613,617,5,72,0,0,614,616,5,117,0,0,615,614,
-        1,0,0,0,616,619,1,0,0,0,617,615,1,0,0,0,617,618,1,0,0,0,618,625,
-        1,0,0,0,619,617,1,0,0,0,620,621,5,9,0,0,621,622,3,112,56,0,622,623,
-        5,10,0,0,623,626,1,0,0,0,624,626,3,112,56,0,625,620,1,0,0,0,625,
-        624,1,0,0,0,625,626,1,0,0,0,626,55,1,0,0,0,627,631,5,80,0,0,628,
-        630,5,117,0,0,629,628,1,0,0,0,630,633,1,0,0,0,631,629,1,0,0,0,631,
-        632,1,0,0,0,632,635,1,0,0,0,633,631,1,0,0,0,634,636,3,124,62,0,635,
-        634,1,0,0,0,635,636,1,0,0,0,636,57,1,0,0,0,637,641,5,74,0,0,638,
-        640,5,117,0,0,639,638,1,0,0,0,640,643,1,0,0,0,641,639,1,0,0,0,641,
-        642,1,0,0,0,642,645,1,0,0,0,643,641,1,0,0,0,644,646,3,124,62,0,645,
-        644,1,0,0,0,645,646,1,0,0,0,646,655,1,0,0,0,647,649,5,117,0,0,648,
-        647,1,0,0,0,649,652,1,0,0,0,650,648,1,0,0,0,650,651,1,0,0,0,651,
-        653,1,0,0,0,652,650,1,0,0,0,653,654,5,13,0,0,654,656,3,154,77,0,
-        655,650,1,0,0,0,655,656,1,0,0,0,656,660,1,0,0,0,657,659,3,172,86,
-        0,658,657,1,0,0,0,659,662,1,0,0,0,660,658,1,0,0,0,660,661,1,0,0,
-        0,661,663,1,0,0,0,662,660,1,0,0,0,663,664,3,60,30,0,664,59,1,0,0,
-        0,665,669,5,11,0,0,666,668,3,172,86,0,667,666,1,0,0,0,668,671,1,
-        0,0,0,669,667,1,0,0,0,669,670,1,0,0,0,670,675,1,0,0,0,671,669,1,
-        0,0,0,672,674,3,62,31,0,673,672,1,0,0,0,674,677,1,0,0,0,675,673,
-        1,0,0,0,675,676,1,0,0,0,676,678,1,0,0,0,677,675,1,0,0,0,678,679,
-        5,12,0,0,679,61,1,0,0,0,680,684,5,75,0,0,681,683,5,117,0,0,682,681,
-        1,0,0,0,683,686,1,0,0,0,684,682,1,0,0,0,684,685,1,0,0,0,685,687,
-        1,0,0,0,686,684,1,0,0,0,687,690,3,120,60,0,688,690,5,76,0,0,689,
-        680,1,0,0,0,689,688,1,0,0,0,690,694,1,0,0,0,691,693,5,117,0,0,692,
-        691,1,0,0,0,693,696,1,0,0,0,694,692,1,0,0,0,694,695,1,0,0,0,695,
-        697,1,0,0,0,696,694,1,0,0,0,697,706,5,17,0,0,698,700,3,172,86,0,
-        699,698,1,0,0,0,700,703,1,0,0,0,701,699,1,0,0,0,701,702,1,0,0,0,
-        702,704,1,0,0,0,703,701,1,0,0,0,704,707,3,26,13,0,705,707,5,116,
-        0,0,706,701,1,0,0,0,706,705,1,0,0,0,707,63,1,0,0,0,708,709,3,166,
-        83,0,709,710,5,17,0,0,710,65,1,0,0,0,711,715,5,100,0,0,712,714,5,
-        117,0,0,713,712,1,0,0,0,714,717,1,0,0,0,715,713,1,0,0,0,715,716,
+        9,63,1,64,1,64,1,64,3,64,1377,8,64,1,64,3,64,1380,8,64,1,64,1,64,
+        3,64,1384,8,64,1,64,1,64,3,64,1388,8,64,1,64,1,64,3,64,1392,8,64,
+        1,65,4,65,1395,8,65,11,65,12,65,1396,1,65,1,65,1,65,5,65,1402,8,
+        65,10,65,12,65,1405,9,65,1,65,5,65,1408,8,65,10,65,12,65,1411,9,
+        65,1,65,1,65,5,65,1415,8,65,10,65,12,65,1418,9,65,3,65,1420,8,65,
+        1,66,1,66,3,66,1424,8,66,1,67,1,67,1,67,1,67,5,67,1430,8,67,10,67,
+        12,67,1433,9,67,1,67,1,67,1,67,5,67,1438,8,67,10,67,12,67,1441,9,
+        67,3,67,1443,8,67,1,68,1,68,1,68,1,69,1,69,1,70,1,70,5,70,1452,8,
+        70,10,70,12,70,1455,9,70,1,70,1,70,5,70,1459,8,70,10,70,12,70,1462,
+        9,70,1,70,1,70,5,70,1466,8,70,10,70,12,70,1469,9,70,1,70,5,70,1472,
+        8,70,10,70,12,70,1475,9,70,3,70,1477,8,70,1,70,1,70,1,71,3,71,1482,
+        8,71,1,71,1,71,1,71,3,71,1487,8,71,1,71,1,71,1,72,1,72,5,72,1493,
+        8,72,10,72,12,72,1496,9,72,1,73,1,73,3,73,1500,8,73,1,73,1,73,3,
+        73,1504,8,73,1,73,3,73,1507,8,73,1,74,3,74,1510,8,74,1,74,3,74,1513,
+        8,74,1,74,1,74,3,74,1517,8,74,1,74,3,74,1520,8,74,1,74,1,74,3,74,
+        1524,8,74,1,74,3,74,1527,8,74,1,75,1,75,1,75,5,75,1532,8,75,10,75,
+        12,75,1535,9,75,1,75,3,75,1538,8,75,1,76,1,76,1,77,1,77,1,77,3,77,
+        1545,8,77,1,78,1,78,1,79,1,79,1,80,1,80,1,80,1,81,1,81,1,81,1,82,
+        1,82,3,82,1559,8,82,1,83,1,83,1,84,1,84,1,84,3,84,1566,8,84,1,85,
+        1,85,1,86,1,86,1,87,1,87,1,87,0,2,124,126,88,0,2,4,6,8,10,12,14,
+        16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,
+        60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,
+        102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,
+        134,136,138,140,142,144,146,148,150,152,154,156,158,160,162,164,
+        166,168,170,172,174,0,25,1,0,129,132,2,0,68,69,123,123,2,0,133,133,
+        135,135,2,0,136,136,142,143,1,0,137,141,1,0,120,121,1,0,110,112,
+        1,0,22,23,1,0,84,87,1,0,116,117,2,0,15,15,28,28,1,0,24,27,1,0,28,
+        30,1,0,24,25,1,0,35,37,1,0,38,41,1,0,42,45,2,0,16,16,20,20,2,0,14,
+        14,52,66,2,0,109,109,115,115,1,0,68,69,1,0,70,71,6,0,73,73,76,76,
+        84,87,90,90,101,108,113,113,7,0,72,72,74,75,77,83,88,89,91,100,106,
+        106,108,112,1,1,116,116,1786,0,180,1,0,0,0,2,187,1,0,0,0,4,197,1,
+        0,0,0,6,199,1,0,0,0,8,229,1,0,0,0,10,244,1,0,0,0,12,246,1,0,0,0,
+        14,248,1,0,0,0,16,273,1,0,0,0,18,275,1,0,0,0,20,309,1,0,0,0,22,311,
+        1,0,0,0,24,313,1,0,0,0,26,328,1,0,0,0,28,332,1,0,0,0,30,344,1,0,
+        0,0,32,346,1,0,0,0,34,360,1,0,0,0,36,367,1,0,0,0,38,376,1,0,0,0,
+        40,378,1,0,0,0,42,403,1,0,0,0,44,405,1,0,0,0,46,415,1,0,0,0,48,528,
+        1,0,0,0,50,597,1,0,0,0,52,599,1,0,0,0,54,613,1,0,0,0,56,627,1,0,
+        0,0,58,637,1,0,0,0,60,665,1,0,0,0,62,689,1,0,0,0,64,708,1,0,0,0,
+        66,730,1,0,0,0,68,732,1,0,0,0,70,742,1,0,0,0,72,762,1,0,0,0,74,856,
+        1,0,0,0,76,858,1,0,0,0,78,872,1,0,0,0,80,882,1,0,0,0,82,891,1,0,
+        0,0,84,921,1,0,0,0,86,929,1,0,0,0,88,976,1,0,0,0,90,978,1,0,0,0,
+        92,1006,1,0,0,0,94,1022,1,0,0,0,96,1024,1,0,0,0,98,1027,1,0,0,0,
+        100,1030,1,0,0,0,102,1052,1,0,0,0,104,1058,1,0,0,0,106,1071,1,0,
+        0,0,108,1073,1,0,0,0,110,1091,1,0,0,0,112,1111,1,0,0,0,114,1113,
+        1,0,0,0,116,1147,1,0,0,0,118,1149,1,0,0,0,120,1153,1,0,0,0,122,1167,
+        1,0,0,0,124,1213,1,0,0,0,126,1364,1,0,0,0,128,1391,1,0,0,0,130,1419,
+        1,0,0,0,132,1423,1,0,0,0,134,1442,1,0,0,0,136,1444,1,0,0,0,138,1447,
+        1,0,0,0,140,1449,1,0,0,0,142,1481,1,0,0,0,144,1490,1,0,0,0,146,1506,
+        1,0,0,0,148,1526,1,0,0,0,150,1537,1,0,0,0,152,1539,1,0,0,0,154,1544,
+        1,0,0,0,156,1546,1,0,0,0,158,1548,1,0,0,0,160,1550,1,0,0,0,162,1553,
+        1,0,0,0,164,1558,1,0,0,0,166,1560,1,0,0,0,168,1565,1,0,0,0,170,1567,
+        1,0,0,0,172,1569,1,0,0,0,174,1571,1,0,0,0,176,177,3,2,1,0,177,178,
+        5,0,0,1,178,181,1,0,0,0,179,181,5,0,0,1,180,176,1,0,0,0,180,179,
+        1,0,0,0,181,1,1,0,0,0,182,183,3,4,2,0,183,184,3,174,87,0,184,188,
+        1,0,0,0,185,188,5,117,0,0,186,188,5,116,0,0,187,182,1,0,0,0,187,
+        185,1,0,0,0,187,186,1,0,0,0,188,189,1,0,0,0,189,187,1,0,0,0,189,
+        190,1,0,0,0,190,3,1,0,0,0,191,198,3,82,41,0,192,198,3,6,3,0,193,
+        198,3,12,6,0,194,198,3,14,7,0,195,198,3,18,9,0,196,198,3,20,10,0,
+        197,191,1,0,0,0,197,192,1,0,0,0,197,193,1,0,0,0,197,194,1,0,0,0,
+        197,195,1,0,0,0,197,196,1,0,0,0,198,5,1,0,0,0,199,202,5,34,0,0,200,
+        203,3,8,4,0,201,203,3,10,5,0,202,200,1,0,0,0,202,201,1,0,0,0,203,
+        7,1,0,0,0,204,206,5,124,0,0,205,207,3,124,62,0,206,205,1,0,0,0,206,
+        207,1,0,0,0,207,230,1,0,0,0,208,213,5,128,0,0,209,214,5,152,0,0,
+        210,214,5,150,0,0,211,212,5,151,0,0,212,214,5,152,0,0,213,209,1,
+        0,0,0,213,210,1,0,0,0,213,211,1,0,0,0,214,230,1,0,0,0,215,217,5,
+        125,0,0,216,218,3,158,79,0,217,216,1,0,0,0,217,218,1,0,0,0,218,230,
+        1,0,0,0,219,222,5,127,0,0,220,223,3,158,79,0,221,223,3,156,78,0,
+        222,220,1,0,0,0,222,221,1,0,0,0,222,223,1,0,0,0,223,230,1,0,0,0,
+        224,227,5,126,0,0,225,228,3,158,79,0,226,228,3,156,78,0,227,225,
+        1,0,0,0,227,226,1,0,0,0,227,228,1,0,0,0,228,230,1,0,0,0,229,204,
+        1,0,0,0,229,208,1,0,0,0,229,215,1,0,0,0,229,219,1,0,0,0,229,224,
+        1,0,0,0,230,9,1,0,0,0,231,232,7,0,0,0,232,245,5,147,0,0,233,235,
+        5,134,0,0,234,236,7,1,0,0,235,234,1,0,0,0,235,236,1,0,0,0,236,245,
+        1,0,0,0,237,239,7,2,0,0,238,240,5,147,0,0,239,238,1,0,0,0,239,240,
+        1,0,0,0,240,245,1,0,0,0,241,245,7,3,0,0,242,243,7,4,0,0,243,245,
+        5,123,0,0,244,231,1,0,0,0,244,233,1,0,0,0,244,237,1,0,0,0,244,241,
+        1,0,0,0,244,242,1,0,0,0,245,11,1,0,0,0,246,247,5,5,0,0,247,13,1,
+        0,0,0,248,253,5,4,0,0,249,250,5,116,0,0,250,252,5,4,0,0,251,249,
+        1,0,0,0,252,255,1,0,0,0,253,251,1,0,0,0,253,254,1,0,0,0,254,259,
+        1,0,0,0,255,253,1,0,0,0,256,258,5,117,0,0,257,256,1,0,0,0,258,261,
+        1,0,0,0,259,257,1,0,0,0,259,260,1,0,0,0,260,271,1,0,0,0,261,259,
+        1,0,0,0,262,272,3,16,8,0,263,265,5,116,0,0,264,263,1,0,0,0,264,265,
+        1,0,0,0,265,266,1,0,0,0,266,272,3,80,40,0,267,269,5,116,0,0,268,
+        267,1,0,0,0,268,269,1,0,0,0,269,270,1,0,0,0,270,272,3,20,10,0,271,
+        262,1,0,0,0,271,264,1,0,0,0,271,268,1,0,0,0,272,15,1,0,0,0,273,274,
+        7,5,0,0,274,17,1,0,0,0,275,280,5,6,0,0,276,277,5,116,0,0,277,279,
+        5,6,0,0,278,276,1,0,0,0,279,282,1,0,0,0,280,278,1,0,0,0,280,281,
+        1,0,0,0,281,286,1,0,0,0,282,280,1,0,0,0,283,285,3,172,86,0,284,283,
+        1,0,0,0,285,288,1,0,0,0,286,284,1,0,0,0,286,287,1,0,0,0,287,291,
+        1,0,0,0,288,286,1,0,0,0,289,292,3,80,40,0,290,292,3,20,10,0,291,
+        289,1,0,0,0,291,290,1,0,0,0,292,19,1,0,0,0,293,310,3,28,14,0,294,
+        310,3,40,20,0,295,310,3,48,24,0,296,310,3,52,26,0,297,310,3,54,27,
+        0,298,310,3,56,28,0,299,310,3,64,32,0,300,310,3,66,33,0,301,310,
+        3,58,29,0,302,310,3,68,34,0,303,310,3,70,35,0,304,310,3,80,40,0,
+        305,306,4,10,0,0,306,310,3,36,18,0,307,310,3,22,11,0,308,310,3,38,
+        19,0,309,293,1,0,0,0,309,294,1,0,0,0,309,295,1,0,0,0,309,296,1,0,
+        0,0,309,297,1,0,0,0,309,298,1,0,0,0,309,299,1,0,0,0,309,300,1,0,
+        0,0,309,301,1,0,0,0,309,302,1,0,0,0,309,303,1,0,0,0,309,304,1,0,
+        0,0,309,305,1,0,0,0,309,307,1,0,0,0,309,308,1,0,0,0,310,21,1,0,0,
+        0,311,312,3,24,12,0,312,23,1,0,0,0,313,317,5,11,0,0,314,316,3,172,
+        86,0,315,314,1,0,0,0,316,319,1,0,0,0,317,315,1,0,0,0,317,318,1,0,
+        0,0,318,321,1,0,0,0,319,317,1,0,0,0,320,322,3,26,13,0,321,320,1,
+        0,0,0,321,322,1,0,0,0,322,323,1,0,0,0,323,324,5,12,0,0,324,25,1,
+        0,0,0,325,326,3,4,2,0,326,327,5,116,0,0,327,329,1,0,0,0,328,325,
+        1,0,0,0,329,330,1,0,0,0,330,328,1,0,0,0,330,331,1,0,0,0,331,27,1,
+        0,0,0,332,340,7,6,0,0,333,335,5,117,0,0,334,333,1,0,0,0,335,338,
+        1,0,0,0,336,334,1,0,0,0,336,337,1,0,0,0,337,339,1,0,0,0,338,336,
+        1,0,0,0,339,341,3,32,16,0,340,336,1,0,0,0,340,341,1,0,0,0,341,29,
+        1,0,0,0,342,345,3,82,41,0,343,345,3,80,40,0,344,342,1,0,0,0,344,
+        343,1,0,0,0,345,31,1,0,0,0,346,357,3,34,17,0,347,349,5,117,0,0,348,
+        347,1,0,0,0,349,352,1,0,0,0,350,348,1,0,0,0,350,351,1,0,0,0,351,
+        353,1,0,0,0,352,350,1,0,0,0,353,354,5,13,0,0,354,356,3,34,17,0,355,
+        350,1,0,0,0,356,359,1,0,0,0,357,355,1,0,0,0,357,358,1,0,0,0,358,
+        33,1,0,0,0,359,357,1,0,0,0,360,365,3,138,69,0,361,362,3,152,76,0,
+        362,363,3,124,62,0,363,366,1,0,0,0,364,366,7,7,0,0,365,361,1,0,0,
+        0,365,364,1,0,0,0,365,366,1,0,0,0,366,35,1,0,0,0,367,374,3,126,63,
+        0,368,370,5,117,0,0,369,368,1,0,0,0,370,371,1,0,0,0,371,369,1,0,
+        0,0,371,372,1,0,0,0,372,373,1,0,0,0,373,375,3,116,58,0,374,369,1,
+        0,0,0,374,375,1,0,0,0,375,37,1,0,0,0,376,377,3,120,60,0,377,39,1,
+        0,0,0,378,382,5,91,0,0,379,381,3,172,86,0,380,379,1,0,0,0,381,384,
+        1,0,0,0,382,380,1,0,0,0,382,383,1,0,0,0,383,385,1,0,0,0,384,382,
+        1,0,0,0,385,389,3,124,62,0,386,388,5,117,0,0,387,386,1,0,0,0,388,
+        391,1,0,0,0,389,387,1,0,0,0,389,390,1,0,0,0,390,392,1,0,0,0,391,
+        389,1,0,0,0,392,394,3,42,21,0,393,395,3,46,23,0,394,393,1,0,0,0,
+        394,395,1,0,0,0,395,41,1,0,0,0,396,398,5,116,0,0,397,396,1,0,0,0,
+        398,399,1,0,0,0,399,397,1,0,0,0,399,400,1,0,0,0,400,401,1,0,0,0,
+        401,404,3,20,10,0,402,404,3,24,12,0,403,397,1,0,0,0,403,402,1,0,
+        0,0,404,43,1,0,0,0,405,406,5,116,0,0,406,410,5,89,0,0,407,409,3,
+        172,86,0,408,407,1,0,0,0,409,412,1,0,0,0,410,408,1,0,0,0,410,411,
+        1,0,0,0,411,413,1,0,0,0,412,410,1,0,0,0,413,414,3,124,62,0,414,45,
+        1,0,0,0,415,416,5,116,0,0,416,420,5,77,0,0,417,419,3,172,86,0,418,
+        417,1,0,0,0,419,422,1,0,0,0,420,418,1,0,0,0,420,421,1,0,0,0,421,
+        423,1,0,0,0,422,420,1,0,0,0,423,424,3,20,10,0,424,47,1,0,0,0,425,
+        426,5,88,0,0,426,430,7,8,0,0,427,429,5,117,0,0,428,427,1,0,0,0,429,
+        432,1,0,0,0,430,428,1,0,0,0,430,431,1,0,0,0,431,433,1,0,0,0,432,
+        430,1,0,0,0,433,446,3,124,62,0,434,436,5,117,0,0,435,434,1,0,0,0,
+        436,439,1,0,0,0,437,435,1,0,0,0,437,438,1,0,0,0,438,440,1,0,0,0,
+        439,437,1,0,0,0,440,442,5,13,0,0,441,443,3,124,62,0,442,441,1,0,
+        0,0,442,443,1,0,0,0,443,445,1,0,0,0,444,437,1,0,0,0,445,448,1,0,
+        0,0,446,444,1,0,0,0,446,447,1,0,0,0,447,452,1,0,0,0,448,446,1,0,
+        0,0,449,451,5,117,0,0,450,449,1,0,0,0,451,454,1,0,0,0,452,450,1,
+        0,0,0,452,453,1,0,0,0,453,455,1,0,0,0,454,452,1,0,0,0,455,457,3,
+        42,21,0,456,458,3,44,22,0,457,456,1,0,0,0,457,458,1,0,0,0,458,460,
+        1,0,0,0,459,461,3,46,23,0,460,459,1,0,0,0,460,461,1,0,0,0,461,529,
+        1,0,0,0,462,463,4,24,1,0,463,467,5,88,0,0,464,466,5,117,0,0,465,
+        464,1,0,0,0,466,469,1,0,0,0,467,465,1,0,0,0,467,468,1,0,0,0,468,
+        477,1,0,0,0,469,467,1,0,0,0,470,474,3,124,62,0,471,473,5,117,0,0,
+        472,471,1,0,0,0,473,476,1,0,0,0,474,472,1,0,0,0,474,475,1,0,0,0,
+        475,478,1,0,0,0,476,474,1,0,0,0,477,470,1,0,0,0,477,478,1,0,0,0,
+        478,479,1,0,0,0,479,481,3,42,21,0,480,482,3,44,22,0,481,480,1,0,
+        0,0,481,482,1,0,0,0,482,484,1,0,0,0,483,485,3,46,23,0,484,483,1,
+        0,0,0,484,485,1,0,0,0,485,529,1,0,0,0,486,490,5,83,0,0,487,489,5,
+        117,0,0,488,487,1,0,0,0,489,492,1,0,0,0,490,488,1,0,0,0,490,491,
+        1,0,0,0,491,493,1,0,0,0,492,490,1,0,0,0,493,497,3,124,62,0,494,496,
+        5,117,0,0,495,494,1,0,0,0,496,499,1,0,0,0,497,495,1,0,0,0,497,498,
+        1,0,0,0,498,500,1,0,0,0,499,497,1,0,0,0,500,502,3,42,21,0,501,503,
+        3,44,22,0,502,501,1,0,0,0,502,503,1,0,0,0,503,505,1,0,0,0,504,506,
+        3,46,23,0,505,504,1,0,0,0,505,506,1,0,0,0,506,529,1,0,0,0,507,511,
+        5,82,0,0,508,510,5,117,0,0,509,508,1,0,0,0,510,513,1,0,0,0,511,509,
+        1,0,0,0,511,512,1,0,0,0,512,514,1,0,0,0,513,511,1,0,0,0,514,518,
+        3,50,25,0,515,517,5,117,0,0,516,515,1,0,0,0,517,520,1,0,0,0,518,
+        516,1,0,0,0,518,519,1,0,0,0,519,521,1,0,0,0,520,518,1,0,0,0,521,
+        523,3,42,21,0,522,524,3,44,22,0,523,522,1,0,0,0,523,524,1,0,0,0,
+        524,526,1,0,0,0,525,527,3,46,23,0,526,525,1,0,0,0,526,527,1,0,0,
+        0,527,529,1,0,0,0,528,425,1,0,0,0,528,462,1,0,0,0,528,486,1,0,0,
+        0,528,507,1,0,0,0,529,49,1,0,0,0,530,532,3,138,69,0,531,530,1,0,
+        0,0,531,532,1,0,0,0,532,545,1,0,0,0,533,535,5,117,0,0,534,533,1,
+        0,0,0,535,538,1,0,0,0,536,534,1,0,0,0,536,537,1,0,0,0,537,539,1,
+        0,0,0,538,536,1,0,0,0,539,541,5,13,0,0,540,542,3,138,69,0,541,540,
+        1,0,0,0,541,542,1,0,0,0,542,544,1,0,0,0,543,536,1,0,0,0,544,547,
+        1,0,0,0,545,543,1,0,0,0,545,546,1,0,0,0,546,551,1,0,0,0,547,545,
+        1,0,0,0,548,550,5,117,0,0,549,548,1,0,0,0,550,553,1,0,0,0,551,549,
+        1,0,0,0,551,552,1,0,0,0,552,554,1,0,0,0,553,551,1,0,0,0,554,558,
+        5,93,0,0,555,557,5,117,0,0,556,555,1,0,0,0,557,560,1,0,0,0,558,556,
+        1,0,0,0,558,559,1,0,0,0,559,561,1,0,0,0,560,558,1,0,0,0,561,598,
+        3,124,62,0,562,564,5,9,0,0,563,565,3,138,69,0,564,563,1,0,0,0,564,
+        565,1,0,0,0,565,578,1,0,0,0,566,568,5,117,0,0,567,566,1,0,0,0,568,
+        571,1,0,0,0,569,567,1,0,0,0,569,570,1,0,0,0,570,572,1,0,0,0,571,
+        569,1,0,0,0,572,574,5,13,0,0,573,575,3,138,69,0,574,573,1,0,0,0,
+        574,575,1,0,0,0,575,577,1,0,0,0,576,569,1,0,0,0,577,580,1,0,0,0,
+        578,576,1,0,0,0,578,579,1,0,0,0,579,584,1,0,0,0,580,578,1,0,0,0,
+        581,583,7,9,0,0,582,581,1,0,0,0,583,586,1,0,0,0,584,582,1,0,0,0,
+        584,585,1,0,0,0,585,587,1,0,0,0,586,584,1,0,0,0,587,591,5,93,0,0,
+        588,590,7,9,0,0,589,588,1,0,0,0,590,593,1,0,0,0,591,589,1,0,0,0,
+        591,592,1,0,0,0,592,594,1,0,0,0,593,591,1,0,0,0,594,595,3,124,62,
+        0,595,596,5,10,0,0,596,598,1,0,0,0,597,531,1,0,0,0,597,562,1,0,0,
+        0,598,51,1,0,0,0,599,603,5,81,0,0,600,602,5,117,0,0,601,600,1,0,
+        0,0,602,605,1,0,0,0,603,601,1,0,0,0,603,604,1,0,0,0,604,611,1,0,
+        0,0,605,603,1,0,0,0,606,612,3,112,56,0,607,608,5,9,0,0,608,609,3,
+        112,56,0,609,610,5,10,0,0,610,612,1,0,0,0,611,606,1,0,0,0,611,607,
+        1,0,0,0,611,612,1,0,0,0,612,53,1,0,0,0,613,617,5,72,0,0,614,616,
+        5,117,0,0,615,614,1,0,0,0,616,619,1,0,0,0,617,615,1,0,0,0,617,618,
+        1,0,0,0,618,625,1,0,0,0,619,617,1,0,0,0,620,621,5,9,0,0,621,622,
+        3,112,56,0,622,623,5,10,0,0,623,626,1,0,0,0,624,626,3,112,56,0,625,
+        620,1,0,0,0,625,624,1,0,0,0,625,626,1,0,0,0,626,55,1,0,0,0,627,631,
+        5,80,0,0,628,630,5,117,0,0,629,628,1,0,0,0,630,633,1,0,0,0,631,629,
+        1,0,0,0,631,632,1,0,0,0,632,635,1,0,0,0,633,631,1,0,0,0,634,636,
+        3,124,62,0,635,634,1,0,0,0,635,636,1,0,0,0,636,57,1,0,0,0,637,641,
+        5,74,0,0,638,640,5,117,0,0,639,638,1,0,0,0,640,643,1,0,0,0,641,639,
+        1,0,0,0,641,642,1,0,0,0,642,645,1,0,0,0,643,641,1,0,0,0,644,646,
+        3,124,62,0,645,644,1,0,0,0,645,646,1,0,0,0,646,655,1,0,0,0,647,649,
+        5,117,0,0,648,647,1,0,0,0,649,652,1,0,0,0,650,648,1,0,0,0,650,651,
+        1,0,0,0,651,653,1,0,0,0,652,650,1,0,0,0,653,654,5,13,0,0,654,656,
+        3,154,77,0,655,650,1,0,0,0,655,656,1,0,0,0,656,660,1,0,0,0,657,659,
+        3,172,86,0,658,657,1,0,0,0,659,662,1,0,0,0,660,658,1,0,0,0,660,661,
+        1,0,0,0,661,663,1,0,0,0,662,660,1,0,0,0,663,664,3,60,30,0,664,59,
+        1,0,0,0,665,669,5,11,0,0,666,668,3,172,86,0,667,666,1,0,0,0,668,
+        671,1,0,0,0,669,667,1,0,0,0,669,670,1,0,0,0,670,675,1,0,0,0,671,
+        669,1,0,0,0,672,674,3,62,31,0,673,672,1,0,0,0,674,677,1,0,0,0,675,
+        673,1,0,0,0,675,676,1,0,0,0,676,678,1,0,0,0,677,675,1,0,0,0,678,
+        679,5,12,0,0,679,61,1,0,0,0,680,684,5,75,0,0,681,683,5,117,0,0,682,
+        681,1,0,0,0,683,686,1,0,0,0,684,682,1,0,0,0,684,685,1,0,0,0,685,
+        687,1,0,0,0,686,684,1,0,0,0,687,690,3,120,60,0,688,690,5,76,0,0,
+        689,680,1,0,0,0,689,688,1,0,0,0,690,694,1,0,0,0,691,693,5,117,0,
+        0,692,691,1,0,0,0,693,696,1,0,0,0,694,692,1,0,0,0,694,695,1,0,0,
+        0,695,697,1,0,0,0,696,694,1,0,0,0,697,706,5,17,0,0,698,700,3,172,
+        86,0,699,698,1,0,0,0,700,703,1,0,0,0,701,699,1,0,0,0,701,702,1,0,
+        0,0,702,704,1,0,0,0,703,701,1,0,0,0,704,707,3,26,13,0,705,707,5,
+        116,0,0,706,701,1,0,0,0,706,705,1,0,0,0,707,63,1,0,0,0,708,709,3,
+        166,83,0,709,710,5,17,0,0,710,65,1,0,0,0,711,715,5,100,0,0,712,714,
+        5,117,0,0,713,712,1,0,0,0,714,717,1,0,0,0,715,713,1,0,0,0,715,716,
         1,0,0,0,716,718,1,0,0,0,717,715,1,0,0,0,718,731,3,112,56,0,719,723,
         5,100,0,0,720,722,5,117,0,0,721,720,1,0,0,0,722,725,1,0,0,0,723,
         721,1,0,0,0,723,724,1,0,0,0,724,726,1,0,0,0,725,723,1,0,0,0,726,
@@ -7874,75 +7884,76 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         0,1364,1359,1,0,0,0,1364,1360,1,0,0,0,1365,1370,1,0,0,0,1366,1367,
         10,8,0,0,1367,1369,3,128,64,0,1368,1366,1,0,0,0,1369,1372,1,0,0,
         0,1370,1368,1,0,0,0,1370,1371,1,0,0,0,1371,127,1,0,0,0,1372,1370,
-        1,0,0,0,1373,1374,7,17,0,0,1374,1389,3,132,66,0,1375,1377,5,16,0,
-        0,1376,1375,1,0,0,0,1376,1377,1,0,0,0,1377,1378,1,0,0,0,1378,1389,
-        3,122,61,0,1379,1381,5,16,0,0,1380,1379,1,0,0,0,1380,1381,1,0,0,
-        0,1381,1382,1,0,0,0,1382,1384,5,9,0,0,1383,1385,3,116,58,0,1384,
-        1383,1,0,0,0,1384,1385,1,0,0,0,1385,1386,1,0,0,0,1386,1389,5,10,
-        0,0,1387,1389,5,15,0,0,1388,1373,1,0,0,0,1388,1376,1,0,0,0,1388,
-        1380,1,0,0,0,1388,1387,1,0,0,0,1389,129,1,0,0,0,1390,1392,7,9,0,
-        0,1391,1390,1,0,0,0,1392,1393,1,0,0,0,1393,1391,1,0,0,0,1393,1394,
-        1,0,0,0,1394,1395,1,0,0,0,1395,1417,5,20,0,0,1396,1400,5,20,0,0,
-        1397,1399,7,9,0,0,1398,1397,1,0,0,0,1399,1402,1,0,0,0,1400,1398,
-        1,0,0,0,1400,1401,1,0,0,0,1401,1417,1,0,0,0,1402,1400,1,0,0,0,1403,
-        1405,7,9,0,0,1404,1403,1,0,0,0,1405,1408,1,0,0,0,1406,1404,1,0,0,
-        0,1406,1407,1,0,0,0,1407,1409,1,0,0,0,1408,1406,1,0,0,0,1409,1413,
-        5,16,0,0,1410,1412,7,9,0,0,1411,1410,1,0,0,0,1412,1415,1,0,0,0,1413,
-        1411,1,0,0,0,1413,1414,1,0,0,0,1414,1417,1,0,0,0,1415,1413,1,0,0,
-        0,1416,1391,1,0,0,0,1416,1396,1,0,0,0,1416,1406,1,0,0,0,1417,131,
-        1,0,0,0,1418,1421,3,112,56,0,1419,1421,3,134,67,0,1420,1418,1,0,
-        0,0,1420,1419,1,0,0,0,1421,133,1,0,0,0,1422,1423,3,112,56,0,1423,
-        1428,3,114,57,0,1424,1427,3,112,56,0,1425,1427,3,114,57,0,1426,1424,
-        1,0,0,0,1426,1425,1,0,0,0,1427,1430,1,0,0,0,1428,1426,1,0,0,0,1428,
-        1429,1,0,0,0,1429,1440,1,0,0,0,1430,1428,1,0,0,0,1431,1436,3,114,
-        57,0,1432,1435,3,112,56,0,1433,1435,3,114,57,0,1434,1432,1,0,0,0,
-        1434,1433,1,0,0,0,1435,1438,1,0,0,0,1436,1434,1,0,0,0,1436,1437,
-        1,0,0,0,1437,1440,1,0,0,0,1438,1436,1,0,0,0,1439,1422,1,0,0,0,1439,
-        1431,1,0,0,0,1440,135,1,0,0,0,1441,1442,5,14,0,0,1442,1443,3,124,
-        62,0,1443,137,1,0,0,0,1444,1445,3,166,83,0,1445,139,1,0,0,0,1446,
-        1450,5,11,0,0,1447,1449,3,172,86,0,1448,1447,1,0,0,0,1449,1452,1,
-        0,0,0,1450,1448,1,0,0,0,1450,1451,1,0,0,0,1451,1473,1,0,0,0,1452,
-        1450,1,0,0,0,1453,1464,3,110,55,0,1454,1456,5,117,0,0,1455,1454,
-        1,0,0,0,1456,1459,1,0,0,0,1457,1455,1,0,0,0,1457,1458,1,0,0,0,1458,
-        1460,1,0,0,0,1459,1457,1,0,0,0,1460,1461,5,13,0,0,1461,1463,3,110,
-        55,0,1462,1457,1,0,0,0,1463,1466,1,0,0,0,1464,1462,1,0,0,0,1464,
-        1465,1,0,0,0,1465,1470,1,0,0,0,1466,1464,1,0,0,0,1467,1469,3,172,
-        86,0,1468,1467,1,0,0,0,1469,1472,1,0,0,0,1470,1468,1,0,0,0,1470,
-        1471,1,0,0,0,1471,1474,1,0,0,0,1472,1470,1,0,0,0,1473,1453,1,0,0,
-        0,1473,1474,1,0,0,0,1474,1475,1,0,0,0,1475,1476,5,12,0,0,1476,141,
-        1,0,0,0,1477,1479,3,144,72,0,1478,1477,1,0,0,0,1478,1479,1,0,0,0,
-        1479,1480,1,0,0,0,1480,1481,3,164,82,0,1481,1483,5,9,0,0,1482,1484,
-        3,102,51,0,1483,1482,1,0,0,0,1483,1484,1,0,0,0,1484,1485,1,0,0,0,
-        1485,1486,5,10,0,0,1486,143,1,0,0,0,1487,1491,5,110,0,0,1488,1490,
-        5,117,0,0,1489,1488,1,0,0,0,1490,1493,1,0,0,0,1491,1489,1,0,0,0,
-        1491,1492,1,0,0,0,1492,145,1,0,0,0,1493,1491,1,0,0,0,1494,1504,3,
-        142,71,0,1495,1497,3,144,72,0,1496,1495,1,0,0,0,1496,1497,1,0,0,
-        0,1497,1498,1,0,0,0,1498,1500,5,9,0,0,1499,1501,3,102,51,0,1500,
-        1499,1,0,0,0,1500,1501,1,0,0,0,1501,1502,1,0,0,0,1502,1504,5,10,
-        0,0,1503,1494,1,0,0,0,1503,1496,1,0,0,0,1504,147,1,0,0,0,1505,1507,
-        3,144,72,0,1506,1505,1,0,0,0,1506,1507,1,0,0,0,1507,1508,1,0,0,0,
-        1508,1510,3,164,82,0,1509,1506,1,0,0,0,1509,1510,1,0,0,0,1510,1511,
-        1,0,0,0,1511,1524,5,28,0,0,1512,1514,3,144,72,0,1513,1512,1,0,0,
-        0,1513,1514,1,0,0,0,1514,1516,1,0,0,0,1515,1517,5,47,0,0,1516,1515,
-        1,0,0,0,1516,1517,1,0,0,0,1517,1518,1,0,0,0,1518,1520,3,164,82,0,
-        1519,1521,5,15,0,0,1520,1519,1,0,0,0,1520,1521,1,0,0,0,1521,1524,
-        1,0,0,0,1522,1524,3,146,73,0,1523,1509,1,0,0,0,1523,1513,1,0,0,0,
-        1523,1522,1,0,0,0,1524,149,1,0,0,0,1525,1526,5,67,0,0,1526,1535,
-        3,124,62,0,1527,1529,7,9,0,0,1528,1527,1,0,0,0,1529,1532,1,0,0,0,
-        1530,1528,1,0,0,0,1530,1531,1,0,0,0,1531,1533,1,0,0,0,1532,1530,
-        1,0,0,0,1533,1535,3,24,12,0,1534,1525,1,0,0,0,1534,1530,1,0,0,0,
-        1535,151,1,0,0,0,1536,1537,7,18,0,0,1537,153,1,0,0,0,1538,1542,3,
-        156,78,0,1539,1542,3,158,79,0,1540,1542,7,19,0,0,1541,1538,1,0,0,
-        0,1541,1539,1,0,0,0,1541,1540,1,0,0,0,1542,155,1,0,0,0,1543,1544,
-        7,20,0,0,1544,157,1,0,0,0,1545,1546,7,21,0,0,1546,159,1,0,0,0,1547,
-        1548,5,101,0,0,1548,1549,3,112,56,0,1549,161,1,0,0,0,1550,1551,5,
-        102,0,0,1551,1552,3,112,56,0,1552,163,1,0,0,0,1553,1556,3,166,83,
-        0,1554,1556,3,168,84,0,1555,1553,1,0,0,0,1555,1554,1,0,0,0,1556,
-        165,1,0,0,0,1557,1558,7,22,0,0,1558,167,1,0,0,0,1559,1563,3,170,
-        85,0,1560,1563,5,109,0,0,1561,1563,3,156,78,0,1562,1559,1,0,0,0,
-        1562,1560,1,0,0,0,1562,1561,1,0,0,0,1563,169,1,0,0,0,1564,1565,7,
-        23,0,0,1565,171,1,0,0,0,1566,1567,7,9,0,0,1567,173,1,0,0,0,1568,
-        1569,7,24,0,0,1569,175,1,0,0,0,229,180,187,189,197,202,206,213,217,
+        1,0,0,0,1373,1374,7,17,0,0,1374,1376,3,132,66,0,1375,1377,3,122,
+        61,0,1376,1375,1,0,0,0,1376,1377,1,0,0,0,1377,1392,1,0,0,0,1378,
+        1380,5,16,0,0,1379,1378,1,0,0,0,1379,1380,1,0,0,0,1380,1381,1,0,
+        0,0,1381,1392,3,122,61,0,1382,1384,5,16,0,0,1383,1382,1,0,0,0,1383,
+        1384,1,0,0,0,1384,1385,1,0,0,0,1385,1387,5,9,0,0,1386,1388,3,116,
+        58,0,1387,1386,1,0,0,0,1387,1388,1,0,0,0,1388,1389,1,0,0,0,1389,
+        1392,5,10,0,0,1390,1392,5,15,0,0,1391,1373,1,0,0,0,1391,1379,1,0,
+        0,0,1391,1383,1,0,0,0,1391,1390,1,0,0,0,1392,129,1,0,0,0,1393,1395,
+        7,9,0,0,1394,1393,1,0,0,0,1395,1396,1,0,0,0,1396,1394,1,0,0,0,1396,
+        1397,1,0,0,0,1397,1398,1,0,0,0,1398,1420,5,20,0,0,1399,1403,5,20,
+        0,0,1400,1402,7,9,0,0,1401,1400,1,0,0,0,1402,1405,1,0,0,0,1403,1401,
+        1,0,0,0,1403,1404,1,0,0,0,1404,1420,1,0,0,0,1405,1403,1,0,0,0,1406,
+        1408,7,9,0,0,1407,1406,1,0,0,0,1408,1411,1,0,0,0,1409,1407,1,0,0,
+        0,1409,1410,1,0,0,0,1410,1412,1,0,0,0,1411,1409,1,0,0,0,1412,1416,
+        5,16,0,0,1413,1415,7,9,0,0,1414,1413,1,0,0,0,1415,1418,1,0,0,0,1416,
+        1414,1,0,0,0,1416,1417,1,0,0,0,1417,1420,1,0,0,0,1418,1416,1,0,0,
+        0,1419,1394,1,0,0,0,1419,1399,1,0,0,0,1419,1409,1,0,0,0,1420,131,
+        1,0,0,0,1421,1424,3,112,56,0,1422,1424,3,134,67,0,1423,1421,1,0,
+        0,0,1423,1422,1,0,0,0,1424,133,1,0,0,0,1425,1426,3,112,56,0,1426,
+        1431,3,114,57,0,1427,1430,3,112,56,0,1428,1430,3,114,57,0,1429,1427,
+        1,0,0,0,1429,1428,1,0,0,0,1430,1433,1,0,0,0,1431,1429,1,0,0,0,1431,
+        1432,1,0,0,0,1432,1443,1,0,0,0,1433,1431,1,0,0,0,1434,1439,3,114,
+        57,0,1435,1438,3,112,56,0,1436,1438,3,114,57,0,1437,1435,1,0,0,0,
+        1437,1436,1,0,0,0,1438,1441,1,0,0,0,1439,1437,1,0,0,0,1439,1440,
+        1,0,0,0,1440,1443,1,0,0,0,1441,1439,1,0,0,0,1442,1425,1,0,0,0,1442,
+        1434,1,0,0,0,1443,135,1,0,0,0,1444,1445,5,14,0,0,1445,1446,3,124,
+        62,0,1446,137,1,0,0,0,1447,1448,3,166,83,0,1448,139,1,0,0,0,1449,
+        1453,5,11,0,0,1450,1452,3,172,86,0,1451,1450,1,0,0,0,1452,1455,1,
+        0,0,0,1453,1451,1,0,0,0,1453,1454,1,0,0,0,1454,1476,1,0,0,0,1455,
+        1453,1,0,0,0,1456,1467,3,110,55,0,1457,1459,5,117,0,0,1458,1457,
+        1,0,0,0,1459,1462,1,0,0,0,1460,1458,1,0,0,0,1460,1461,1,0,0,0,1461,
+        1463,1,0,0,0,1462,1460,1,0,0,0,1463,1464,5,13,0,0,1464,1466,3,110,
+        55,0,1465,1460,1,0,0,0,1466,1469,1,0,0,0,1467,1465,1,0,0,0,1467,
+        1468,1,0,0,0,1468,1473,1,0,0,0,1469,1467,1,0,0,0,1470,1472,3,172,
+        86,0,1471,1470,1,0,0,0,1472,1475,1,0,0,0,1473,1471,1,0,0,0,1473,
+        1474,1,0,0,0,1474,1477,1,0,0,0,1475,1473,1,0,0,0,1476,1456,1,0,0,
+        0,1476,1477,1,0,0,0,1477,1478,1,0,0,0,1478,1479,5,12,0,0,1479,141,
+        1,0,0,0,1480,1482,3,144,72,0,1481,1480,1,0,0,0,1481,1482,1,0,0,0,
+        1482,1483,1,0,0,0,1483,1484,3,164,82,0,1484,1486,5,9,0,0,1485,1487,
+        3,102,51,0,1486,1485,1,0,0,0,1486,1487,1,0,0,0,1487,1488,1,0,0,0,
+        1488,1489,5,10,0,0,1489,143,1,0,0,0,1490,1494,5,110,0,0,1491,1493,
+        5,117,0,0,1492,1491,1,0,0,0,1493,1496,1,0,0,0,1494,1492,1,0,0,0,
+        1494,1495,1,0,0,0,1495,145,1,0,0,0,1496,1494,1,0,0,0,1497,1507,3,
+        142,71,0,1498,1500,3,144,72,0,1499,1498,1,0,0,0,1499,1500,1,0,0,
+        0,1500,1501,1,0,0,0,1501,1503,5,9,0,0,1502,1504,3,102,51,0,1503,
+        1502,1,0,0,0,1503,1504,1,0,0,0,1504,1505,1,0,0,0,1505,1507,5,10,
+        0,0,1506,1497,1,0,0,0,1506,1499,1,0,0,0,1507,147,1,0,0,0,1508,1510,
+        3,144,72,0,1509,1508,1,0,0,0,1509,1510,1,0,0,0,1510,1511,1,0,0,0,
+        1511,1513,3,164,82,0,1512,1509,1,0,0,0,1512,1513,1,0,0,0,1513,1514,
+        1,0,0,0,1514,1527,5,28,0,0,1515,1517,3,144,72,0,1516,1515,1,0,0,
+        0,1516,1517,1,0,0,0,1517,1519,1,0,0,0,1518,1520,5,47,0,0,1519,1518,
+        1,0,0,0,1519,1520,1,0,0,0,1520,1521,1,0,0,0,1521,1523,3,164,82,0,
+        1522,1524,5,15,0,0,1523,1522,1,0,0,0,1523,1524,1,0,0,0,1524,1527,
+        1,0,0,0,1525,1527,3,146,73,0,1526,1512,1,0,0,0,1526,1516,1,0,0,0,
+        1526,1525,1,0,0,0,1527,149,1,0,0,0,1528,1529,5,67,0,0,1529,1538,
+        3,124,62,0,1530,1532,7,9,0,0,1531,1530,1,0,0,0,1532,1535,1,0,0,0,
+        1533,1531,1,0,0,0,1533,1534,1,0,0,0,1534,1536,1,0,0,0,1535,1533,
+        1,0,0,0,1536,1538,3,24,12,0,1537,1528,1,0,0,0,1537,1533,1,0,0,0,
+        1538,151,1,0,0,0,1539,1540,7,18,0,0,1540,153,1,0,0,0,1541,1545,3,
+        156,78,0,1542,1545,3,158,79,0,1543,1545,7,19,0,0,1544,1541,1,0,0,
+        0,1544,1542,1,0,0,0,1544,1543,1,0,0,0,1545,155,1,0,0,0,1546,1547,
+        7,20,0,0,1547,157,1,0,0,0,1548,1549,7,21,0,0,1549,159,1,0,0,0,1550,
+        1551,5,101,0,0,1551,1552,3,112,56,0,1552,161,1,0,0,0,1553,1554,5,
+        102,0,0,1554,1555,3,112,56,0,1555,163,1,0,0,0,1556,1559,3,166,83,
+        0,1557,1559,3,168,84,0,1558,1556,1,0,0,0,1558,1557,1,0,0,0,1559,
+        165,1,0,0,0,1560,1561,7,22,0,0,1561,167,1,0,0,0,1562,1566,3,170,
+        85,0,1563,1566,5,109,0,0,1564,1566,3,156,78,0,1565,1562,1,0,0,0,
+        1565,1563,1,0,0,0,1565,1564,1,0,0,0,1566,169,1,0,0,0,1567,1568,7,
+        23,0,0,1568,171,1,0,0,0,1569,1570,7,9,0,0,1570,173,1,0,0,0,1571,
+        1572,7,24,0,0,1572,175,1,0,0,0,230,180,187,189,197,202,206,213,217,
         222,227,229,235,239,244,253,259,264,268,271,280,286,291,309,317,
         321,330,336,340,344,350,357,365,371,374,382,389,394,399,403,410,
         420,430,437,442,446,452,457,460,467,474,477,481,484,490,497,502,
@@ -7955,10 +7966,10 @@ export class AutoHotkeyParser extends AutoHotkeyParserBase {
         1071,1077,1084,1087,1095,1102,1111,1121,1126,1130,1136,1141,1145,
         1147,1151,1157,1164,1171,1178,1181,1191,1200,1213,1223,1231,1238,
         1249,1256,1271,1273,1288,1294,1304,1311,1318,1325,1336,1343,1347,
-        1349,1364,1370,1376,1380,1384,1388,1393,1400,1406,1413,1416,1420,
-        1426,1428,1434,1436,1439,1450,1457,1464,1470,1473,1478,1483,1491,
-        1496,1500,1503,1506,1509,1513,1516,1520,1523,1530,1534,1541,1555,
-        1562
+        1349,1364,1370,1376,1379,1383,1387,1391,1396,1403,1409,1416,1419,
+        1423,1429,1431,1437,1439,1442,1453,1460,1467,1473,1476,1481,1486,
+        1494,1499,1503,1506,1509,1512,1516,1519,1523,1526,1533,1537,1544,
+        1558,1565
     ];
 
     private static __ATN: antlr.ATN;
@@ -12785,6 +12796,9 @@ export class MemberAccessContext extends AccessSuffixContext {
     }
     public Dot(): antlr.TerminalNode | null {
         return this.getToken(AutoHotkeyParser.Dot, 0);
+    }
+    public memberIndexArguments(): MemberIndexArgumentsContext | null {
+        return this.getRuleContext(0, MemberIndexArgumentsContext);
     }
     public override enterRule(listener: AutoHotkeyParserListener): void {
         if(listener.enterMemberAccess) {

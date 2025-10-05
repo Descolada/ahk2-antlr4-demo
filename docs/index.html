@@ -1,7 +1,8 @@
-<!DOCTYPE html><meta charset=utf-8><link rel=stylesheet href=https://unpkg.com/codemirror@5/lib/codemirror.css><script src=https://unpkg.com/codemirror@5/lib/codemirror.js></script><script src=https://unpkg.com/codemirror@5/mode/javascript/javascript.js></script><title>AHK v2.0 ANTLR4 Demo</title><style>html,body{height:100%;margin:0}body{box-sizing:border-box;flex-direction:column;padding:1rem;display:flex}.container{flex:auto;gap:1rem;min-height:0;display:flex}.editor-container{box-sizing:border-box;flex-direction:column;flex:0 0 40%;width:100%;max-width:40%}#graph{flex:1}#input{flex:1;font-family:monospace}#graph{white-space:pre-wrap;word-wrap:break-word;border:1px solid #ccc;flex:1;padding:.5rem;font-family:monospace;overflow:auto}#controls{margin-bottom:.5rem}.CodeMirror{width:100%!important;height:100%!important}.CodeMirror-scroll{overflow-x:auto}</style><body>
+<!DOCTYPE html><meta charset=utf-8><link rel=stylesheet href=https://unpkg.com/codemirror@5/lib/codemirror.css><script src=https://unpkg.com/codemirror@5/lib/codemirror.js></script><script src=https://unpkg.com/codemirror@5/mode/javascript/javascript.js></script><title>AHK v2.0 ANTLR4 Demo</title><style>html,body{height:100%;margin:0}body{box-sizing:border-box;flex-direction:column;padding:1rem;display:flex}.container{flex:auto;gap:1rem;min-height:0;display:flex}.editor-container{flex-direction:column;flex:0 0 40%;width:100%;max-width:40%;display:flex}.editor-area{flex-direction:column;flex:auto;min-height:0;display:flex}#controls{flex:none;padding-top:.5rem}#graph{flex:1}#input{flex:1;font-family:monospace}#graph{white-space:pre-wrap;word-wrap:break-word;border:1px solid #ccc;flex:1;padding:.5rem;font-family:monospace;overflow:auto}.CodeMirror{flex:1;width:100%!important;height:100%!important}.CodeMirror-scroll{overflow-x:auto}</style><body>
     <h1>AutoHotkey v2.0 ANTLR4 Grammar Demo</h1>
     <div class=container>
         <div class=editor-container>
+            <div class=editor-area>
 
             <textarea id=input rows=10 cols=60>; Start typing here to show AST
 
@@ -10,7 +11,14 @@
 if (a) {
     MsgBox "Hello world"
 }
-</textarea>
+            </textarea>
+        </div>
+        <div id=controls>
+            <label style="font:12px system-ui,sans-serif">
+                <input type=checkbox id=showAll>
+                Collapse to terminal nodes
+            </label>
+        </div>
         </div>
         <div id=graph>
             
@@ -21,6 +29,6 @@ if (a) {
     <script src=https://unpkg.com/viz.js@2.1.2/viz.js></script>
     <script src=https://unpkg.com/viz.js@2.1.2/full.render.js></script>
 
-    <script type=module src=ahk2-antlr4-demo.736f2caf.js></script>
+    <script type=module src=ahk2-antlr4-demo.f9c02dea.js></script>
 
 

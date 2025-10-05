@@ -38,11 +38,23 @@
 
         .editor-container {
             /* fix at 30% of the container’s width */
+            display: flex;
             flex: 0 0 40%;
             flex-direction: column;
-            box-sizing: border-box;
             max-width: 40%;
             width: 100%;         /* let it be up to that max */
+        }
+
+        .editor-area {
+            flex: 1 1 auto; /* take all remaining space above checkbox */
+            min-height: 0;  /* allow it to shrink properly */
+            display: flex;
+            flex-direction: column;
+        }
+
+        #controls {
+            flex: 0 0 auto;   /* don't stretch checkbox */
+            padding-top: 0.5rem;
         }
 
         #graph {
@@ -65,11 +77,8 @@
             word-wrap: break-word;
         }
 
-        #controls {
-            margin-bottom: 0.5rem;
-        }
-
         .CodeMirror {
+            flex: 1;
             width: 100% !important;   /* fill the .editor-container’s width */
             height: 100% !important;
         }
@@ -84,6 +93,7 @@
     <h1>AutoHotkey v2.0 ANTLR4 Grammar Demo</h1>
     <div class="container">
         <div class="editor-container">
+            <div class="editor-area">
 
             <textarea id="input" rows="10" cols="60">; Start typing here to show AST
 
@@ -92,7 +102,14 @@
 if (a) {
     MsgBox "Hello world"
 }
-</textarea>
+            </textarea>
+        </div>
+        <div id="controls">
+            <label style="font: 12px system-ui, sans-serif;">
+                <input type="checkbox" id="showAll" />
+                Collapse to terminal nodes
+            </label>
+        </div>
         </div>
         <div id="graph">
             <!-- Rendered AST will appear here -->

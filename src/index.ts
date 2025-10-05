@@ -10,6 +10,7 @@ let debounceTimer: number | undefined;
 const DEBOUNCE_DELAY = 500; // ms
 const inputEl = document.getElementById('input') as HTMLTextAreaElement;
 const graphEl = document.getElementById('graph')!;
+const collapseToTerminalNodes = document.getElementById('showAll') as HTMLInputElement | null;
 
 class LexerErrorListener implements Antlr4.ANTLRErrorListener {
   public errors: string[] = [];
@@ -86,50 +87,98 @@ function parseAndRender() {
         lines.push('  node [fontsize=8, fontname="monospace"];');
 
         let id = 0;
-        function addNode(node: Antlr4.ParseTree, parentId?: number) {
-            const childCount = node.getChildCount();
-            const isTerminal = childCount === 0;
 
-            // Determine label content
-            let labelContent: string;
-            let ruleName: string;
+        const showAll = !collapseToTerminalNodes?.checked;
 
-            if (isTerminal) {
-                const termNode = node as Antlr4.TerminalNode;
-                const symbol = termNode.symbol;
-                const type = symbol?.type;
-                ruleName = type !== undefined ? parser.vocabulary.getSymbolicName(type) || '' : '';
-                // Skip unwanted terminals
-                if (ruleName === 'EOL' || ruleName === 'WS' || ruleName === 'EOF') {
-                    return;
-                }
-                const text = termNode.getText();
-                labelContent = `${ruleName}: \"${text}\"`;
-            } else {
-                // Non-terminals: context name without "Context"
-                const ctx = node as Antlr4.ParserRuleContext;
+        // helper: rule names to always skip through
+        const SKIP_RULES = new Set(['s', 'eos']);
+        // helper: is terminal?
+        const isTerminalNode = (n: Antlr4.ParseTree) => n.getChildCount() === 0;
+        // helper: should this terminal be hidden entirely?
+        const isHiddenTerminal = (type?: number) => {
+            if (type == null) return false;
+            const name = parser.vocabulary.getSymbolicName(type) || '';
+            return name === 'EOL' || name === 'WS' || name === 'EOF';
+        };
+
+        // helper: collapse chains like A->B->C when there’s only one child at each step
+        function collapse(node: Antlr4.ParseTree): Antlr4.ParseTree {
+            if (showAll) return node;
+
+            let n: Antlr4.ParseTree = node;
+
+            // First: skip through wrapper rules we don’t want to show at all
+            while (!isTerminalNode(n)) {
+                const ctx = n as Antlr4.ParserRuleContext;
                 const ruleName = parser.ruleNames[ctx.ruleIndex];
-                // Skip 's' rule if desired
-                if (ruleName === 's' || ruleName === 'eos') {
-                    return;
-                }
-                labelContent = ruleName;
+                if (!SKIP_RULES.has(ruleName)) break;
+                if (n.getChildCount() !== 1) break;
+                n = n.getChild(0)!;
             }
 
-            // Serialize label safely
-            const jsonLabel = JSON.stringify(labelContent);
+            // Then: collapse linear chains (nonterminals with exactly one child)
+            while (!isTerminalNode(n) && n.getChildCount() === 1) {
+                const onlyChild = n.getChild(0)!;
+
+                // If the child is a hidden terminal (EOL/WS/EOF), stop collapsing here;
+                // we will drop that child later anyway.
+                if (isTerminalNode(onlyChild)) {
+                const term = onlyChild as Antlr4.TerminalNode;
+                if (isHiddenTerminal(term.symbol?.type)) break;
+                }
+                n = onlyChild;
+            }
+            return n;
+        }
+
+        function labelFor(node: Antlr4.ParseTree): string | null {
+            if (isTerminalNode(node)) {
+                const term = node as Antlr4.TerminalNode;
+                const type = term.symbol?.type;
+                if (isHiddenTerminal(type)) return null;
+                const tokenName = parser.vocabulary.getSymbolicName(type!) || '';
+                return `${tokenName}: "${term.getText()}"`;
+            } else {
+                const ctx = node as Antlr4.ParserRuleContext;
+                const ruleName = parser.ruleNames[ctx.ruleIndex];
+
+                // If we’re showing all nodes, we still skip the wrapper rules entirely (like before).
+                if (SKIP_RULES.has(ruleName) && showAll === false) return null;
+
+                return ruleName;
+            }
+        }
+
+        function addNode(node: Antlr4.ParseTree, parentId?: number) {
+            // collapse this node first (unless "Show all")
+            const n = collapse(node);
+
+            // produce label (may return null for hidden terminals / skipped rules)
+            const label = labelFor(n);
+            if (label == null) return;
+
             const myId = id++;
+            const jsonLabel = JSON.stringify(label);
             lines.push(`  n${myId} [label=${jsonLabel}];`);
             if (parentId !== undefined) {
                 lines.push(`  n${parentId} -> n${myId};`);
             }
 
-            // Recurse into children
+            // Recurse into (possibly collapsed) node’s children
+            const childCount = n.getChildCount();
             for (let i = 0; i < childCount; i++) {
-                const child = node.getChild(i)!;
+                const child = n.getChild(i)!;
+
+                // Skip hidden terminals entirely
+                if (isTerminalNode(child)) {
+                const t = (child as Antlr4.TerminalNode).symbol?.type;
+                if (isHiddenTerminal(t)) continue;
+                }
+
                 addNode(child, myId);
             }
         }
+
         addNode(tree);
         lines.push('}');
         const dot = lines.join('\n');
@@ -143,7 +192,7 @@ function parseAndRender() {
                 return;
             });
 
-    } catch (e) {
+    } catch (e: any) {
         graphEl.textContent = e.message;
     }
 }
@@ -160,6 +209,8 @@ editor.on('change', () => {
     if (debounceTimer) clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(() => parseAndRender(), DEBOUNCE_DELAY);
 });
+
+collapseToTerminalNodes?.addEventListener('change', () => parseAndRender());
 
 // Initial render on page load
 parseAndRender();
@@ -198,6 +249,9 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
         }
 
         switch (tk.type) {
+            case AutoHotkeyLexer.Hashtag:
+                if (index+1 < tokens.length && tokens[index+1].channel == AutoHotkeyLexer.HIDDEN)
+                    throw new Error(`Error: Unexpected whitespace after hashtag at ${tk.line}:${tk.column}`);
             case AutoHotkeyLexer.OpenBrace:
                 PopWhitespaces(codeTokens, /*allowLinebreaks*/ false);
                 break;
@@ -289,15 +343,19 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
                         t2 === AutoHotkeyLexer.Reg
                     ) {
                         index += 2;
-                        codeTokens.push(tk);
+                        codeTokens.push(tk); // Add "Loop"
+                        tokens[index - 1].channel = AutoHotkeyLexer.HIDDEN; // Hide whitespaces
+                        codeTokens.push(tokens[index - 1]); // Add whitespaces
                         tk = tokens[index];
                         condition = tk.type === AutoHotkeyLexer.Not || tk.type === AutoHotkeyLexer.VerbalNot;
-                        break;
                     }
                 }
                 codeTokens.push(tk);
-                if (tokens[index + 1].type == AutoHotkeyLexer.Comma)
+                if (tokens[index + 1].type == AutoHotkeyLexer.Comma) {
                     index++;
+                    tokens[index].channel = AutoHotkeyLexer.HIDDEN; // Hide comma
+                    codeTokens.push(tokens[index]);
+                }
                 AddWhitespaces(tokens, codeTokens, index, condition);
                 shouldAdd = false;
                 // fallthrough to adding the Loop token
@@ -339,7 +397,8 @@ function readTokens(lexer: AutoHotkeyLexer): Antlr4.Token[] {
                     i = index;
                     let eolPresent = false;
                     while (++i < tokens.length) {
-                        if (tokens[i].type == AutoHotkeyLexer.WS)
+                        if ((tokens[i].channel == AutoHotkeyLexer.HIDDEN)
+                            || (tokens[i].type == AutoHotkeyLexer.WS))
                             index++;
                         else if (tokens[i].type == AutoHotkeyLexer.EOL) {
                             eolPresent = true;
@@ -415,7 +474,9 @@ function SkipWhitespaces(
     let idx = startIndex;
     while (++idx < allTokens.length) {
         const t = allTokens[idx];
-        if ((t.type === AutoHotkeyLexer.WS) || (linebreaks && t.type == AutoHotkeyLexer.EOL)) {
+        if ((t.channel === AutoHotkeyLexer.HIDDEN) 
+            || (t.type === AutoHotkeyLexer.WS) 
+            || (linebreaks && t.type == AutoHotkeyLexer.EOL)) {
             startIndex++;
         } else {
             break;
@@ -444,8 +505,10 @@ function AddWhitespaces(
     while (++i < allTokens.length) {
         const t = allTokens[i];
 
+        if (t.channel === AutoHotkeyLexer.HIDDEN)
+            startIndex++;
         // If it's an EOL and condition is true, skip it
-        if (t.type === AutoHotkeyLexer.EOL && condition) {
+        else if (t.type === AutoHotkeyLexer.EOL && condition) {
             startIndex++;
         }
         // If it’s a plain whitespace token, keep it

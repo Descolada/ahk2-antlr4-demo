@@ -54,7 +54,7 @@ tokens {
     DerefEnd
 }
 
-SingleLineBlockComment  : '/*' NonEOLCharacter*? '*/' -> skip;
+SingleLineBlockComment  : '/*' NonEOLCharacter*? '*/' -> channel(HIDDEN);
 MultiLineComment  : '/*' .*? ('*/' | EOF) -> type(EOL);
 SingleLineComment : ';' NonEOLCharacter* EOLCharacter {this.IsCommentPossible()}? -> type(EOL);
 
