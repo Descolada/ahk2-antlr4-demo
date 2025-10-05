@@ -1,4 +1,4 @@
-import { Parser, TokenStream } from 'antlr4ng';
+import { Parser, ParserRuleContext, TokenStream } from 'antlr4ng';
 import { AutoHotkeyParser } from './AutoHotkeyParser';
 import { AutoHotkeyLexer } from './AutoHotkeyLexer';
 
@@ -96,6 +96,17 @@ export abstract class AutoHotkeyParserBase extends Parser {
         }
 
         return false;
+    }
+
+    protected isValidLabel() : boolean {
+        if (this.inputStream.LA(1) != AutoHotkeyLexer.Default) return true;
+        let ctx: ParserRuleContext | null = this.context;
+        while (ctx) {
+            if (ctx.ruleIndex === AutoHotkeyParser.RULE_caseClause) return false;
+            if (ctx.ruleIndex === AutoHotkeyParser.RULE_block) return true;
+            ctx = (ctx.parent as ParserRuleContext) ?? null;
+        }
+        return true;
     }
 
     protected second(token : number) : boolean {

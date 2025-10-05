@@ -227,7 +227,7 @@ caseClause
     ;
 
 labelledStatement
-    : identifier ':'
+    : {this.isValidLabel()}? identifier ':'
     ;
 
 gotoStatement
